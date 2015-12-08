@@ -1,4 +1,3 @@
-# Sample Tasks
+# Curve
 
 Basically, a hello world rails application.
-# curve
