@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'aa3de63e2e1eac183cf023b64ddf34d8d00f8b50cafbcfdb110eb1e69179756ec3758da53ad90d29fa9fca8f407f54cc2e3c3758ef182fde4df8e97fc80ebd7d'
+  config.secret_key = ENV['DEVISE_SECRET_KEY']
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -22,8 +22,8 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  # require "omniauth-facebook"
-  # require "omniauth-google-oauth2"
+  require "omniauth-facebook"
+  require "omniauth-google-oauth2"
   # require "omniauth-digitalocean"
 
   # ==> Configuration for any authentication mechanism
@@ -244,7 +244,9 @@ Devise.setup do |config|
 
   #Add your ID and secret here
   #ID first, secret second
-  config.omniauth :facebook, "db381dc9990be7e3bc42503d0", "5b0824c2722b65d29965f1a1df"
+  # config.omniauth :facebook, "db381dc9990be7e3bc42503d0", "5b0824c2722b65d29965f1a1df"
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], provider_ignores_state: true
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], provider_ignores_state: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
