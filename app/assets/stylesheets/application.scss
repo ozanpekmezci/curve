@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+/*
+from sitepoint devise tutorial
+*/ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+/* to style Devise specific flash messages, from Sitepoint */
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}

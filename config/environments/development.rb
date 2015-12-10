@@ -5,9 +5,12 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
-
+  # set default mailer options for development mode to localhost
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Do not eager load code on boot.
   config.eager_load = false
+  # To enable sending e-mails and seeing them in console
+  config.action_mailer.perform_deliveries = true
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

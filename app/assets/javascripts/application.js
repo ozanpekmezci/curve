@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// requirements added by sitepoint's devise tutorial (line 17-20)
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap/dropdown
+//= require zxcvbn
+//= require global
 //= require turbolinks
-//= require_tree .
