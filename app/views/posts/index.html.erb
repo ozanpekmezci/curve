@@ -23,13 +23,14 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.price %></td>
-        <td><%= post.lat %></td>
-        <td><%= post.lon %></td>
-        <td><%= post.likes %></td>
-        <td><%= post.picture_url %></td>
+        <!-- re-formatted to hash syntax from simple object notation because of redis-->
+        <td><%= post["title"] %></td>
+        <td><%= post["description"] %></td>
+        <td><%= post["price"] %></td>
+        <td><%= post["lat"] %></td>
+        <td><%= post["lon"] %></td>
+        <td><%= post["likes"] %></td>
+        <td><%= post["picture_url"] %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

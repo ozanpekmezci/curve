@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  #sitepoint 2015 redis tut
+  include PostsHelper
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts

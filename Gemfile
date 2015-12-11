@@ -33,6 +33,11 @@ gem 'jquery-turbolinks'
 gem 'delayed_job_active_record'
 gem 'foreman'
 gem 'devise_zxcvbn'
+# sitepoint redis tutorial from 2015
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

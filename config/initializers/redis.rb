@@ -1,0 +1,1 @@
+$redis = Redis::Namespace.new("curve", :redis => Redis.new)
