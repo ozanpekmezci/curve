@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   #sitepoint 2015 redis tut
   include PostsHelper
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+fetch_posts
   end
 
   # GET /posts/1
@@ -66,6 +66,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
+    #  @post = @posts.detect{|post| post["id"]==params[:id]}
       @post = Post.find(params[:id])
     end
 

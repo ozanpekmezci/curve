@@ -31,9 +31,9 @@
         <td><%= post["lon"] %></td>
         <td><%= post["likes"] %></td>
         <td><%= post["picture_url"] %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', Post.find_by(id: post["id"]) %></td>
+        <td><%= link_to 'Edit', edit_post_path( Post.find_by(id: post["id"])) %></td>
+        <td><%= link_to 'Destroy',  Post.find_by(id: post["id"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

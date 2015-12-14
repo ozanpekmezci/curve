@@ -21,7 +21,6 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  #require gems to configure omniauth without omniauth.rb
   require 'devise/orm/active_record'
   require "omniauth-facebook"
   require "omniauth-google-oauth2"
@@ -245,7 +244,7 @@ Devise.setup do |config|
 
   #Add your ID and secret here
   #ID first, secret second
-  # omniauth google github code
+  # config.omniauth :facebook, "db381dc9990be7e3bc42503d0", "5b0824c2722b65d29965f1a1df"
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], provider_ignores_state: true
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], provider_ignores_state: true
 

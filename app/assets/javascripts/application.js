@@ -18,3 +18,4 @@
 //= require zxcvbn
 //= require global
 //= require turbolinks
+//= require channels

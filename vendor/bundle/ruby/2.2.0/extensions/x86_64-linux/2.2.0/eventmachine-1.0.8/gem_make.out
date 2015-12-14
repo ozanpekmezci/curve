@@ -1,0 +1,12 @@
+/usr/local/rvm/rubies/ruby-2.2.1/bin/ruby -r ./siteconf20151212-6937-fvivzg.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling rubymain.cpp
+compiling mapper.cpp
+linking shared-object fastfilereaderext.so
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 fastfilereaderext.so ./.gem.20151212-6937-io93qm

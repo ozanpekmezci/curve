@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       #devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:user_name, :name, :email, :country, :city)}
 	end
   ##
-  # google oauth github code
+  #
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
