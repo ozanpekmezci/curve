@@ -18,4 +18,4 @@
 //= require zxcvbn
 //= require global
 //= require turbolinks
-//= require channels
+//= require_tree ./channels
