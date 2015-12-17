@@ -1,60 +1,33 @@
-<!-- show user the home page if logged in -->
-<!-- from sitepoint devise tutorial -->
-
 <% if user_signed_in? %>
   <p id="notice"><%= notice %></p>
 
-  <h1>Listing Posts</h1>
+  <h1>Demands</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Lat</th>
-      <th>Lon</th>
-      <th>Likes</th>
-      <th>Picture url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <!-- re-formatted to hash syntax from simple object notation because of redis-->
-        <td><%= post["title"] %></td>
-        <td><%= post["description"] %></td>
-        <td><%= post["price"] %></td>
-        <td><%= post["lat"] %></td>
-        <td><%= post["lon"] %></td>
-        <td><%= post["likes"] %></td>
-        <td><%= post["picture_url"] %></td>
-        <td><%= link_to 'Show', Post.find_by(id: post["id"]) %></td>
-        <td><%= link_to 'Edit', edit_post_path( Post.find_by(id: post["id"])) %></td>
-        <td><%= link_to 'Destroy',  Post.find_by(id: post["id"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-<!-- else, shows the user the welcome page with a button to register or log in -->
-<!-- from sitepoint devise tutorial -->
-<% else %>
-<% content_for :top_content do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Welcome!</h1>
-      <p>Register to get started.</p>
-      <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
+  <div class = "panel panel-default" id ="posts">
+    <div class "panel-body">
+      <ul class= "media-list">
+        <%= render @posts %>
+      </ul>
     </div>
   </div>
-<% end %>
 
+  <br>
+
+  <%= link_to 'New Demand', new_post_path, class: 'btn btn-primary btn-large', remote: true %>
+
+  <div class= "new-post-form" style = "display:none">
+  </div>
+
+<% else %>
+  <% content_for :top_content do %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p>Register to get started.</p>
+        <p>
+          <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+        </p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

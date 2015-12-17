@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  #one to many relationship with posts and users
+  has_many :posts, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

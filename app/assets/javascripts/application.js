@@ -19,3 +19,4 @@
 //= require global
 //= require turbolinks
 //= require_tree ./channels
+//= require bootstrap-sprockets

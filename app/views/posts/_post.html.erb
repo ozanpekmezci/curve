@@ -1,0 +1,21 @@
+<li class = "post item">
+  <div class="post" data-id="<%= post.id %>">
+
+    <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
+    <p class="post-description"><%= truncate(post.description, length: 350) %></p>
+    <p class="post-price"><%=  post.price %></p>
+    <p class="post-picture_url"><%=  post.picture_url %></p>
+
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info', remote: true%>
+      <%= link_to 'Destroy',  post_path(post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
+    </div>
+    <div class="name">
+    <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
+    </div>
+    <div class="post_form-edit" data-id="<%= post.id%>">
+      <div class="editform" style="display:none">
+      </div>
+    </div>
+  </div>
+</li>

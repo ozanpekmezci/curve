@@ -1,0 +1,5 @@
+var $commentdiv = $('div.comment[data-id="<%= @comment.id %>"]');
+$commentdiv.find(".comment-title").text("<%= @comment.title %>");
+$commentdiv.find(".comment-comment").text("<%= @comment.comment %>");
+var $commentdiv2 = $('div.comment_form-edit[data-id="<%= @comment.id %>"]');
+$commentdiv2.find('.editform').toggle();

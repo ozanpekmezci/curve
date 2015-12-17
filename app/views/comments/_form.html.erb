@@ -1,0 +1,16 @@
+<%= form_for([@post,@comment], remote: true) do |f| %>
+  <div><%= hidden_field_tag :post_id, @post.id %></div>
+  <div><%= hidden_field_tag :user_id, current_user.id %></div>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, class: 'form-control', required: true, cols: 3 %>
+  </div>
+
+  <%= f.submit 'Supply', class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,3 @@
+var $postdiv = $('div.post_form-edit[data-id="<%= @post.id %>"]');
+$postdiv.find('.editform').html("<%= escape_javascript(render(:partial => "form"))%>");
+$postdiv.find('.editform').toggle();

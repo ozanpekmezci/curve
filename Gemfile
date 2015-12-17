@@ -42,6 +42,9 @@ gem 'redis-rack-cache'
 gem 'puma'
 gem 'actioncable', github: 'rails/actioncable'
 
+gem 'acts_as_commentable'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

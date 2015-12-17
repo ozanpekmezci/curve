@@ -1,0 +1,3 @@
+var $commentdiv = $('div.comment_form-edit[data-id="<%= @comment.id %>"]');
+$commentdiv.find('.editform').html("<%= escape_javascript(render(:partial => "form"))%>");
+$commentdiv.find('.editform').toggle();

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  resources :users, only: [:show,:index]
+  # to get one user's posts to show them on his profile
+  # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 
   root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
