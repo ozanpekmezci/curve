@@ -1,6 +1,8 @@
 # Change these
 server '46.101.201.98', port: 22, roles: [:web, :app, :db], primary: true
 
+set :rvm_ruby_version, 'ruby-2.3.0@rails5.0' 
+
 set :repo_url,        'git@github.com:ozanpekmezci/curve.git'
 set :application,     'curve'
 set :user,            'deploy'
