@@ -2,16 +2,19 @@ module PostsHelper
 	##
 	# sitepoint 2015 redis tutorial
 	def fetch_posts
-    # posts = $redis.get("posts")
-    # if posts.nil?
-      # posts = Post.all.to_json
-      $redis.set("posts", Marshal.dump(Post.all))
-      posts =  Marshal.load($redis.get("posts"))
+    pre_posts = $redis.get("posts")
+    unless pre_posts.nil?
+      posts =  Marshal.load(pre_posts)
+    else 
+      
+      posts = Post.all
+      $redis.set("posts", Marshal.dump(posts))
+      # posts =  Marshal.load($redis.get("posts"))
 
 
       # Expire the cache, every 3 hours
       $redis.expire("posts",3.hour.to_i)
-    # end
+     end
     @posts = posts
   end
   #$redis.set("itens", Marshal.dump(Item.all))

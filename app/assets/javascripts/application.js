@@ -15,8 +15,5 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap/dropdown
-//= require zxcvbn
-//= require global
 //= require turbolinks
-//= require_tree ./channels
-//= require bootstrap-sprockets
+//= require channels

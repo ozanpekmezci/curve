@@ -1,5 +1,5 @@
 var $postdiv = $('div.post[data-id="<%= @post.id %>"]');
-$postdiv.find(".post-title").text("<%= @post.title %>");
+$postdiv.find(".post-title").html("<%=escape_javascript(link_to @post.title, post_path(@post))%>")
 $postdiv.find(".post-description").text("<%= @post.description %>");
 $postdiv.find(".post-price").text("<%= @post.price %>");
 $postdiv.find(".post-picture_url").text("<%= @post.picture_url %>");

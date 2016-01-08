@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '5.0.0.beta1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -17,12 +17,12 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', github: 'rails/turbolinks' #gecici
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
+gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
@@ -32,16 +32,21 @@ gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem 'delayed_job_active_record'
 gem 'foreman'
-gem 'devise_zxcvbn'
 # sitepoint redis tutorial from 2015
-gem 'redis'
-gem 'redis-namespace'
-gem 'redis-rails'
-gem 'redis-rack-cache'
+#gem 'redis'
+#gem 'redis-namespace'
+#gem 'redis-rails'
+#gem 'redis-rack-cache'
 #actioncable
 gem 'puma'
-gem 'actioncable', github: 'rails/actioncable'
-
+#gem 'actioncable', github: 'rails/actioncable'
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
 gem 'acts_as_commentable'
 
 
