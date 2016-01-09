@@ -1,7 +1,7 @@
 # Change these
 server '46.101.201.98', port: 22, roles: [:web, :app, :db], primary: true
 
-set :rvm_ruby_version, 'ruby-2.3.0@rails5.0' 
+set :rvm_ruby_version, 'ruby-2.3.0'
 
 set :repo_url,        'git@github.com:ozanpekmezci/curve.git'
 set :application,     'curve'
@@ -50,8 +50,10 @@ end
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
+
   task :check_revision do
     on roles(:app) do
+
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
         puts "WARNING: HEAD is not the same as origin/master"
         puts "Run `git push` to sync changes."
@@ -74,8 +76,16 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
+    desc 'Source unicorn'
+  task :sourceuni do
+    on roles(:app) do
+       execute ". /etc/default/unicorn"
+        execute :sudo, "service unicorn restart"
+    end
+  end
 
   before :starting,     :check_revision
+  before  :compile_assets,    :sourceuni
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
