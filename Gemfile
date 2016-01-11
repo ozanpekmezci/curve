@@ -22,7 +22,7 @@ gem 'turbolinks', github: 'rails/turbolinks' #gecici
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem "devise"
+gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
