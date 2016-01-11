@@ -76,17 +76,10 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-    desc 'Source unicorn'
-  task :sourceuni do
-    on roles(:app) do
-       execute ". /etc/default/unicorn"
-        execute :sudo, "service unicorn restart"
-    end
-  end
+   
 
   before :starting,     :check_revision
-  before  :compile_assets,    :sourceuni
-  after  :finishing,    :compile_assets
+   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end

@@ -59,7 +59,7 @@ gem 'acts_as_commentable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
-  gem 'unicorn'
+#  gem 'unicorn'
   gem 'pg'
 end
 group :development, :test do
