@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception
   # forces the user to login
   #before_action :authenticate_user!
   # to configure custom parameters for user signup, signin and update account
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :initialize_omniauth_state
+  #before_action :initialize_omniauth_state
 
   protected
   ##
