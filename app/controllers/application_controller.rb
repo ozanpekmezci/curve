@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   # forces the user to login
   #before_action :authenticate_user!
   # to configure custom parameters for user signup, signin and update account
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   ##
   # permit additional parameters from the user for user creation
 	def configure_permitted_parameters
-      # added all the user parameters with email, password and password_confirmation, because this method overrides devise's controller 
+      # added all the user parameters with email, password and password_confirmation, because this method overrides devise's controller
   		devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name,:user_name,:email,:password,:password_confirmation, :country, :city) }
       #devise_parameter_sanitizer.for(:sign_up) << :name
       #devise_parameter_sanitizer.for(:sign_up) << :user_name
