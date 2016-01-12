@@ -94,6 +94,5 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
 }
-  # not working:
-  config.web_socket_server_url = "wss://localhost:28080"
+
 end
