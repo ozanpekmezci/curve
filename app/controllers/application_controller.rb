@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # to configure custom parameters for user signup, signin and update account
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :initialize_omniauth_state
-
+before_action :initialize_csrf
 
   def after_sign_in_path_for(resource)
     'https://curve-app.com'
@@ -37,5 +37,8 @@ class ApplicationController < ActionController::Base
   #
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
+  end
+  def initialize_omniauth_state
+    session[:_csrf_token]   = masked_authenticity_token
   end
 end
