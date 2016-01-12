@@ -1,7 +1,7 @@
 #= require action_cable
 #= require_self
-#= require_tree ./channels
-# require channels/comments
+#= require channels/comments
+# require_tree ./channels
 
 @App ||= {}
 App.cable = ActionCable.createConsumer()
