@@ -4,4 +4,4 @@
 # require channels/comments
 
 @App ||= {}
-App.cable = ActionCable.createConsumer()
+App.cable = ActionCable.createConsumer("ws://curve-app.com:28080")
