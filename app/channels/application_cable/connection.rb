@@ -9,8 +9,10 @@ module ApplicationCable
 
     protected
       def find_verified_user
-        if verified_user = User.find_by(id: user_session.id)
-          verified_user
+        #https://github.com/gregmolnar/actioncable-examples/commit/7ae0fd0267a7d6033f5faac92e9ff4cb92fb9714
+        verified_user = User.find_by(id: cookies.signed['user.id'])
+          if verified_user && cookies.signed['user.expires_at'] > Time.now
+               verified_user
         else
           reject_unauthorized_connection
         end

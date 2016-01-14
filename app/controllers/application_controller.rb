@@ -5,17 +5,17 @@ class ApplicationController < ActionController::Base
   # with: :exception
 
   # forces the user to login
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   # to configure custom parameters for user signup, signin and update account
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :initialize_omniauth_state
 
-  def after_sign_in_path_for(resource)
-    'https://curve-app.com'
-  end
-  def after_sign_out_path_for(resource)
-    'https://curve-app.com'
-  end
+  #def after_sign_in_path_for(resource)
+  #  'https://curve-app.com'
+  #end
+  #def after_sign_out_path_for(resource)
+  #  'https://curve-app.com'
+  #end
   protected
   ##
   # permit additional parameters from the user for user creation
@@ -37,5 +37,5 @@ class ApplicationController < ActionController::Base
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
- 
+
 end
