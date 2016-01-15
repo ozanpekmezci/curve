@@ -90,7 +90,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'curve-app.com',
     user_name:            'testcurved@gmail.com',
-    password:             '12345anan',
+    password:             ENV['MAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
 }
