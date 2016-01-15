@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     resources :comments
   end
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  resources :users, only: [:show,:index]
+  resources :users, only: [:show,:index] do
+      member do
+        get :following, :followers
+      end
+  end
+  resources :relationships, only: [:create, :destroy]
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 

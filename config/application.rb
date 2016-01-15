@@ -17,5 +17,7 @@ module Curve
     config.active_job.queue_adapter = :delayed_job
     # sitepoint 2015 redis tutorial, to config the cache store
     # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
+    # from follow tutorial
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
