@@ -13,20 +13,21 @@ class CommentsController < ApplicationController
 
 
   def create
-    @comment = @post.comments.create
-    @comment.title=params[:comment][:title]
-    @comment.comment=params[:comment][:comment]
-    @comment.user_id=params[:user_id]
-    @comments = @post.comments
+    #@comment = @post.comments.create
+    #@comment.title=params[:comment][:title]
+    #@comment.comment=params[:comment][:comment]
+    #@comment.user_id=params[:user_id]
+    #@comments = @post.comments
     #new( comment_params)
-    respond_to do |format|
-      if @comment.save
-        format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
-        format.js{}
-      else
-        format.html{render action: "new"}
-      end
-    end
+    @comment = @post.comments.create! title: params[:coment][:title], comment: params[:comment][:comment], user_id: params[:user_id]
+    #respond_to do |format|
+     # if @comment.save
+      #  format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
+       # format.js{}
+      #else
+       # format.html{render action: "new"}
+      #end
+    #end
   end
 
   def destroy
