@@ -11,9 +11,10 @@ App.comments = App.cable.subscriptions.create "CommentsChannel",
 
 
   received: (data) ->
-    alert data['comment']
-    @collection().append(data.comment) unless @userIsCurrentUser(data.comment)
+    @collection().append data['comment'] unless @userIsCurrentUser(data.comment)
     # received sistem tarafindan otomatik cagiriliyo
+    # alert data['comment']
+
 
   userIsCurrentUser: (comment) ->
     $(comment).attr('data-user-id') is $('meta[name=current-user]').attr('id')
