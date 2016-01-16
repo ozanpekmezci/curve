@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     #@comment.user_id=params[:user_id]
     #@comments = @post.comments
     #new( comment_params)
-    @comment = @post.comments.create! title: params[:coment][:title], comment: params[:comment][:comment], user_id: params[:user_id]
+    @comment = @post.comments.create! title: params[:comment][:title], comment: params[:comment][:comment], user_id: params[:user_id]
     #respond_to do |format|
      # if @comment.save
       #  format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
