@@ -43,14 +43,15 @@ class CommentsController < ApplicationController
     @comment.title=params[:comment][:title]
     @comment.comment=params[:comment][:comment]
     @comments = @post.comments
-    respond_to do |format|
-      if @comment.save
-        format.html{redirect_to @comment.commentable, flash[:success] = 'The comment was edited!'}
-        format.js{}
-      else
-        render 'edit'
-      end
-    end
+    @comment.save
+    #respond_to do |format|
+     # if @comment.save
+      #  format.html{redirect_to @comment.commentable, flash[:success] = 'The comment was edited!'}
+       # format.js{}
+      #else
+       # render 'edit'
+      #end
+    # end
   end
 
   def edit
