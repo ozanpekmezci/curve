@@ -10,14 +10,14 @@ preload_app!
 # http://unicorn.bogomips.org/Unicorn/Configurator.html#preload_app-method
 
 before_fork do |server, worker|
-  if defined?(ActiveRecord::Base)
+  #if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection_pool.disconnect!
     Rails.logger.info('Disconnected from ActiveRecord')
-  end
+  # end
 end
 
-after_fork do |server, worker|
-  if defined?(ActiveRecord::Base)
+on_worker_boot do |server, worker|
+  ActiveSupport.on_load(:active_record) do
     ActiveRecord::Base.establish_connection
     Rails.logger.info('Connected to ActiveRecord')
   end
