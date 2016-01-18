@@ -5,9 +5,6 @@ production:
   port: 6379
   timeout: 1
   inline: true
-# password: ENV["REDIS_PASSWORD"]
-# url: redis://:ENV["REDIS_PASSWORD"]@localhost:6379
-
 
 development:
   url: redis://localhost:6379/2
