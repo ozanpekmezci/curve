@@ -2,7 +2,7 @@
 http://stackoverflow.com/questions/14842519/unicorn-rb-heroku-delayed-job-config
 for delayed_job
 =end
-workers 1
+workers 2
 preload_app!
 # timeout 30
 
