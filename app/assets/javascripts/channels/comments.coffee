@@ -6,10 +6,15 @@ App.comments = App.cable.subscriptions.create "CommentsChannel",
     setTimeout =>
       @followCurrentPost()
       @installPageChangeCallback()
-    , 1000
+    , 1000 
+    # connected sistem tarafindan otomatik cagiriliyo
+
 
   received: (data) ->
-    @collection().append(data.comment) unless @userIsCurrentUser(data.comment)
+    @collection().append data['comment'] unless @userIsCurrentUser(data.comment)
+    # received sistem tarafindan otomatik cagiriliyo
+    # alert data['comment']
+
 
   userIsCurrentUser: (comment) ->
     $(comment).attr('data-user-id') is $('meta[name=current-user]').attr('id')
@@ -24,3 +29,6 @@ App.comments = App.cable.subscriptions.create "CommentsChannel",
     unless @installedPageChangeCallback
       @installedPageChangeCallback = true
       $(document).on 'page:change', -> App.comments.followCurrentPost()
+
+  speak: (comment) ->
+    @perform 'speak', comment: comment

@@ -14,7 +14,8 @@ module Curve
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     # sitepoint devise tutorial, to send e-mail with delayed_job
-    config.active_job.queue_adapter = :delayed_job
+    # config.active_job.queue_adapter = :delayed_job
+    # TODO: delayed_job'u düzelt sonra
     # sitepoint 2015 redis tutorial, to config the cache store
     # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
     # from follow tutorial
