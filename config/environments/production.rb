@@ -40,7 +40,7 @@ Rails.application.configure do
 
   # Action Cable endpoint configuration
 
-  config.action_cable.url = 'ws://curve-app.com:28080'
+  # config.action_cable.url = 'ws://curve-app.com:28080'
 
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
