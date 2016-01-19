@@ -20,7 +20,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
 
   followStream: ->
-    if @collection().data('stream-id') === "posts_stream"
+    if @collection().data('stream-id') == "posts_stream"
       @perform 'follow'
     else
       @perform 'unfollow'
