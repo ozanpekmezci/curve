@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   # after_save :clear_cache
 
   acts_as_commentable
+  after_commit { PostRelayJob.perform_later self }
+
   ##
   # to clear cache after each creation of different posts
   def clear_cache

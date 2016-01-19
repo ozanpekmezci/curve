@@ -30,17 +30,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = params[:user_id]
-    respond_to do |format|
-      if @post.save
-        format.html {redirect_to @post, notice: 'Demand was successfully created.'}
-        format.js {}
-      else
-        format.html {render :new}
-        format.js {render nothing:true}
-      end
-    end
+  #  @post = Post.new(post_params)
+  #  @post.user_id = params[:user_id]
+  #  respond_to do |format|
+  #    if @post.save
+  #      format.html {redirect_to @post, notice: 'Demand was successfully created.'}
+  #      format.js {}
+  #    else
+  #      format.html {render :new}
+  #      format.js {render nothing:true}
+  #    end
+  #  end
+  @post = Post.new(post_params)
+  @post.user_id = params[:user_id]
+  @post.save
+
   end
 
   def update
