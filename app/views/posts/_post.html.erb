@@ -14,12 +14,5 @@
     <div class="name">
     <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
     </div>
-<!--<li class = "post item">
-   </li>
- <div class="post_form-edit" data-id="<%= post.id%>">
-    <div class="editform" style="display:none">
-      </div>
-    </div>-->
-
 </div>
 </article>
