@@ -11,9 +11,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
 
   received: (data) ->
-    alert data['post']
-    @collection().prepend data['post']
-    #unless @userIsCurrentUser(data.post)
+     @collection().prepend data['post'] unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
 
