@@ -1,7 +1,6 @@
 <article data-user-id="<%= post.user_id %>">
 <div class="post" data-id="<%= post.id %>">
 
-<li class = "post item">
 
     <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
     <p class="post-description"><%= truncate(post.description, length: 350) %></p>
@@ -15,10 +14,12 @@
     <div class="name">
     <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
     </div>
-    <div class="post_form-edit" data-id="<%= post.id%>">
-      <div class="editform" style="display:none">
+<!--<li class = "post item">
+   </li>
+ <div class="post_form-edit" data-id="<%= post.id%>">
+    <div class="editform" style="display:none">
       </div>
-    </div>
- </li>
+    </div>-->
+
 </div>
 </article>
