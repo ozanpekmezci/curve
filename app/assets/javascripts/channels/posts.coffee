@@ -12,8 +12,11 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      @collection().prepend data['post']
-     $('.newDemand').html parseInt($('.newDemand').html(), 10) + 1
-  $('.div-newDemand').show()
+     nd = $('.newDemand')
+     nbr = parseInt(nd.text())
+     nd.text(nbr+1)
+     #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
+     $('.div-newDemand').show()
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
