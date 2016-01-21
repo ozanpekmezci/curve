@@ -16,8 +16,8 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
      nbr = parseInt(nd.text())
      nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
-     divNd = $('.div-newDemand')
-     divNd.style.display = 'block'
+     divNd = $('div.div-newDemand')
+     divNd.css display: 'block'
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
