@@ -1,15 +1,14 @@
 postArray = []
-
 window.onload = ->
   something = document.getElementById('id-div-newDemand')
   something.style.cursor = 'pointer'
-  collection = -> $("[data-channel='posts']")
+
   something.onclick = ->
     divNd = $('.div-newDemand')
     divNd.hide()
     nd = $('.newDemand')
     nd.text("0")
-    @collection().prepend postArray
+    $("[data-channel='posts']").prepend postArray
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
