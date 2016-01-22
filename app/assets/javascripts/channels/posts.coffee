@@ -1,8 +1,9 @@
 postArray = []
-collection = -> $("[data-channel='posts']")
+
 window.onload = ->
   something = document.getElementById('id-div-newDemand')
   something.style.cursor = 'pointer'
+  collection = -> $("[data-channel='posts']")
   something.onclick = ->
     divNd = $('.div-newDemand')
     divNd.hide()
@@ -12,7 +13,7 @@ window.onload = ->
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
-  #collection: -> $("[data-channel='posts']")
+  collection: -> $("[data-channel='posts']")
 
   connected: ->
     # FIXME: While we wait for cable subscriptions to always be finalized before sending posts
