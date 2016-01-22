@@ -8,7 +8,10 @@ window.onload = ->
     divNd.hide()
     nd = $('.newDemand')
     nd.text("0")
-    $("[data-channel='posts']").prepend postArray
+    index = 0
+    while index < postArray.length
+      $("[data-channel='posts']").prepend postArray[index]
+      index++
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
