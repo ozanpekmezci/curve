@@ -28,20 +28,21 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
+     nd = $('.newDemand')
+     divNd = $('.div-newDemand')
      postArray.push data['post']
      if @userIsCurrentUser(data.post)
        index = 0
        while index < postArray.length
          $("[data-channel='posts']").prepend postArray[index]
          index++
-
+       divNd.hide()
+       nd.text("0")
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
      else
-       nd = $('.newDemand')
        nbr = parseInt(nd.text())
        nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
-       divNd = $('.div-newDemand')
        divNd.show()
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
