@@ -1,17 +1,19 @@
 postArray = []
 window.onload = ->
-  something = document.getElementById('id-div-newDemand')
-  something.style.cursor = 'pointer'
+  unless  $('.id-div-newDemand').length
+  else
+    something = document.getElementById('id-div-newDemand')
+    something.style.cursor = 'pointer'
 
-  something.onclick = ->
-    divNd = $('.div-newDemand')
-    divNd.hide()
-    nd = $('.newDemand')
-    nd.text("0")
-    index = 0
-    while index < postArray.length
-      $("[data-channel='posts']").prepend postArray[index]
-      index++
+    something.onclick = ->
+      divNd = $('.div-newDemand')
+      divNd.hide()
+      nd = $('.newDemand')
+      nd.text("0")
+      index = 0
+      while index < postArray.length
+        $("[data-channel='posts']").prepend postArray[index]
+        index++
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
