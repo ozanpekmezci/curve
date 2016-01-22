@@ -1,5 +1,5 @@
 postArray = []
-collection: -> $("[data-channel='posts']")
+collection=  $("[data-channel='posts']")
 window.onload = ->
   something = document.getElementById('id-div-newDemand')
   something.style.cursor = 'pointer'
@@ -8,7 +8,7 @@ window.onload = ->
     divNd.hide()
     nd = $('.newDemand')
     nd.text("0")
-    @collection().prepend postArray
+    collection.prepend postArray
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
@@ -41,7 +41,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
 
   followStream: ->
-    if @collection().data('stream-id') == "posts_stream"
+    if collection.data('stream-id') == "posts_stream"
       @perform 'follow'
     else
       @perform 'unfollow'
