@@ -27,14 +27,22 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
 
   received: (data) ->
+     # redundant: FIXME
      postArray.push data['post']
-    #  @collection().prepend data['post']
-     nd = $('.newDemand')
-     nbr = parseInt(nd.text())
-     nd.text(nbr+1)
+     if @userIsCurrentUser(data.post)
+       index = 0
+       while index < postArray.length
+         $("[data-channel='posts']").prepend postArray[index]
+         index++
+
+    # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
+     else
+       nd = $('.newDemand')
+       nbr = parseInt(nd.text())
+       nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
-     divNd = $('.div-newDemand')
-     divNd.show()
+       divNd = $('.div-newDemand')
+       divNd.show()
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
