@@ -1,9 +1,13 @@
+postArray = []
 window.onload = ->
   something = document.getElementById('id-div-newDemand')
   something.style.cursor = 'pointer'
   something.onclick = ->
     divNd = $('.div-newDemand')
     divNd.hide()
+    nd = $('.newDemand')
+    nd.text("0")
+    @collection().prepend postArray
 
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
@@ -19,7 +23,8 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
 
   received: (data) ->
-     @collection().prepend data['post']
+     postArray.push data['post']
+    #  @collection().prepend data['post']
      nd = $('.newDemand')
      nbr = parseInt(nd.text())
      nd.text(nbr+1)
