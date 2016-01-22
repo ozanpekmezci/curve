@@ -1,3 +1,11 @@
+window.onload = ->
+  something = document.getElementById('id-div-newDemand')
+  something.style.cursor = 'pointer'
+  something.onclick = ->
+    divNd = $('.div-newDemand')
+    divNd.hide()
+
+
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
 
