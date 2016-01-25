@@ -284,7 +284,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 3.4)
+  acts-as-taggable-on (~> 3.5)
   acts_as_commentable
   bootstrap-sass
   byebug
