@@ -50,6 +50,8 @@ end
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on', '~> 3.5'
 gem 'em-hiredis'
+gem 'redis'
+gem 'mocha'
 
 
 # Use ActiveModel has_secure_password
