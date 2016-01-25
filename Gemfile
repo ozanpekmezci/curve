@@ -48,6 +48,7 @@ group :development do
     gem 'capistrano3-puma',   require: false
 end
 gem 'acts_as_commentable'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 
 # Use ActiveModel has_secure_password
