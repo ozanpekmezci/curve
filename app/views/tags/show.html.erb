@@ -5,7 +5,7 @@
   <div class="well well-lg">
     <h2><%= link_to post.title, post_path(post) %></h2>
 
-    <p><%= truncate(post.body, length: 350) %></p>
+    <p><%= truncate(post.description, length: 350) %></p>
     <div class="tags">
     <%=raw tag_links(post.all_labels_list)%>
        </div>
