@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       end
   end
   resources :relationships, only: [:create, :destroy]
+  resources :tags, only: [:show] do
+      member do
+        post :follow
+        delete :unfollow
+      end
+    end
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 
