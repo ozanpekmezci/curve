@@ -44,6 +44,7 @@ class PostsController < ApplicationController
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   @post.save
+  current_user.tag(@post, with: params[:post][:label_list], on: :labels)
 
   end
 
@@ -78,5 +79,8 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :price, :lat, :lon, :likes, :picture_url)
+    end
+    def tag_cloud
+      @tags = Post.tag_counts_on(:labels)
     end
 end

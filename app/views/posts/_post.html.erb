@@ -6,6 +6,9 @@
     <p class="post-description"><%= truncate(post.description, length: 350) %></p>
     <p class="post-price"><%=  post.price %></p>
     <p class="post-picture_url"><%=  post.picture_url %></p>
+    <div class="tags">
+        <%=raw tag_links(post.all_labels_list)%>
+    </div>
 
     <div class="btn-group">
       <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info', remote: true%>

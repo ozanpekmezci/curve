@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   # sitepont 2015 redis tuto to clear cache after each creation of different posts
   # after_save :clear_cache
 
+  # posts can be tagged
+  acts_as_taggable_on :labels
+  # posts have comments (one to many relationship)
   acts_as_commentable
   after_commit { PostRelayJob.perform_later self }
 
