@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   include PostsHelper
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :tag_cloud, only: [:index]
+
 
   def index
       @posts = Post.order('created_at DESC')
