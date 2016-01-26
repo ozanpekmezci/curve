@@ -1,4 +1,6 @@
+<div class = "followDiv">
 <%= form_tag({:controller => "tags", :action => "follow"},method: :post, remote: true) do  %>
   <div><%= hidden_field_tag :followed_tag_id, @current_tag_id%></div>
   <%= submit_tag "Follow", class: "btn btn-primary" %>
 <% end %>
+</div>
