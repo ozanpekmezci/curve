@@ -24,7 +24,4 @@ module PostsHelper
   def tag_links(tags)
     tags.map{|tag| link_to tag.strip, tag_path(tag.strip) }.join(", ")
   end
-  def tag_cloud
-    @tags = Post.tag_counts_on(:labels)
-  end
 end

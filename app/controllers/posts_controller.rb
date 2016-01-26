@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   include PostsHelper
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :tag_cloud, only: [:index]
+  before_action :get_tags, only: [:index]
 
 
   def index
@@ -82,7 +82,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :price, :lat, :lon, :likes, :picture_url)
     end
-    def tag_cloud
+    def get_tags
       @tags = Post.tag_counts_on(:labels)
     end
 end
