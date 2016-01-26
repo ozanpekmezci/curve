@@ -1,4 +1,6 @@
 module PostsHelper
+  include ActsAsTaggableOn::TagsHelper
+
 	##
 	# sitepoint 2015 redis tutorial
 	def fetch_posts
@@ -19,4 +21,10 @@ module PostsHelper
   end
   #$redis.set("itens", Marshal.dump(Item.all))
   #Marshal.load($redis.get("itens"))
+  def tag_links(tags)
+    tags.map{|tag| link_to tag.strip, tag_path(tag.strip) }.join(", ")
+  end
+  def tag_cloud
+    @tags = Post.tag_counts_on(:labels)
+  end
 end
