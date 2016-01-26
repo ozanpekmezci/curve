@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  revision: 38b6e7c5bf60b1d28e99ea3a7275ba764f915610
+  branch: master
+  specs:
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: d1d8c2f03de76b8d394c2335df336d082628de01
   branch: master
@@ -84,8 +92,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    acts-as-taggable-on (3.5.0)
-      activerecord (>= 3.2, < 5)
     acts_as_commentable (4.0.2)
     arel (7.0.0)
     autoprefixer-rails (6.3.1)
@@ -268,7 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 3.5)
+  acts-as-taggable-on!
   acts_as_commentable
   bootstrap-sass
   byebug
