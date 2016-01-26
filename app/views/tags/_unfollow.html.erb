@@ -1,0 +1,4 @@
+<%= form_tag({:controller => "tags", :action => "unfollow"},method: :delete, remote: true) do  %>
+<div><%= hidden_field_tag :followed_tag_id, @current_tag_id%></div>
+  <%= submit_tag "Unfollow", class: "btn" %>
+<% end %>

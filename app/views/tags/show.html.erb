@@ -1,0 +1,17 @@
+<% header "Our cool stories" %>
+<%= render 'follow_form' if user_signed_in? %>
+
+<% @posts.each do |post| %>
+  <div class="well well-lg">
+    <h2><%= link_to post.title, post_path(post) %></h2>
+
+    <p><%= truncate(post.body, length: 350) %></p>
+    <div class="tags">
+    <%=raw tag_links(post.all_labels_list)%>
+       </div>
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info' %>
+      <%= link_to 'Delete', post_path(post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>
