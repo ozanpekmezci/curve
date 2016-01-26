@@ -19,7 +19,7 @@ class TagsController < ApplicationController
       end
       #current_user.update_attributes(follow_tags: ([@current_tag_id].concat(current_user.follow_tags)))
         flash[:success] = 'Followed tag'
-        redirect_to tag_path(@current_tag_id)
+      #  redirect_to tag_path(@current_tag_id)
       end
     end
   end
@@ -34,7 +34,7 @@ class TagsController < ApplicationController
         format.js
       end
         flash[:error] = 'UNFollowed tag'
-        redirect_to tag_path(@current_tag_id)
+      #  redirect_to tag_path(@current_tag_id)
       end
     end
   end
