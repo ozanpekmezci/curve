@@ -17,6 +17,7 @@ class TagsController < ApplicationController
         format.html
         format.js
       end
+      # escape_javascript is god
       #current_user.update_attributes(follow_tags: ([@current_tag_id].concat(current_user.follow_tags)))
         flash[:success] = 'Followed tag'
       #  redirect_to tag_path(@current_tag_id)
