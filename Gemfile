@@ -53,7 +53,7 @@ gem 'em-hiredis'
 gem 'redis'
 gem 'mocha'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.6'
 
 
 # Use ActiveModel has_secure_password

@@ -23,17 +23,17 @@ class User < ActiveRecord::Base
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :avatar, 
-            :style => { :medium => "300x300>", :thumb => "100x100>" },
+            :styles => { :medium => "300x300>", :thumb => "100x100>" },
             :default_url => "/images/:style/missing.png",
             :storage => :s3,
             :bucket  => ENV['BUCKET_ID'],
             :s3_credentials => {
                     :access_key_id => ENV['ACCESS_KEY_ID'],
                     :secret_access_key => ENV['SECRET_ACCESS_KEY']
-                },
-                :s3_permissions => 'public-read',
-                :s3_region => :frankfurt
-                  
+                }
+            # :s3_permissions => 'public-read',
+            # :s3_region => :frankfurt
+
   validates_attachment :avatar, presence: true,
   content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
   size: { in: 0..1.megabytes }
