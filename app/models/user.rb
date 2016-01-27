@@ -22,14 +22,14 @@ class User < ActiveRecord::Base
   # , :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, s3_region: :frankfurt
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :avatar, 
+  has_attached_file :avatar,
             :styles => { :medium => "300x300>", :thumb => "100x100>" },
             :default_url => "/images/:style/missing.png",
             :storage => :s3,
             :bucket  => 'curve-app',
             :s3_credentials => {
-                    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    :access_key_id => 'AKIAIMMHTQCZV57CJOXA',
+                    :secret_access_key => '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'
                 }
             # :s3_permissions => 'public-read',
             # :s3_region => :frankfurt
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
 
- 
+
 
   ##
   # default method to recognise omniauth providers and user's data
