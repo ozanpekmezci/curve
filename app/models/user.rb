@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
             :storage => :s3,
             :bucket  => 'curve-app',
             :s3_credentials => {
-                    :access_key_id => ENV['ACCESS_KEY_ID'],
-                    :secret_access_key => ENV['SECRET_ACCESS_KEY']
+                    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+                    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
                 }
             # :s3_permissions => 'public-read',
             # :s3_region => :frankfurt
