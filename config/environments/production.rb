@@ -96,5 +96,16 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
 }
+  
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_protocol => 'http',
+    :s3_credentials => {
+      :bucket => ENV['BUCKET_ID'],
+      :access_key_id => ENV['ACCESS_KEY_ID'],
+      :secret_access_key => ENV['SECRET_ACCESS_KEY']
+    }
+    :s3_region => :frankfurt
+  }
 
 end

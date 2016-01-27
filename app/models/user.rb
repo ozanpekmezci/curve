@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
   # user can tag posts
   acts_as_tagger
   # paperclip github: users will be available to add photos
-  has_attached_file :avatar, styles: { medium: "150x150>", thumb: "50x50>" }, default_url: "/images/:style/missing.png", :storage => :s3,
-                    :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, s3_region: :frankfurt
+  has_attached_file :avatar, styles: { medium: "150x150>", thumb: "50x50>" }, default_url: "/images/:style/missing.png"
+  # , :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, s3_region: :frankfurt
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment :avatar, presence: true,
   content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
