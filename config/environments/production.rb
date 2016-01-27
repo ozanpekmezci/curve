@@ -97,15 +97,15 @@ Rails.application.configure do
     enable_starttls_auto: true
 }
   
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_protocol => 'http',
-    :bucket => ENV['BUCKET_ID'],
-    :s3_credentials => {
-      :access_key_id => ENV['ACCESS_KEY_ID'],
-      :secret_access_key => ENV['SECRET_ACCESS_KEY']
-    },
-    :s3_region => :frankfurt
-  }
+  # config.paperclip_defaults = {
+  #  :storage => :s3,
+  # :s3_protocol => 'http',
+  #  :bucket => ENV['BUCKET_ID'],
+  #  :s3_credentials => {
+  #    :access_key_id => ENV['ACCESS_KEY_ID'],
+  #    :secret_access_key => ENV['SECRET_ACCESS_KEY']
+  #  },
+  #  :s3_region => :frankfurt
+  # }
 
 end
