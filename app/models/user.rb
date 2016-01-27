@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
             :styles => { :medium => "300x300>", :thumb => "100x100>" },
             :default_url => "/images/:style/missing.png",
             :storage => :s3,
-            :bucket  => ENV['BUCKET_ID'],
+            :bucket  => 'curve-app',
             :s3_credentials => {
                     :access_key_id => ENV['ACCESS_KEY_ID'],
                     :secret_access_key => ENV['SECRET_ACCESS_KEY']
@@ -40,9 +40,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
 
-  def s3_credentials
-    {:bucket => ENV['BUCKET_ID'], :access_key_id => ENV['ACCESS_KEY_ID'], :secret_access_key => ENV['SECRET_ACCESS_KEY']}
-  end
+ 
 
   ##
   # default method to recognise omniauth providers and user's data
