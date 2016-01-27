@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
   # user can tag posts
   acts_as_tagger
+  # paperclip github: users will be available to add photos
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   ##
   # default method to recognise omniauth providers and user's data
   def self.from_omniauth(auth)
