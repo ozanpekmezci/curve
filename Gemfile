@@ -52,7 +52,6 @@ gem 'acts-as-taggable-on', :github => 'mbleigh/acts-as-taggable-on', :branch => 
 gem 'em-hiredis'
 gem 'redis'
 gem 'mocha'
-gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 
 
