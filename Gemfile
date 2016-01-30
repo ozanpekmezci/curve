@@ -54,6 +54,7 @@ gem 'redis'
 gem 'mocha'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "fog-aws"
+gem "mini_magick"
 
 # gem 'aws-sdk', '~> 1.6'
 
