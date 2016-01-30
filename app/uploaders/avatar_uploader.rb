@@ -5,14 +5,39 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   # storage :fog
+  include CarrierWave::MiniMagick
+
+    process resize_to_fit: [800, 800]
+
+    version :thumb do
+      process resize_to_fill: [280,280]
+    end
+    version :small_thumb, from_version: :thumb do
+       process resize_to_fill: [20, 20]
+     end
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  def extension_whitelist
+     %w(jpg jpeg gif png)
+   end
+   def content_type_whitelist
+      /image\//
+    end
+    def content_type_blacklist
+       ['application/text', 'application/json']
+     end
+     def default_url(*args)
+        # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+        "http://combineoverwiki.net/images/thumb/d/dc/Lambda_logo.svg/365px-Lambda_logo.svg.png"
+       end
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

@@ -53,7 +53,9 @@ gem 'em-hiredis'
 gem 'redis'
 gem 'mocha'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'aws-sdk', '~> 1.6'
+gem "fog-aws"
+
+# gem 'aws-sdk', '~> 1.6'
 
 
 # Use ActiveModel has_secure_password
