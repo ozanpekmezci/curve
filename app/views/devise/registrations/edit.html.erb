@@ -11,7 +11,7 @@
   <div class="file_field">
     <%= image_tag(@user.avatar.url(:small_thumb)) if @user.avatar? %>
     <%= f.label :avatar %>
-     <%= f.text_field :remote_avatar %>
+     <%= f.text_field :remote_avatar_url %>
   </div>
   <div class="file_field">
   <label>
