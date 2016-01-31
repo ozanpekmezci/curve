@@ -5,7 +5,13 @@
     <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
     <p class="post-description"><%= truncate(post.description, length: 350) %></p>
     <p class="post-price"><%=  post.price %></p>
-    <p class="post-picture_url"><%=  post.picture_url %></p>
+     <% if post.pictures? %>
+      <% post.pictures.each do |p| %>
+        <%= image_tag(p.url(:thumb)) if @user.avatar? %>
+      <%end%>
+
+    <% end %>
+
     <div class="tags">
         <%=raw tag_links(post.all_labels_list)%>
     </div>
