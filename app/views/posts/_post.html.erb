@@ -7,7 +7,7 @@
     <p class="post-price"><%=  post.price %></p>
      <% if post.pictures? %>
       <% post.pictures.each do |p| %>
-        <%= image_tag(p.url(:thumb)) if @user.avatar? %>
+        <%= image_tag(p.url(:thumb)) %>
       <%end%>
 
     <% end %>
