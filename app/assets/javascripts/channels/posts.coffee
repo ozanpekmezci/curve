@@ -1,6 +1,6 @@
 postArray = []
 window.onload = ->
-  if $('.id-div-newDemand').length
+  # if $('.id-div-newDemand').length
     something = document.getElementById('id-div-newDemand')
     something.style.cursor = 'pointer'
 
