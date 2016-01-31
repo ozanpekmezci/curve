@@ -38,6 +38,8 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
          index++
        divNd.hide()
        nd.text("0")
+       postdiv = $('.new-post-form')
+       postdiv.hide()
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
      else
        nbr = parseInt(nd.text())

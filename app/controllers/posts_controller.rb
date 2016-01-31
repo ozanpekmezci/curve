@@ -68,7 +68,7 @@ class PostsController < ApplicationController
     else
       flash[:error] = 'Cannot delete this story...'
     end
-    redirect_to posts_path
+    # redirect_to posts_path
   end
 
   private
