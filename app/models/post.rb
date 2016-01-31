@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   # posts have comments (one to many relationship)
   acts_as_commentable
   after_commit { PostRelayJob.perform_later self }
+  mount_uploaders :pictures, AvatarUploader
+
 
   ##
   # to clear cache after each creation of different posts
