@@ -3,6 +3,8 @@ window.onload = ->
   # if $('.id-div-newDemand').length
     something = document.getElementById('id-div-newDemand')
     something.style.cursor = 'pointer'
+    file_field_picture = document.getElementById('multiple_upload_butt')
+
 
     something.onclick = ->
       divNd = $('.div-newDemand')
@@ -13,8 +15,8 @@ window.onload = ->
       while index < postArray.length
         $("[data-channel='posts']").prepend postArray[index]
         index++
-  $(".file_field_picture").click ->
-    alert "anan"
+    file_field_picture.onclick = ->
+      alert("anan")
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
