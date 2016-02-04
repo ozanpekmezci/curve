@@ -15,7 +15,7 @@ window.onload = ->
       index++
 #  newDemandButton = document.getElementById('newDemandButton')
 #  newDemandButton.onclick = ->
-  
+
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
