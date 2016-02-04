@@ -29,6 +29,11 @@
 <div class="file_field_picture">
   <a href='#' class="btn btn-success" id="multiple_upload_butt">Button Text</a>
   <%= f.file_field :pictures, multiple: true %>
+  <script type="text/coffescript">
+    file_field_picture = document.getElementById('multiple_upload_butt')
+    file_field_picture.onclick = ->
+      alert("anan")
+  </script>
 </div>
   <div class="form-group">
      <%= f.label :label_list %>

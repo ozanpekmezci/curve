@@ -13,11 +13,9 @@ window.onload = ->
     while index < postArray.length
       $("[data-channel='posts']").prepend postArray[index]
       index++
-  newDemandButton = document.getElementById('newDemandButton')
-  newDemandButton.onclick = ->
-    file_field_picture = document.getElementById('multiple_upload_butt')
-    file_field_picture.onclick = ->
-      alert("anan")
+#  newDemandButton = document.getElementById('newDemandButton')
+#  newDemandButton.onclick = ->
+  
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
