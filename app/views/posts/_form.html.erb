@@ -26,11 +26,20 @@
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
-<div class="file_field_picture">
-  <a href='#' class="btn btn-success" id="multiple_upload_butt">Button Text</a>
-  <%= f.file_field :pictures, multiple: true %>
+  <a href='#' class="btn btn-success" id="multiple_upload_butt">Add Picture</a>
 
-</div>
+  <div class="file_field_picture_0" style = "display:none">
+    <%= f.file_field :pictures, multiple: true %>
+  </div>
+  <div class="file_field_picture_1" style = "display:none">
+    <%= f.file_field :pictures, multiple: true %>
+  </div>
+  <div class="file_field_picture_2" style = "display:none">
+    <%= f.file_field :pictures, multiple: true %>
+  </div>
+  <div class="file_field_picture_3" style = "display:none">
+    <%= f.file_field :pictures, multiple: true %>
+  </div>
   <div class="form-group">
      <%= f.label :label_list %>
      <%= f.text_area :label_list, placeholder: "Tags separated with comma" %>

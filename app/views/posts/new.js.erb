@@ -1,7 +1,12 @@
 var $postdiv = $('div.new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "form"))%>");
 $postdiv.toggle();
-var $file_field_picture = $('#multiple_upload_butt');
-$file_field_picture.click(function() {
-  alert( "anan" );
+var $multiple_upload_butt = $('#multiple_upload_butt');
+var index=0;
+$multiple_upload_butt.click(function() {
+  if(index<=3){
+  var $file_field_picture = $('div.file_field_picture_'+index);
+  $file_field_picture.show();
+  index++;
+  }
 });
