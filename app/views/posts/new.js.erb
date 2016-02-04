@@ -1,3 +1,7 @@
 var $postdiv = $('div.new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "form"))%>");
 $postdiv.toggle();
+var $file_field_picture = $('#multiple_upload_butt');
+$file_field_picture.click(function() {
+  alert( "anan" );
+});
