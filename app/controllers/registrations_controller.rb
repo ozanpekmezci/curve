@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
 
-	if params[:user][:password].blank? && params[:user][:password_confirmation].blank? && params[:user][:current_password].blank? 
+	if params[:account_update][:password].blank? && params[:account_update][:password_confirmation].blank? && params[:account_update][:current_password].blank? 
     	resource.update_without_password(params)
 	else
 		resource.update_with_password(params)
