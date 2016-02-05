@@ -1,13 +1,13 @@
-<div class="container">    
+<div class="container" id="user_edit">    
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li class="active">
-      <a href="#profile" role="tab" data-toggle="tab">
+    <li class="active" role="presentation">
+      <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
         <icon class="fa fa-user"></icon> Profile Settings
       </a>
     </li>
-    <li>
-      <a href="#security" role="tab" data-toggle="tab">
+    <li role="presentation">
+      <a href="#security" aria-controls="security" role="tab" data-toggle="tab">
         <i class="fa fa-cog"></i> Security Settings
       </a>
     </li>
@@ -15,9 +15,9 @@
     
   <!-- Tab panes -->
   <div class="tab-content">
-    <div class="tab-pane active" id="profile">
-        <h2>Edit Image<%= resource_name.to_s.humanize %></h2>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div role="tabpanel" class="tab-pane active" id="profile">
+      <h2>Edit Image<%= resource_name.to_s.humanize %></h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         <div class="file_field">
           <%= image_tag(@user.avatar.url(:small_thumb)) if @user.avatar? %>
@@ -43,7 +43,7 @@
       <%= link_to "Back", :back %>
 
     </div>
-    <div class="tab-pane" id="security">
+    <div role="tabpanel" class="tab-pane" id="security">
       <h2>Edit Profile<%= resource_name.to_s.humanize %></h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -65,7 +65,7 @@
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="field">
