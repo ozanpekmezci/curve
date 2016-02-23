@@ -52,7 +52,9 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      ##update'in commitsizi
+      @post.attributes(post_params)
+      if current_user.tag(@post, with: params[:post][:label_list], on: :labels)
         format.html { redirect_to @post, notice: 'Demand was successfully updated.' }
         format.js {}
       else
