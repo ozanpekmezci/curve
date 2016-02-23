@@ -2,13 +2,7 @@ var $postdiv = $('div.post[data-id="<%= @post.id %>"]');
 $postdiv.find(".post-title").html("<%=escape_javascript(link_to @post.title, post_path(@post))%>");
 $postdiv.find(".post-description").text("<%= @post.description %>");
 $postdiv.find(".post-price").text("<%= @post.price %>");
-$postdiv.find(".post-pictures").html("<%=escape_javascript(
-	if @post.pictures? 
-	 @post.pictures.each do |p|
-     image_tag(p.url(:thumb))
-      end
-
-     end)%>");
+$postdiv.find(".post-pictures").html("<%=escape_javascript(if @post.pictures?(@post.pictures.each do |p| (image_tag(p.url(:thumb))end) end))%>");
 
 $postdiv.find(".post-tags").html("<%=escape_javascript(raw tag_links(@post.all_labels_list))%>");
 
