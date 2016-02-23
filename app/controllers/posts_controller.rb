@@ -14,9 +14,10 @@ class PostsController < ApplicationController
         @followed_user_posts += f.posts
       end
       current_user.owned_taggings.each do |t|
-        @followed_tag_posts += Post.find_by(id: t.taggable_id)
+        @followed_tag_posts.push(Post.find_by(id: t.taggable_id))
       end
       @posts = @followed_tag_posts | @followed_user_posts
+      @posts = @posts.sort_by{|post| post.created_at}.reverse
 
 
       #fetch_posts
