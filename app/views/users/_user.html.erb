@@ -1,2 +1,2 @@
-<span><%= image_tag user.avatar_url, alt: user.name,size: "32" %></span>
+<span><%= image_tag user.avatar.url(:small_thumb) %></span>
 <p><%= link_to user.name, user %></p>
