@@ -35,7 +35,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
      end
      def default_url(*args)
         # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-        "http://combineoverwiki.net/images/thumb/d/dc/Lambda_logo.svg/365px-Lambda_logo.svg.png"
+        "http://appwarm.com/img/60x60/uploads/posts/2014-05/1400010114_icon.png"
        end
 
 
