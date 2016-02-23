@@ -10,10 +10,12 @@ class PostsController < ApplicationController
       #@posts = Post.order('created_at DESC')
       @followed_user_posts = []
       @followed_tag_posts = []
-      current_user.following.each |f|
+      current_user.following.each do |f|
         @followed_user_posts += f.posts
-      current_user.owned_taggings.each |t|
+      end
+      current_user.owned_taggings.each do |t|
         @followed_tag_posts += Post.find_by(id: t.taggable_id)
+      end
       @posts = @followed_tag_posts | @followed_user_posts
 
 
