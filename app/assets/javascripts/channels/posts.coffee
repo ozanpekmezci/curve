@@ -34,13 +34,17 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
+     alert(data['post'])
      if @userIsCurrentUser(data.post)
+       alert("if'in ici")
        index = 0
        while index < postArray.length
          $("[data-channel='posts']").prepend postArray[index]
          index++
+         alert("while'in ici")
        divNd.hide()
        nd.text("0")
+       alert("while'in disi")
        postdiv = $('.new-post-form')
        postdiv.hide()
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
