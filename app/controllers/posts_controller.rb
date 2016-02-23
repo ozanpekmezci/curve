@@ -7,7 +7,16 @@ class PostsController < ApplicationController
 
 
   def index
-      @posts = Post.order('created_at DESC')
+      #@posts = Post.order('created_at DESC')
+      @followed_user_posts = []
+      @followed_tag_posts = []
+      current_user.following.each |f|
+        @followed_user_posts += f.posts
+      current_user.owned_taggings.each |t|
+        @followed_tag_posts += Post.find_by(id: t.taggable_id)
+      @posts = @followed_tag_posts | @followed_user_posts
+
+
       #fetch_posts
    end
 
