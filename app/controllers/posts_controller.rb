@@ -20,7 +20,7 @@ class PostsController < ApplicationController
         end
       end    
       @posts = @followed_tag_posts | @followed_user_posts
-      @posts = @posts.sort_by{|post| post.created_at}.reverse.page(params[:page])
+      @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
 
       #fetch_posts
    end
