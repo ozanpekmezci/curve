@@ -38,7 +38,7 @@ gem 'foreman'
 #gem 'redis-rails'
 #gem 'redis-rack-cache'
 #actioncable
-gem 'puma'
+gem 'puma', '~> 2.16'
 #gem 'actioncable', github: 'rails/actioncable'
 group :development do
     gem 'capistrano',         require: false

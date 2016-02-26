@@ -14,6 +14,5 @@
       <%= link_to 'Delete', post_path(post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
     </div>
     <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
-    </div>
   </div>
 <% end %>
