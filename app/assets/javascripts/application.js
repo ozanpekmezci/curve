@@ -18,3 +18,4 @@
 //= require_tree .
 //= require registrations
 // require turbolinks
+//= require jquery.infinitescroll
