@@ -1,5 +1,8 @@
 postArray = []
 
+window.unload = ->
+  @perform 'unfollow'
+
 window.onload = ->
   # if $('.id-div-newDemand').length
   something = document.getElementById('id-div-newDemand')
