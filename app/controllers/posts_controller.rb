@@ -13,14 +13,11 @@ class PostsController < ApplicationController
       current_user.following.each do |f|
         @followed_user_posts += f.posts
       end
-      current_user.follow_tags.each do |t|
-        Post.all.each do |p|
-          if (p.all_labels_list & t).any?
-            @followed_tag_posts.push(p)
-          end
+      Post.all.each do |p|
+        if (p.all_labels_list & current_user.follow_tags).any?
+          @followed_tag_posts.push(p)
         end
-      end
-        
+      end    
       @posts = @followed_tag_posts | @followed_user_posts
       @posts = @posts.sort_by{|post| post.created_at}.reverse
 
