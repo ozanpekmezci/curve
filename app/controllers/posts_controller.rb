@@ -13,6 +13,7 @@ class PostsController < ApplicationController
       current_user.following.each do |f|
         @followed_user_posts += f.posts
       end
+      @followed_user_posts += current_user.posts
       Post.all.each do |p|
         if (p.all_labels_list & current_user.follow_tags).any?
           @followed_tag_posts.push(p)
