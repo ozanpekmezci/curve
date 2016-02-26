@@ -1,7 +1,5 @@
 postArray = []
 
-window.unload = ->
-  @perform 'unfollow'
 
 window.onload = ->
   # if $('.id-div-newDemand').length
@@ -61,6 +59,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
 
   followStream: ->
+    @perform 'unfollow'
     if @collection().data('stream-id') == "posts_stream"
       @perform 'follow'
     else
