@@ -57,6 +57,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "fog-aws"
 gem "mini_magick"
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+gem 'searchkick'
 
 # gem 'aws-sdk', '~> 1.6'
 
