@@ -8,19 +8,24 @@ class PostsController < ApplicationController
 
   def index
       #@posts = Post.order('created_at DESC')
-      @followed_user_posts = []
-      @followed_tag_posts = []
-      current_user.following.each do |f|
-        @followed_user_posts += f.posts
-      end
-      @followed_user_posts += current_user.posts
-      Post.all.each do |p|
-        if (p.all_labels_list & current_user.follow_tags).any?
-          @followed_tag_posts.push(p)
-        end
-      end    
-      @posts = @followed_tag_posts | @followed_user_posts
-      @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
+      if params[:query].present?
+           @posts = Post.search(params[:query])
+         else
+           @followed_user_posts = []
+           @followed_tag_posts = []
+           current_user.following.each do |f|
+             @followed_user_posts += f.posts
+           end
+           @followed_user_posts += current_user.posts
+           Post.all.each do |p|
+             if (p.all_labels_list & current_user.follow_tags).any?
+               @followed_tag_posts.push(p)
+             end
+           end
+           @posts = @followed_tag_posts | @followed_user_posts
+           @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
+         end
+
 
       #fetch_posts
    end
