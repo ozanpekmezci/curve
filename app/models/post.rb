@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   acts_as_commentable
   after_create_commit { PostRelayJob.perform_later self }
   mount_uploaders :pictures, AvatarUploader
-  searchkick
+  searchkick autocomplete: ['title']
 
 
   ##

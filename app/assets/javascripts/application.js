@@ -19,3 +19,4 @@
 //= require registrations
 // require turbolinks
 //= require jquery.infinitescroll
+//= require typeahead.bundle.min

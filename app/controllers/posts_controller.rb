@@ -5,7 +5,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :get_tags, only: [:index, :edit, :update]
 
-
+  # kaynak github ve https://sharvy.wordpress.com/2015/01/12/add-robust-search-functionality-in-your-rails-4-app-using-elasticsearch-and-typeahead-js/
+  #burdaki value yu tam anlamadim
+  def autocomplete
+      render json: Post.search(params[:query], autocomplete: false, limit: 10).map do |post|
+        { title: post.title, value: post.id }
+      end
+    end
   def index
       #@posts = Post.order('created_at DESC')
       if params[:query].present?
