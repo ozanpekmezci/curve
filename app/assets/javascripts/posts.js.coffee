@@ -10,7 +10,7 @@ $(document).ready ->
       Bloodhound.tokenizers.whitespace d.title
     queryTokenizer: Bloodhound.tokenizers.whitespace
     remote:
-        url: '/search/autocomplete?query=%QUERY'
+        url: '/posts/autocomplete?query=%QUERY'
         wildcard: '%QUERY')
   promise = engine.initialize()
   promise.done(->
