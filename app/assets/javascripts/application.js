@@ -16,7 +16,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require registrations
-//= require chosen-jquery
+//= require chosen-prototype
 //= require turbolinks
 //= require jquery.infinitescroll
 //= require typeahead.bundle.min
