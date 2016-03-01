@@ -20,3 +20,5 @@
 // require turbolinks
 //= require jquery.infinitescroll
 //= require typeahead.bundle.min
+//= require chosen-jquery
+//= require messages

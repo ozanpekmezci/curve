@@ -19,7 +19,12 @@ Rails.application.routes.draw do
         delete :unfollow
       end
   end
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+    end
+  end
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 

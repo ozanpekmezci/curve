@@ -9,7 +9,11 @@ class ConversationsController < ApplicationController
   def index
     @conversations = @mailbox.inbox.paginate(page: params[:page], per_page: 10)
   end
-
+  def reply
+    current_user.reply_to_conversation(@conversation, params[:body])
+    flash[:success] = 'Reply sent'
+    redirect_to conversation_path(@conversation)
+  end
   private
 
   def get_conversation

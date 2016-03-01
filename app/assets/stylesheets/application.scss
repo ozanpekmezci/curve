@@ -19,7 +19,7 @@ from sitepoint devise tutorial
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
-
+@import 'chosen';
 /* to style Devise specific flash messages, from Sitepoint */
 .alert-alert {
   @extend .alert-warning;
