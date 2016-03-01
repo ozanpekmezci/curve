@@ -21,3 +21,4 @@
 //= require typeahead.bundle.min
 //= require chosen-jquery
 //= require messages
+//= require_self
