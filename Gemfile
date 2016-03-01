@@ -58,7 +58,7 @@ gem "fog-aws"
 gem "mini_magick"
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 gem 'searchkick'
-gem "mailboxer"
+gem "mailboxer", github: 'mailboxer/mailboxer'
 
 # gem 'aws-sdk', '~> 1.6'
 
