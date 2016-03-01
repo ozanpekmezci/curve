@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   # , :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, s3_region: :frankfurt
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   mount_uploader :avatar, AvatarUploader
+  acts_as_messageable
 
 
 

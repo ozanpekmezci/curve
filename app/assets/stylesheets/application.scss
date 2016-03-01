@@ -15,7 +15,7 @@
  */
 /*
 from sitepoint devise tutorial
-*/ 
+*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
@@ -27,4 +27,11 @@ from sitepoint devise tutorial
 
 .alert-notice {
   @extend .alert-info;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }

@@ -16,6 +16,16 @@ class ApplicationController < ActionController::Base
   #def after_sign_out_path_for(resource)
   #  'https://curve-app.com'
   #end
+  ## mailboxer'dan dolayi
+  rescue_from ActiveRecord::RecordNotFound do
+  flash[:warning] = 'Resource not found.'
+  redirect_back_or root_path
+end
+
+def redirect_back_or(path)
+  redirect_to request.referer || path
+end
+
   protected
   ##
   # permit additional parameters from the user for user creation
@@ -38,5 +48,6 @@ class ApplicationController < ActionController::Base
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
+
 
 end
