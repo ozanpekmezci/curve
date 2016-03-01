@@ -6,10 +6,10 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0.beta2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'chosen-rails', '~> 1.4', '>= 1.4.3'
-gem 'sprockets', '4.0.0.beta2'
+gem 'chosen-rails', github: 'tsechingho/chosen-rails'
+gem 'sprockets', '3.5.2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
