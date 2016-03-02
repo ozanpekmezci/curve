@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
     @conversations = @mailbox.trash
   end
 
-  @conversations = @conversations.paginate(page: params[:page], per_page: 10) ? @conversations.any?
+  @conversations = @conversations.paginate(page: params[:page], per_page: 10) if @conversations.any?
 end
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
