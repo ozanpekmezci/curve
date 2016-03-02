@@ -1,5 +1,5 @@
 module MessagesHelper
-  def recipients_options
+  def recipients_options(chosen_recipient=nil)
     s = ''
     User.all.each do |user|
       s << "<option value='#{user.id}' data-img-src='#{ image_tag(user.avatar.url(:small_thumb)) if user.avatar?}' #{'selected' if user == chosen_recipient}>#{user.name}</option>"
