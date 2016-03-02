@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/Compass/compass-rails.git
+  revision: 49619269de49beb4e0c8ca3cc925a370cbbc9e04
+  specs:
+    compass-rails (3.0.1)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 4.0)
+
+GIT
   remote: git://github.com/amatsuda/kaminari.git
   revision: 27a0c850b50a8bf095665ad3c0907efada919533
   branch: master
@@ -152,10 +161,6 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    compass-rails (3.0.1)
-      compass (~> 1.0.0)
-      sass-rails (< 5.1)
-      sprockets (< 4.0)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
     delayed_job (4.1.1)
@@ -374,6 +379,7 @@ DEPENDENCIES
   carrierwave!
   chosen-rails!
   coffee-rails (= 4.1.1)
+  compass-rails!
   delayed_job_active_record
   devise!
   em-hiredis

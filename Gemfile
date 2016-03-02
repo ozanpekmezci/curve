@@ -7,6 +7,7 @@ gem 'rails', '5.0.0.beta2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'chosen-rails', github: 'tsechingho/chosen-rails'
+gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'sprockets', '3.5.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.4'
