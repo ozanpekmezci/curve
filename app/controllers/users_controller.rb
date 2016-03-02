@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_signed_in?, only: [ :show, :following, :followers]
   def index
-    @users = User.order('created_at DESC').page(page: params[:page], per_page: 30) if params[:page].present?
+    @users = User.order('created_at DESC').page(page: params[:page], per_page: 30) #if params[:page].present?
   end
   def show
   @user = User.find(params[:id])
