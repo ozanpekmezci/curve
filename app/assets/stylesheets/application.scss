@@ -11,7 +11,8 @@
  * file per style scope.
  *
  *= require_self
-
+ *= require select2
+ *= require select2-bootstrap
  */
 /*
 from sitepoint devise tutorial
@@ -19,8 +20,7 @@ from sitepoint devise tutorial
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
-*= require select2
-*= require select2-bootstrap
+
 
 /* to style Devise specific flash messages, from Sitepoint */
 .alert-alert {
