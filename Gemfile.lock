@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/Compass/compass-rails.git
-  revision: 49619269de49beb4e0c8ca3cc925a370cbbc9e04
-  specs:
-    compass-rails (3.0.1)
-      compass (~> 1.0.0)
-      sass-rails (< 5.1)
-      sprockets (< 4.0)
-
-GIT
   remote: git://github.com/amatsuda/kaminari.git
   revision: 27a0c850b50a8bf095665ad3c0907efada919533
   branch: master
@@ -60,16 +51,6 @@ GIT
   specs:
     turbolinks (3.0.0)
       coffee-rails
-
-GIT
-  remote: git://github.com/tsechingho/chosen-rails.git
-  revision: a1ba6d34a972cdc4d7e70281cedc49388cbea112
-  specs:
-    chosen-rails (1.4.3)
-      coffee-rails (>= 3.2)
-      compass-rails (>= 2.0.4)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -141,7 +122,6 @@ GEM
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
-    chunky_png (1.3.5)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -149,18 +129,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    compass (1.0.3)
-      chunky_png (~> 1.2)
-      compass-core (~> 1.0.2)
-      compass-import-once (~> 1.0.5)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      sass (>= 3.3.13, < 3.5)
-    compass-core (1.0.3)
-      multi_json (~> 1.0)
-      sass (>= 3.3.0, < 3.5)
-    compass-import-once (1.0.5)
-      sass (>= 3.2, < 3.5)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
     delayed_job (4.1.1)
@@ -185,7 +153,6 @@ GEM
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.10)
     fog-aws (0.8.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -306,9 +273,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
-    rb-fsevent (0.9.7)
-    rb-inotify (0.9.7)
-      ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
     redis (3.2.2)
@@ -329,6 +293,8 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    select2-rails (4.0.1)
+      thor (~> 0.14)
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -377,9 +343,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   carrierwave!
-  chosen-rails!
   coffee-rails (= 4.1.1)
-  compass-rails!
   delayed_job_active_record
   devise!
   em-hiredis
@@ -403,8 +367,8 @@ DEPENDENCIES
   sass-rails (= 5.0.4)
   sdoc (~> 0.4.0)
   searchkick
+  select2-rails
   spring
-  sprockets (= 3.5.2)
   sqlite3
   therubyracer
   turbolinks!

@@ -1,5 +1,2 @@
 jQuery ->
-  $('.chosen-it').chosen()
-  allow_single_deselect: true
-  no_results_text: 'No results matched'
-  width: '200px'
+$("#select2-new-message").select2 tags: true

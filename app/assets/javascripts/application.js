@@ -16,10 +16,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require registrations
-//= require chosen-jquery
 //= require turbolinks
 //= require jquery.infinitescroll
 //= require typeahead.bundle.min
+//= require select2
 //= require messages
 //= require_self
-//= require_tree .
+// require_tree .
