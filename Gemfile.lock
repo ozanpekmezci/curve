@@ -373,7 +373,7 @@ DEPENDENCIES
   capistrano3-puma
   carrierwave!
   chosen-rails!
-  coffee-rails (~> 4.1.0)
+  coffee-rails (= 4.1.1)
   delayed_job_active_record
   devise!
   em-hiredis
