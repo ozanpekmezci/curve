@@ -15,7 +15,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-// require_tree .
 //= require registrations
 //= require turbolinks
 //= require jquery.infinitescroll
@@ -23,4 +22,5 @@
 //= require select2
 //= require messages
 //= require posts
+//= require_tree .
 // require_self
