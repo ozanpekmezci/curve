@@ -1,6 +1,4 @@
-$(".select2-label-list").select2({
-  placeholder: "Tags separated with comma"
-});
+$("#select2-label-list").select2();
 var $postdiv = $('div.new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "form"))%>");
 $postdiv.toggle();
