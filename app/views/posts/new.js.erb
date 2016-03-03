@@ -1,4 +1,5 @@
-$("div.select.select2-label-list").select2();
+var $selectdiv = $('div.select2-labels');
+$selectdiv.select2();
 var $postdiv = $('div.new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "form"))%>");
 $postdiv.toggle();
