@@ -1,6 +1,6 @@
-$('.new-post-form').on('toggle', function() {
-    $('#select2-label-list').select2();
-});
+$('.new-post-form').on 'toggle', ->
+  $('#select2-label-list').select2()
+  return
 
 $(document).ready ->
   $("#posts .media-list").infinitescroll
