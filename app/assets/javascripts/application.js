@@ -23,5 +23,4 @@
 //= require messages
 //= require posts
 //= require_tree .
-//= require posts.js
 // require_self
