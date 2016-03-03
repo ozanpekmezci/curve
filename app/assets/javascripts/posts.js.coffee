@@ -4,11 +4,6 @@ $(document).ready ->
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
     itemSelector: "#posts div.post" # selector for all items you'll retrieve
 
-  $("#post_all_labels_list").select2({
-    tags: true
-  });
-
-
   engine = new Bloodhound(
     datumTokenizer: (d) ->
       console.log d

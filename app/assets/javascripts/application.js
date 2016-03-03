@@ -17,7 +17,7 @@
 //= require bootstrap
 // require_tree .
 //= require registrations
-// require turbolinks
+//= require turbolinks
 //= require jquery.infinitescroll
 //= require typeahead.bundle.min
 //= require select2
