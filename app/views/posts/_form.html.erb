@@ -42,7 +42,7 @@
   </div>
   <div class="form-group" >
      <%= f.label :all_labels_list %>
-     <%= f.text_field :all_labels_list, placeholder: "Tags separated with comma",id: "select2-label-list" %>
+     <%= f.select(:all_labels_list,{},{},class: "form-control" ,id: "select2-label-list") %>
    </div>
   <div class="actions">
     <%= f.submit 'Demand', class: 'btn btn-primary'%>
