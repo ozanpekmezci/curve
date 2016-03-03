@@ -42,7 +42,7 @@
   </div>
   <div class="form-group" >
      <%= f.label :all_labels_list %>
-     <%= f.select(:all_labels_list,Post.first.all_labels_list,{},{class: "form-control" ,id: "select2-label-list",multiple: true,:style => "width:450px;"}) %>
+     <%= f.select(:all_labels_list,Post.first.all_labels_list,{},{class: "select2-label-list" ,id: "select2-label-list",multiple: "multiple"}) %>
    </div>
   <div class="actions">
     <%= f.submit 'Demand', class: 'btn btn-primary'%>
