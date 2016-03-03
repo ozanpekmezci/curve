@@ -1,4 +1,4 @@
-$('.new-post-form').on 'toggle', ->
+$('div.new-post-form').on 'toggle', ->
   $('#select2-label-list').select2()
   return
 
