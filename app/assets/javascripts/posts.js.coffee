@@ -1,4 +1,4 @@
-JQuery ->
+jQuery ->
   $("#select2-label-list").select2
 $(document).ready ->
   $("#posts .media-list").infinitescroll
