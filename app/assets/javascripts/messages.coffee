@@ -1,1 +1,2 @@
-$("#select2-new-message").select2
+JQuery ->
+  $("#select2-new-message").select2
