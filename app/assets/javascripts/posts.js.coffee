@@ -1,3 +1,7 @@
+$('div.new-post-form').on 'toggle', ->
+  $('#select2-label-list').select2()
+  return
+
 $(document).ready ->
   $("#posts .media-list").infinitescroll
     navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
