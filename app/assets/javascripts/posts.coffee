@@ -1,3 +1,6 @@
+jQuery ->
+  $("#select2-label-list").select2()
+
 $(document).ajaxComplete ->
   $('#select2-label-list').select2()
   return
