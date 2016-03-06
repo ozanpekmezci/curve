@@ -1,5 +1,6 @@
-jQuery ->
+$(document).ajaxComplete ->
   $('#select2-label-list').select2()
+  return
 
 $(document).ready ->
   $("#posts .media-list").infinitescroll
