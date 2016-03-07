@@ -1,8 +1,8 @@
 jQuery ->
-  $("#select2-label-list").select2()
+  $("#select2-label-list").select2 tags: true
 
 $(document).ajaxComplete ->
-  $('#select2-label-list').select2()
+  $('#select2-label-list').select2 tags: true
   return
 
 $(document).ready ->
