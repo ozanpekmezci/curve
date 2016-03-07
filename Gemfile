@@ -60,6 +60,8 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 gem 'searchkick'
 gem "mailboxer", github: 'mailboxer/mailboxer'
 gem "select2-rails"
+gem 'pundit'
+
 
 # gem 'aws-sdk', '~> 1.6'
 

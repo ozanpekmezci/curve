@@ -90,6 +90,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+     authorize @post #pundit
     if @post.destroy
       flash[:success] = 'The story was deleted!'
     else

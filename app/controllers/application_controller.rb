@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   # to configure custom parameters for user signup, signin and update account
   before_action :configure_permitted_parameters, if: :devise_controller?
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   #before_action :initialize_omniauth_state
 
   #def after_sign_in_path_for(resource)
@@ -21,6 +23,7 @@ class ApplicationController < ActionController::Base
   flash[:warning] = 'Resource not found.'
   redirect_back_or root_path
 end
+
 
 def redirect_back_or(path)
   redirect_to request.referer || path
@@ -48,6 +51,14 @@ end
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
+
+private
+
+def user_not_authorized(exception)
+  policy_name = exception.policy.class.to_s.underscore
+  flash[:warning] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
+  redirect_to(request.referrer || root_path)
+end
 
 
 end
