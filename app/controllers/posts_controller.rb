@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :get_tags, only: [:index, :edit, :update]
+  #adi ustunde, ama bu sistemi digerlerinde de kullanmak lazim,demo
+  after_action :verify_authorized, only: [:destroy]
+
 
   # kaynak github ve https://sharvy.wordpress.com/2015/01/12/add-robust-search-functionality-in-your-rails-4-app-using-elasticsearch-and-typeahead-js/
   #burdaki value yu tam anlamadim
@@ -90,10 +93,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-     authorize @post #pundit
-    if @post.destroy
+      #demo, authorization boyle olmali!
+
+    if @post.present?
+      authorize @post #pundit
+      @post.destroy
       flash[:success] = 'The story was deleted!'
     else
+      skip_authorization
       flash[:error] = 'Cannot delete this story...'
     end
      redirect_to posts_path
