@@ -53,9 +53,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.html
-      format.js
+    if @post.present?
+      authorize @post
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      skip_authorization
     end
   end
 
