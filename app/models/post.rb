@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable_on :labels
   # posts have comments (one to many relationship)
   acts_as_commentable
-  after_commit { PostRelayJob.perform_later self }
+  after_create_commit { PostRelayJob.perform_later self }
   mount_uploaders :pictures, AvatarUploader
   searchkick autocomplete: ['title'],word_start: [:title]
 

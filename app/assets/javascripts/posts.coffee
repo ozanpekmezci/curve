@@ -3,7 +3,6 @@ jQuery ->
 
 $(document).ajaxComplete ->
   $('#select2-label-list').select2 tags: true
-  return
 
 $(document).ready ->
   $("#posts .media-list").infinitescroll
