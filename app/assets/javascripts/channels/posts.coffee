@@ -32,6 +32,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
+     alert("post-received")
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
@@ -60,7 +61,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   followStream: ->
     @perform 'unfollow'
-    alert(@collection().data('stream-id'))
+
     if @collection().data('stream-id') == "posts_stream"
       @perform 'follow'
     else
