@@ -17,6 +17,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require select2
-//= require cable
+//= require posts
 //= require_tree .
 // require_self
