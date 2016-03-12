@@ -32,7 +32,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
-     alert("post-received")
+     alert "post-received" 
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
