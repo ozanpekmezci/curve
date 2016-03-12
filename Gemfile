@@ -11,7 +11,7 @@ gem 'sass-rails', '5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '4.1.1'
+gem 'coffee-rails', github: "rails/coffee-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes, to use omniauth
 gem 'therubyracer', platforms: :ruby
 
@@ -61,6 +61,8 @@ gem 'searchkick'
 gem "mailboxer", github: 'mailboxer/mailboxer'
 gem "select2-rails"
 gem 'pundit'
+gem 'sprockets-rails', github: "rails/sprockets-rails"
+
 
 
 # gem 'aws-sdk', '~> 1.6'

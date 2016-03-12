@@ -16,7 +16,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require typeahead.bundle.min
 //= require select2
+//= require jquery.infinitescroll
 //= require posts
 //= require_tree .
 // require_self
