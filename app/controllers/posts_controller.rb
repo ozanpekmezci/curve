@@ -76,10 +76,16 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
+  respond_to do |format|
+
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   # @post.save
-  current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+  if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+    format.html
+    format.js
+  end
+  end
 
   end
 
@@ -120,7 +126,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :price, :lat, :lon, :likes, :picture_url,{pictures: []})
+      params.require(:post).permit(:title, :description, :price,  {pictures: []})
     end
     def get_tags
       @tags = Post.tag_counts_on(:labels)
