@@ -81,7 +81,7 @@ class PostsController < ApplicationController
   @post.user_id = params[:user_id]
   # @post.save
   current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
-
+  @post.save
 
   end
 
