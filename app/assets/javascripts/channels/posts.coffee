@@ -32,7 +32,6 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
-     alert "post-received"
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
@@ -57,7 +56,6 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
 
   userIsCurrentUser: (post) ->
-    alert $(post).attr('data-user-id')
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
 
   followStream: ->
