@@ -23,6 +23,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   connected: ->
     # FIXME: While we wait for cable subscriptions to always be finalized before sending posts
+    alert "post-connected"
     setTimeout =>
       @followStream()
       @installPageChangeCallback()
@@ -32,7 +33,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
-     alert "post-received" 
+     alert "post-received"
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
@@ -57,9 +58,11 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
 
   userIsCurrentUser: (post) ->
+    alert $(post).attr('data-user-id')
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
 
   followStream: ->
+    alert @collection().data('stream-id')
     if @collection().data('stream-id') == "posts_stream"
       @perform 'follow'
     else
