@@ -59,5 +59,5 @@ Rails.application.configure do
   # To enable sending e-mails and seeing them in console
   config.action_mailer.perform_deliveries = true
   # not working :
-  config.web_socket_server_url = "wss://localhost:28080"
+  #config.web_socket_server_url = "wss://localhost:28080"
 end
