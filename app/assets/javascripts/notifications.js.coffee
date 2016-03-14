@@ -16,7 +16,7 @@ class Notifications
       url: "/notifications/mark_as_read"
       dataType: "JSON"
       method: "POST"
-      success ->
+      success: ->
         $("[data-behavior='unread-count']").text(0)
     )
   handleSuccess: (data) =>
