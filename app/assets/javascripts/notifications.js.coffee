@@ -4,7 +4,9 @@ class Notifications
     @setup() if @notifications.length > 0
 
   setup: ->
+    alert "setup"
     console.log(@notifications)
 
 jQuery ->
+  alert "new notif"
   new Notifications
