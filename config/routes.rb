@@ -31,7 +31,12 @@ Rails.application.routes.draw do
 
     end
   end
-  resources :notifications
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 
