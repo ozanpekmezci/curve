@@ -20,5 +20,6 @@
 //= require select2
 //= require jquery.infinitescroll
 //= require posts
+//= require notifications
 //= require_tree .
 // require_self
