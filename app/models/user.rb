@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   mount_uploader :avatar, AvatarUploader
   acts_as_messageable
+  has_many :notifications, foreign_key: :recipient_id
 
 
 
