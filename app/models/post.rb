@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   after_create_commit { PostRelayJob.perform_later self }
   mount_uploaders :pictures, AvatarUploader
   searchkick autocomplete: ['title'],word_start: [:title]
-  #emin degilim bundan
+  #post.users falan yapabilmek icin (notification amacli)
   has_many :users, through: :comments
 
 

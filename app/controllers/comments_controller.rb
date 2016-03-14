@@ -20,6 +20,9 @@ class CommentsController < ApplicationController
     #@comments = @post.comments
     #new( comment_params)
     @comment = @post.comments.create! title: params[:comment][:title], comment: params[:comment][:comment], user_id: params[:user_id]
+    (@post.users.uniq - [current_user]).each do |user|
+      Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
+    end
     #respond_to do |format|
      # if @comment.save
       #  format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
