@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  before_action :set_notifications, if: :user_signed_in?
   #before_action :initialize_omniauth_state
 
   #def after_sign_in_path_for(resource)
@@ -20,14 +21,18 @@ class ApplicationController < ActionController::Base
   #end
   ## mailboxer'dan dolayi
   rescue_from ActiveRecord::RecordNotFound do
-  flash[:warning] = 'Resource not found.'
-  redirect_back_or root_path
-end
+    flash[:warning] = 'Resource not found.'
+    redirect_back_or root_path
+  end
 
 
 def redirect_back_or(path)
   redirect_to request.referer || path
 end
+
+  def set_notifications
+    @notifications = Notification.where(recipient: current_user).unread
+  end
 
   protected
   ##

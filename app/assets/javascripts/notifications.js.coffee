@@ -1,10 +1,16 @@
 class Notifications
   constructor: ->
     @notifications = $("[data-behavior='notifications']")
-    @setup() if @notifications.length > 0
+    if @notifications.length > 0
+      @handleSuccess @notifications.data("notifications")
+      $("[data-behavior='notifications']").on "click", @handleClick
+      setInterval (=>
+        @getNewNotifications()
+      ), 5000
+    #NOTE: settimeout kullanildiginda istedigin seyi erteleyebiliyosun
 
-  setup: ->
-    $("[data-behavior='notifications']").on "click", @handleClick
+
+  getNewNotifications: ->
     $.ajax(
       url: "/notifications.json"
       dataType: "JSON"
