@@ -4,9 +4,15 @@ class Notifications
     @setup() if @notifications.length > 0
 
   setup: ->
-    alert "setup"
-    console.log(@notifications)
+    $.ajax(
+      url: "/notifications.json"
+      dataType: "JSON"
+      method: "GET"
+      success: @handleSuccess
+    )
+  handleSuccess: (data) =>
+    console.log(data)
+
 
 jQuery ->
-  alert "new notif"
   new Notifications
