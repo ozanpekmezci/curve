@@ -3,5 +3,5 @@ json.array! @notifications do |notification|
   json.actor notification.actor
   json.action notification.action
   json.notifiable notification.notifiable
-  json.url post_path(notification.notifiable.post, anchor: dom_id(notification.notifiable))
+  json.url post_path(notification.notifiable.commentable, anchor: dom_id(notification.notifiable))
 end
