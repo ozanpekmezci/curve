@@ -19,9 +19,12 @@ class ConversationsController < ApplicationController
   @conversations = @conversations.page params[:page] if @conversations.any?
 end
   def reply
-    current_user.reply_to_conversation(@conversation, params[:body])
+    message = current_user.reply_to_conversation(@conversation, params[:body])
     flash[:success] = 'Reply sent'
     redirect_to conversation_path(@conversation)
+    (@conversation.recipients.uniq - [current_user]).each do |user|
+      Notification.create(recipient: user, actor: current_user, action: "replied",notifiable: message)
+    end
   end
 
   def destroy
