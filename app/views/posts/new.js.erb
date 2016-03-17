@@ -1,6 +1,9 @@
 var $postdiv = $('div.new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "form"))%>");
 $postdiv.toggle();
+$('#file_upload_button').click(function(e){
+  e.preventDefault();
+});
 //var $multiple_upload_butt = $('#multiple_upload_butt');
 //var index=0;
 //$multiple_upload_butt.click(function() {
