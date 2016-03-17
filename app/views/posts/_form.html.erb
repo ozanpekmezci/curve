@@ -26,20 +26,13 @@
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
-  <a href='#' class="btn btn-success" id="multiple_upload_butt">Add Picture</a>
 
-  <div class="file_field_picture_0" style = "display:none">
-    <%= f.file_field :pictures, multiple: true %>
+  <div class="file_field_picture" >
+      <span class="file-input btn btn-primary btn-file">
+        <%= f.file_field :pictures, multiple: true %>
+      </span>
   </div>
-  <div class="file_field_picture_1" style = "display:none">
-    <%= f.file_field :pictures, multiple: true %>
-  </div>
-  <div class="file_field_picture_2" style = "display:none">
-    <%= f.file_field :pictures, multiple: true %>
-  </div>
-  <div class="file_field_picture_3" style = "display:none">
-    <%= f.file_field :pictures, multiple: true %>
-  </div>
+
   <div class="form-group">
      <%= f.label :all_labels_list %>
      <%= f.select(:all_labels_list,{},{},{class: "form-control" ,id: "select2-label-list",multiple: "multiple"}) %>
