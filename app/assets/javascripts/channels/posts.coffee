@@ -1,7 +1,3 @@
-jQuery ->
-  $('#newDemandButton').click (e) ->
-    e.preventDefault()
-
 postArray = []
 
 
