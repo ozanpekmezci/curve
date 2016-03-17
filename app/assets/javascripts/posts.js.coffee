@@ -1,7 +1,5 @@
 jQuery ->
   $("#select2-label-list").select2 tags: true
-  $('#newDemandButton').click (e) ->
-      e.preventDefault()
 
 
 
