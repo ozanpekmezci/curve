@@ -1,7 +1,7 @@
 class CallbacksController < Devise::OmniauthCallbacksController
 
 	#google_oauth2 github code
-	skip_before_filter :verify_authenticity_token
+	#skip_before_filter :verify_authenticity_token
 	##
 	# method for omniauth to connect the user via digitalocean
     def facebook
