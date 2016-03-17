@@ -7,7 +7,6 @@ class CallbacksController < Devise::OmniauthCallbacksController
     def facebook
      # You need to implement the method below in your model (e.g. app/models/user.rb)
       @user = User.from_omniauth(request.env["omniauth.auth"])
-      render :text => request.env['omniauth.auth'].inspect
       logger.debug "Person attributes hash: #{request.env['omniauth.auth'].inspect}"
       logger.info "Processing the request... #{request.env['omniauth.auth'].inspect}"
     if @user.persisted?
