@@ -1,10 +1,10 @@
-<% if user_signed_in? && current_user.likes?(@post) %>
-  <%= link_to "Unlike", post_like_path(@post), method: :delete,remote: true %>
+<% if user_signed_in? && current_user.likes?(post) %>
+  <%= link_to "Unlike", post_like_path(post), method: :delete,remote: true %>
 <%else%>
-  <%= link_to "Like", post_like_path(@post), method: :post,remote: true %>
+  <%= link_to "Like", post_like_path(post), method: :post,remote: true %>
 <%end%>
 
-<%= @post.likes.count %>
+<%= post.likes.count %>
 
 <% post.likes.each do |like| %>
   <%= image_tag like.user.avatar.url(:small_thumb), width: 20 %>
