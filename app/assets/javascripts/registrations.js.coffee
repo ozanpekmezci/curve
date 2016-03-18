@@ -1,11 +1,11 @@
 class Registration
 	constructor: ->
-		@setEvents()
+  	@item = $('.nav-tabs a')
+	  @setEvents()
 
 	setEvents: ->
-		item = $('.nav-tabs a')
-		$(item).on "click", (event) ->
-			event.preventDefault()
+		@item.click (e) ->
+  		e.preventDefault()
   		$(this).tab 'show'
 
 jQuery ->
