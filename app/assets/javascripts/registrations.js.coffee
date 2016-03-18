@@ -4,8 +4,8 @@ class Registration
 		@setEvents()
 
 	setEvents: ->
-		@item.click (e) ->
-			e.preventDefault()
+		@item.on "click", (event) ->
+			event.preventDefault()
   		$(this).tab 'show'
 
 jQuery ->
