@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts do
     resources :comments
+    resource :like, module: :posts #likes controller yerine direk post/likes oluyo
     collection do
       get :autocomplete
     end

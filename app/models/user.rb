@@ -24,6 +24,13 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   acts_as_messageable
   has_many :notifications, foreign_key: :recipient_id
+  has_many :likes
+
+
+  def likes?(post)
+    #sadece id olmasindan emin degilim
+    post.likes.where(user_id: id).any?
+  end
 
 
 
