@@ -17,7 +17,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     version :small_thumb, from_version: :thumb do
        process resize_to_fill: [75, 75]
      end
-
+   
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

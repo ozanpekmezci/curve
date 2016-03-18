@@ -3,3 +3,9 @@
 <%else%>
   <%= link_to "Like", post_like_path(@post), method: :post,remote: true %>
 <%end%>
+
+<%= @post.likes.count %>
+
+<% post.likes.each do |like| %>
+  <%= image_tag like.user.avatar.url(:small_thumb), width: 20 %>
+<% end %>
