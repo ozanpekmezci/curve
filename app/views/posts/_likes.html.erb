@@ -1,7 +1,11 @@
 <% if user_signed_in? && current_user.likes?(post) %>
-  <%= link_to "Unlike", post_like_path(post), method: :delete,remote: true %>
+  <%= link_to post_like_path(post), method: :delete,remote: true do %>
+     <i class="fa fa-heart"></i>
+  <%end%>>
 <%else%>
-  <%= link_to "Like", post_like_path(post), method: :post,remote: true %>
+  <%= link_to  post_like_path(post), method: :post,remote: true do%>
+    <i class="fa fa-heart-o"></i>
+  <%end%>
 <%end%>
 
 <%= post.likes.count %>
