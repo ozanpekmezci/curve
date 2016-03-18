@@ -13,6 +13,7 @@ class Post < ActiveRecord::Base
   searchkick autocomplete: ['title'],word_start: [:title]
   #post.users falan yapabilmek icin (notification amacli)
   has_many :users, through: :comments
+  has_many :likes
 
 
   ##

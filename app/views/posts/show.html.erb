@@ -34,7 +34,9 @@
   <strong>Picture url:</strong>
   <%= @post.picture_url %>
 </p>
-
+<div id="likes">
+  <%=render partial: "likes" %>
+</div>
 <div class= "new-comment-form" style = "display:none">
 </div>
 
@@ -46,7 +48,7 @@
 </div>
 
 <div id= "comments_list">
-  <div class="comments-list-render"> 
+  <div class="comments-list-render">
   </div>
   <%= render 'comments/comments', post: @post %>
 </div>
