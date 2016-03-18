@@ -1,5 +1,5 @@
 class Registration
-	constructor:  ->
+	constructor: ->
 		@item = $('.nav-tabs a')
 		@setEvents()
 
