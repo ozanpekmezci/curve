@@ -3,8 +3,8 @@ class Registration
 		@setEvents()
 
 	setEvents: ->
-		@item = $('.nav-tabs a')
-		@item.on "click", (event) ->
+		item = $('.nav-tabs a')
+		$(item).on "click", (event) ->
 			event.preventDefault()
   		$(this).tab 'show'
 
