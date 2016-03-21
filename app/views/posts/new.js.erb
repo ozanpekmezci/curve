@@ -1,4 +1,4 @@
-var $postdiv = $('div.new-post-form');
+var $postdiv = $('div#new-post-form');
 $postdiv.html("<%= escape_javascript(render(:partial => "new"))%>");
 $postdiv.modal("show");
 //$postdiv.toggle();
