@@ -76,11 +76,16 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
-
-  @post = Post.new(post_params)
-  @post.user_id = params[:user_id]
+  respond_to do |format|
+    @post = Post.new(post_params)
+    @post.user_id = params[:user_id]
   # @post.save
-  current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+    if  current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+      format.html {}
+      format.js {}
+    else
+    end
+  end
 
   end
 
