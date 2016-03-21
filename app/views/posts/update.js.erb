@@ -7,4 +7,5 @@ $postdiv.find(".post-pictures").html("<%=escape_javascript(if @post.pictures?(@p
 $postdiv.find(".post-tags").html("<%=escape_javascript(raw tag_links(@post.all_labels_list))%>");
 
 var $postdiv2 = $('div.post_form-edit[data-id="<%= @post.id %>"]');
-$postdiv2.find('.editform').toggle();
+$//postdiv2.find('.editform').toggle();
+$postdiv.find("#editform").modal("hide")
