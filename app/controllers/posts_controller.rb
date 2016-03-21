@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = params[:user_id]
   # @post.save
-    if  current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+    if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
       format.html {}
       format.js {}
     else
