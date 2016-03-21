@@ -30,7 +30,14 @@
           <%= f.label :price %><br>
           <%= f.number_field :price %>
         </div>
+        <div class="field">
+         <% if @post.pictures? %>
+          <% @post.pictures.each do |p| %>
+            <%= image_tag(p.url(:small_thumb)) %>
+          <%end%>
 
+        <% end %>
+        </div>
         <div class="file_field_picture" >
             <span class="file-input btn btn-primary btn-file">
                Browse&hellip;<%= f.file_field :pictures, multiple: true%>
