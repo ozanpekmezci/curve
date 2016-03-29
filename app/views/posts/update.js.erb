@@ -1,4 +1,4 @@
 var $postdiv = $('div.post[data-id="<%= @post.id %>"]');
+var $postdivform = $('div#new-post-form');
 $postdiv.html("<%= escape_javascript(render('posts/post', post: @post))%>");
-
-$postdiv.find("#editform").modal("hide")
+$postdivform.modal("hide");
