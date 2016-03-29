@@ -76,8 +76,9 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
-  @post = Post.new(post_params)
+  @post = Post.new(post_params_update)
   @post.user_id = params[:user_id]
+  @post.pictures = params[:post][:pictures]
   respond_to do |format|
     #@post.attributes = post_params_update
 
