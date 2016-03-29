@@ -84,8 +84,8 @@ class PostsController < ApplicationController
 
   # @post.save
     if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
-      format.html
-      format.js
+      format.html {redirect_to posts_path, notice: 'Demand was successfully created.'}
+      format.js {}
     else
       format.html
       format.js
