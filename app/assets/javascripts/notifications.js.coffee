@@ -4,10 +4,14 @@ class Notifications
     if @notifications.length > 0
       @handleSuccess @notifications.data("notifications")
       $("[data-behavior='notifications']").on "click", @handleClick
-      setInterval (=>
+      @interval = setInterval (=>
         @getNewNotifications()
       ), 5000
     #NOTE: settimeout kullanildiginda istedigin seyi erteleyebiliyosun
+
+  interruptNotificationInterval: ->
+    clearInterval(@interval) if @interval
+  # if modal is not shown/visible then do something
 
 
   getNewNotifications: ->
@@ -34,3 +38,7 @@ class Notifications
 
 jQuery ->
   new Notifications
+
+$(document).ajaxComplete ->
+  if $("[data-behavior='post_modal']").is(':visible')
+    @interruptNotificationInterval()
