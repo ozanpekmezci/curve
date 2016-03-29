@@ -21,6 +21,6 @@
 // require posts
 // require notifications
 // require messages
-//= require_tree .
 //= require turbolinks
+//= require_tree .
 // require_self
