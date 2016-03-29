@@ -77,7 +77,8 @@ class PostsController < ApplicationController
   #    end
   #  end
   respond_to do |format|
-    @post = Post.new(post_params)
+    @post.attributes = post_params_update
+    #@post = Post.new(post_params)
     @post.user_id = params[:user_id]
   # @post.save
     if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
