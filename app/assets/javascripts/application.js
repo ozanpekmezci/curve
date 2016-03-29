@@ -12,7 +12,7 @@
 //
 // requirements added by sitepoint's devise tutorial (line 17-20)
 //= require jquery
-// require jquery.turbolinks
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.infinitescroll
 //= require turbolinks
