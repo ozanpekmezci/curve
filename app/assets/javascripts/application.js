@@ -21,5 +21,6 @@
 //= require select2
 // require posts
 // require notifications
+//= require messages
 //= require_tree .
 // require_self

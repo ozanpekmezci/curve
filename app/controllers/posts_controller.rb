@@ -92,7 +92,12 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       ##update'in commitsizi
-      @post.attributes = post_params
+      if @post.pictures?
+        @post.attributes = post_params_update
+        @post.pictures += params[:post][:pictures]
+      else
+        @post.attributes = post_params
+      end
       if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
         format.html { redirect_to @post, notice: 'Demand was successfully updated.' }
         format.js {}
@@ -127,6 +132,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :price,  {pictures: []})
+    end
+    def post_params_update
+      params.require(:post).permit(:title, :description, :price)
     end
     def get_tags
       @tags = Post.tag_counts_on(:labels)
