@@ -1,11 +1,6 @@
 jQuery ->
   $("#select2-label-list").select2 tags: true
 
-
-
-$(document).ajaxComplete ->
-  $('#select2-label-list').select2 tags: true
-
 $(document).ready ->
   $("#posts .media-list").infinitescroll
     navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
