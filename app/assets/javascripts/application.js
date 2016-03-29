@@ -15,7 +15,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.infinitescroll
-//= require turbolinks
 //= require bootstrap
 //= require typeahead.bundle.min
 //= require select2
@@ -23,4 +22,5 @@
 // require notifications
 // require messages
 //= require_tree .
+//= require turbolinks
 // require_self
