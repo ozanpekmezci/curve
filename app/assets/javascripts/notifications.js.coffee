@@ -40,5 +40,5 @@ jQuery ->
 
 $(document).ajaxComplete ->
   alert "ajaxComplete"
-  if $("[data-behavior='post_modal']").is(':visible')
+#  if $("[data-behavior='post_modal']").is(':visible')
 #    @interruptNotificationInterval()
