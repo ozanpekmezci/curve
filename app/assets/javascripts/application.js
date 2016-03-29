@@ -12,13 +12,13 @@
 //
 // requirements added by sitepoint's devise tutorial (line 17-20)
 //= require jquery
-// require jquery.turbolinks
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.infinitescroll
 //= require turbolinks
 //= require bootstrap
 //= require typeahead.bundle.min
 //= require select2
-//= require jquery.infinitescroll
 // require posts
 // require notifications
 //= require_tree .
