@@ -76,9 +76,8 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
-  @post = Post.new(post_params_update)
+  @post = Post.new(post_params)
   @post.user_id = params[:user_id]
-  @post.pictures = params[:post][:pictures]
   respond_to do |format|
     #@post.attributes = post_params_update
 
@@ -99,7 +98,11 @@ class PostsController < ApplicationController
       ##update'in commitsizi
       if @post.pictures?
         @post.attributes = post_params_update
-        @post.pictures += params[:post][:pictures]
+        if params[:post][:pictures].empty?
+          @post.pictures = @post.pictures
+        else
+          @post.pictures+= params[:post][:pictures]
+        end
       else
         @post.attributes = post_params
       end
