@@ -9,10 +9,8 @@ class Notifications
       ), 5000
     #NOTE: settimeout kullanildiginda istedigin seyi erteleyebiliyosun
 
-  #interruptNotificationInterval: ->
-  #  clearInterval(@interval) if @interval
-  # if modal is not shown/visible then do something
-
+  interruptNotificationInterval: ->
+    clearInterval(@interval) if @interval
 
   getNewNotifications: ->
     $.ajax(
@@ -37,8 +35,10 @@ class Notifications
 
 
 jQuery ->
+  alert "jQuery"
   new Notifications
 
-#$(document).ajaxComplete ->
-#  if $("[data-behavior='post_modal']").is(':visible')
+$(document).ajaxComplete ->
+  alert "ajaxComplete"
+  if $("[data-behavior='post_modal']").is(':visible')
 #    @interruptNotificationInterval()
