@@ -1,5 +1,3 @@
-#@notificationInstance
-
 class Notifications
   constructor: ->
     @notifications = $("[data-behavior='notifications']")
@@ -12,9 +10,6 @@ class Notifications
     @interval = setInterval (=>
       @getNewNotifications()
     ), 5000
-
-  interruptNotificationInterval: ->
-    clearInterval(@interval) if @interval
 
   getNewNotifications: ->
     $.ajax(
@@ -39,9 +34,4 @@ class Notifications
 
 
 jQuery ->
-  #@notificationInstance=
   new Notifications
-
-# $(document).ajaxComplete ->
-#  if $("[data-behavior='post_modal']").is(':visible')
-#    @interruptNotificationInterval()
