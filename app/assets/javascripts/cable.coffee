@@ -1,6 +1,6 @@
-#= require action_cable
-#= require_self
-#= require_tree ./channels
+# require action_cable
+# require_self
+# require_tree ./channels
 # require channels/comments
 
 #@App ||= {}
