@@ -98,13 +98,8 @@ class PostsController < ApplicationController
       ##update'in commitsizi
       if @post.pictures?
         @post.attributes = post_params_update
-        logger.debug "#{params[:post][:pictures].empty?}"
-        if params[:post][:pictures].empty?
-          
-        else
+        @post.pictures += params[:post][:pictures]
 
-          @post.pictures += params[:post][:pictures]
-        end
       else
         @post.attributes = post_params
       end
