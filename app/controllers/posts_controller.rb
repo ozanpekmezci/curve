@@ -99,7 +99,7 @@ class PostsController < ApplicationController
       if @post.pictures?
         @post.attributes = post_params_update
 
-        if params[:post][:pictures].empty?
+        if params[:post][:pictures].empty? || params[:post][:pictures].nil?
         else
           @post.pictures += params[:post][:pictures]
         end
