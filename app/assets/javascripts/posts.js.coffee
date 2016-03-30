@@ -7,7 +7,6 @@ jQuery ->
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
     itemSelector: "#posts div.post" # selector for all items you'll retrieve
 
-
   $('.typeahead').typeahead
     name: 'post'
     remote: '/posts/autocomplete?query=%QUERY'
