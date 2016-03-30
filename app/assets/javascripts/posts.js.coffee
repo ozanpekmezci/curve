@@ -13,7 +13,9 @@ jQuery ->
 class Autocomplete
   constructor: ->
     numbers = new Bloodhound(
-      remote: url: '/posts/autocomplete?query=%QUERY'
+      remote:
+        url: '/posts/autocomplete?query=%QUERY'
+        wildcard: '%QUERY'
       datumTokenizer: (d) ->
         Bloodhound.tokenizers.whitespace d.title
       queryTokenizer: Bloodhound.tokenizers.whitespace)
