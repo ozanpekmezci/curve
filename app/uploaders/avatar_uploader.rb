@@ -33,10 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     def content_type_blacklist
        ['application/text', 'application/json']
      end
-#     def default_url(*args)
+    def default_url(*args)
         # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-#        "https://i.imgur.com/CMg2Zkg.png?1"
-#       end
+        "https://i.imgur.com/CMg2Zkg.png?1"
+       end
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

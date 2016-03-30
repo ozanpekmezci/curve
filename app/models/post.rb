@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   # posts have comments (one to many relationship)
   acts_as_commentable
 #  after_create_commit { PostRelayJob.perform_later self }
-  mount_uploaders :pictures, AvatarUploader
+  mount_uploaders :pictures, PostImageUploader
   searchkick autocomplete: ['title'],word_start: [:title]
   #post.users falan yapabilmek icin (notification amacli)
   has_many :users, through: :comments
