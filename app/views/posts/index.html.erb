@@ -7,11 +7,8 @@
   <%= form_tag posts_path, method: :get do %>
       <%= text_field_tag :query, params[:query], placeholder: "Search" %>
     <% end %>
+  
 
-    <% if @posts.suggestions.any? %>
-      <p>Did you mean: <%= @posts.suggestions.first %></p>
-    <% end %>
- 
 
 </div>
 
