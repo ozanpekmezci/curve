@@ -1,8 +1,8 @@
-#= require action_cable
-#= require_self
-#= require_tree ./channels
+# require action_cable
+# require_self
+# require_tree ./channels
 # require channels/comments
 
-@App ||= {}
-App.cable = ActionCable.createConsumer("wss://curve-app.com:28080/cable")
+#@App ||= {}
+#App.cable = ActionCable.createConsumer("wss://curve-app.com:28080/cable")
 #NOTE: gecici

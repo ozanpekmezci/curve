@@ -1,13 +1,16 @@
 <% if user_signed_in? %>
   <p id="notice"><%= notice %></p>
 
-  <div class="post-search">
+  <div class="posts-search">
   <h1>Search Demands</h1>
 
-  <%= form_tag posts_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Search" %>
-    <% end %>
-  
+
+    <%= form_tag posts_path, method: :get do %>
+     <div class="form-group">
+       <%= text_field_tag :query, params[:query], class: 'form-control typeahead', autocomplete: "off" %>
+       <%= submit_tag 'Search', class: 'btn btn-primary' %>
+     </div>
+   <% end %>
 
 
 </div>

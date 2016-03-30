@@ -15,10 +15,10 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.infinitescroll
-//= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require select2
+//= require typeahead.bundle
 // require posts
 // require notifications
 // require messages
