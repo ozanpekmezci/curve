@@ -15,9 +15,9 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.infinitescroll
+//= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require typeahead.bundle.min
 //= require select2
 // require posts
 // require notifications

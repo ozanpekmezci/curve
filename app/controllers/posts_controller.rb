@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def index
       #@posts = Post.order('created_at DESC')
       if params[:query].present?
-           @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}]
+           @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}], suggest: true
          else
            @followed_user_posts = []
            @followed_tag_posts = []

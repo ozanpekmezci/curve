@@ -63,6 +63,7 @@ gem "select2-rails"
 gem 'pundit'
 gem 'sprockets-rails', github: "rails/sprockets-rails"
 gem 'font-awesome-rails'
+gem 'jquery-ui-rails'
 
 
 

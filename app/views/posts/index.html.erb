@@ -3,12 +3,16 @@
 
   <div class="post-search">
   <h1>Search Demands</h1>
+
   <%= form_tag posts_path, method: :get do %>
-    <div class="form-group">
-      <%= text_field_tag :query, params[:query], class: 'form-control typeahead'%>
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search" %>
+    <% end %>
+
+    <% if @posts.suggestions.any? %>
+      <p>Did you mean: <%= @posts.suggestions.first %></p>
+    <% end %>
+ 
+
 </div>
 
   <h1>Demands</h1>
