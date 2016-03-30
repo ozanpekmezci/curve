@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :set_notifications, if: :user_signed_in?
+  force_ssl if: "Rails.env.production? && action_name != 'dialog_chat'"
   #before_action :initialize_omniauth_state
 
   #def after_sign_in_path_for(resource)
