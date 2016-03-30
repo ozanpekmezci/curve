@@ -100,8 +100,9 @@ class PostsController < ApplicationController
         @post.attributes = post_params_update
 
         if params[:post][:pictures].any?
+            @post.pictures += params[:post][:pictures]
         else
-          @post.pictures += params[:post][:pictures]
+
         end
       else
         @post.attributes = post_params
