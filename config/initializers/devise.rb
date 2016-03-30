@@ -241,7 +241,7 @@ Devise.setup do |config|
   #Add your ID and secret here
   #ID first, secret second
   # config.omniauth :facebook, "db381dc9990be7e3bc42503d0", "5b0824c2722b65d29965f1a1df"
-  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], provider_ignores_state: true
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], callback_url: "https://curve-app.com/users/auth/google_oauth2/callback",secure_image_url: 'true',image_size: 'large'
   config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], callback_url: "https://curve-app.com/users/auth/facebook/callback",secure_image_url: 'true',image_size: 'large'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
