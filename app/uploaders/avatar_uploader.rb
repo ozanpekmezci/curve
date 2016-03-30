@@ -17,7 +17,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
     version :small_thumb, from_version: :thumb do
        process resize_to_fill: [75, 75]
      end
-   
+
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -33,10 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     def content_type_blacklist
        ['application/text', 'application/json']
      end
-     def default_url(*args)
+#     def default_url(*args)
         # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-        "https://i.imgur.com/CMg2Zkg.png?1"
-       end
+#        "https://i.imgur.com/CMg2Zkg.png?1"
+#       end
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
