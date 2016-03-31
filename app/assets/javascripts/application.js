@@ -19,6 +19,7 @@
 //= require bootstrap-sprockets
 //= require select2
 //= require typeahead.bundle
+//= require cable
 // require posts
 // require notifications
 // require messages

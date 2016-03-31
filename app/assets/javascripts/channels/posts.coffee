@@ -1,7 +1,7 @@
 postArray = []
 
 
-window.onload = ->
+jQuery ->
   # if $('.id-div-newDemand').length
   something = document.getElementById('id-div-newDemand')
   something.style.cursor = 'pointer'
@@ -46,6 +46,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
     #   postdiv.hide()
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
     # else
+     alert data['post']
      nbr = parseInt(nd.text())
      nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
