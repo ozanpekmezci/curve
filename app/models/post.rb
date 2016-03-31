@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable_on :labels
   # posts have comments (one to many relationship)
   acts_as_commentable
-  after_create_commit { PostRelayJob.perform_later(self, current_user) }
+  after_create_commit { PostRelayJob.perform_later self }
   mount_uploaders :pictures, PostImageUploader
   searchkick text_start: [:title],autocomplete: ['title'], suggest: [:title]
   #post.users falan yapabilmek icin (notification amacli)

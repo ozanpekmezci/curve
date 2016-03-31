@@ -13,7 +13,7 @@
 
     <% end %>
     </div>
-    <p id="post_<%=post.id%>_likes"><%=render partial: "posts/likes", locals: {post: post, user: user} %> </p>
+    <p id="post_<%=post.id%>_likes"><%=render partial: "posts/likes", locals: {post: post} %> </p>
     <div class="post-tags">
         <%=raw tag_links(post.all_labels_list)%>
     </div>
