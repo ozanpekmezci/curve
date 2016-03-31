@@ -13,7 +13,7 @@
 
     <% end %>
     </div>
-    <p id="post_<%=post.id%>_likes"><%=render partial: "posts/likes", locals: {post: post} %> </p>
+    <p id="post_<%=post.id%>_likes"><%=render partial: "posts/likes", locals: {post: post, user: user} %> </p>
     <div class="post-tags">
         <%=raw tag_links(post.all_labels_list)%>
     </div>
@@ -25,6 +25,6 @@
     <div class="name">
     <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
     </div>
-  
+
 </div>
 </article>

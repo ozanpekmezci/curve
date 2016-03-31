@@ -3,7 +3,7 @@ class PostRelayJob < ApplicationJob
 
   def perform(post)
     ActionCable.server.broadcast "posts",
-      post: PostsController.renderer.render(partial: 'posts/post', locals: { post: post })
+      post: PostsController.renderer.render(partial: 'posts/post', locals: { post: post, user: current_user })
   end
 
 end

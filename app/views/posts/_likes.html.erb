@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.likes?(post) %>
+<% if user.likes?(post) %>
   <%= link_to post_like_path(post), method: :delete,remote: true do %>
      <i class="fa fa-heart"></i>
   <%end%>
