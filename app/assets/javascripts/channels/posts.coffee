@@ -1,4 +1,4 @@
-postArray = []
+@postArray = []
 
 
 jQuery ->
