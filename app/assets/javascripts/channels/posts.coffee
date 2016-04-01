@@ -2,7 +2,7 @@ class PostChannel
   @postArray = []
   constructor: ->
     @postArray = []
-    @createCable()
+    @createCable(@postArray)
     if @postArray.length > 0
       $("[data-behavior='newDemandButton']").on "click", @handleClick
       newDemands = document.getElementById('id-div-newDemand')
@@ -20,7 +20,7 @@ class PostChannel
       $("[data-channel='posts']").prepend @postArray[index]
       index++
 
-  createCable: ->
+  createCable:(postArray) ->
     App.posts = App.cable.subscriptions.create "PostsChannel",
       collection: -> $("[data-channel='posts']")
 
