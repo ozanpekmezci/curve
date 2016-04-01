@@ -1,10 +1,11 @@
 postArray = []
 class PostChannel
   constructor: ->
-    $("[data-behavior='newDemandButton']").on "click", @handleClick
-    @newDemands = $("[data-behavior='id-div-newDemand']")
-    @newDemands.style.cursor = 'pointer'
-    @newDemands.on "click", @handleClick
+    if postArray.length > 0
+      $("[data-behavior='newDemandButton']").on "click", @handleClick
+      @newDemands = document.getElementById('id-div-newDemand')
+      @newDemands.style.cursor = 'pointer'
+      @newDemands.on "click", @handleClick
 
   handleClick:(e) =>
     divNd = $('.div-newDemand')
