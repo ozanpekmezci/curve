@@ -3,9 +3,10 @@ class PostChannel
   constructor: ->
     if postArray.length > 0
       $("[data-behavior='newDemandButton']").on "click", @handleClick
-      @newDemands = document.getElementById('id-div-newDemand')
-      @newDemands.style.cursor = 'pointer'
-      @newDemands.on "click", @handleClick
+      newDemands = document.getElementById('id-div-newDemand')
+      newDemands.style.cursor = 'pointer'
+      newDemands.onclick = ->
+         @handleClick
 
   handleClick:(e) =>
     divNd = $('.div-newDemand')

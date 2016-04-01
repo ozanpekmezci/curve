@@ -1,5 +1,5 @@
 var $postdiv = $('div#new-post-form');
-$("[data-channel='posts']").prepend(@post);
+$("[data-channel='posts']").prepend('<%=j render @post %>');
 
 $postdiv.modal("hide");
 //$postdiv.toggle();
