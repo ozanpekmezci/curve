@@ -1,7 +1,7 @@
 class PostChannel
   @postArray = []
   constructor: ->
-    #@postArray = []
+    @postArray = []
     @createCable()
     if @postArray.length > 0
       $("[data-behavior='newDemandButton']").on "click", @handleClick
