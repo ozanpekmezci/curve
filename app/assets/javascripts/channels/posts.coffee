@@ -7,15 +7,15 @@ jQuery ->
      @handleClick
   $("[data-behavior='newDemandButton']").on "click", @handleClick
 
-  handleClick:(e) =>
-    divNd = $('.div-newDemand')
-    divNd.hide()
-    nd = $('.newDemand')
-    nd.text("0")
-    index = 0
-    while index < postArray.length
-      $("[data-channel='posts']").prepend postArray[index]
-      index++
+handleClick:(e) =>
+  divNd = $('.div-newDemand')
+  divNd.hide()
+  nd = $('.newDemand')
+  nd.text("0")
+  index = 0
+  while index < postArray.length
+    $("[data-channel='posts']").prepend postArray[index]
+    index++
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
