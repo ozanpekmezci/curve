@@ -1,19 +1,5 @@
 var $postdiv = $('div#new-post-form');
-var divNd, index, nd;
-
-nd = $('.newDemand');
-
-divNd = $('.div-newDemand');
-
-postArray.push(@post);
-
-index = 0;
-while (index < postArray.length) {
-  $("[data-channel='posts']").prepend(postArray[index]);
-  index++;
-}
-divNd.hide();
-nd.text("0");
+$("[data-channel='posts']").prepend(@post);
 
 $postdiv.modal("hide");
 //$postdiv.toggle();

@@ -1,11 +1,12 @@
-@postArray = []
+postArray = []
+class PostChannel
+  constructor: ->
+    $("[data-behavior='newDemandButton']").on "click", @handleClick
+    @newDemands = $("[data-behavior='id-div-newDemand']")
+    @newDemands.style.cursor = 'pointer'
+    @newDemands.on "click", @handleClick
 
-
-jQuery ->
-  # if $('.id-div-newDemand').length
-  something = document.getElementById('id-div-newDemand')
-  something.style.cursor = 'pointer'
-  something.onclick = ->
+  handleClick:(e) =>
     divNd = $('.div-newDemand')
     divNd.hide()
     nd = $('.newDemand')
@@ -14,9 +15,9 @@ jQuery ->
     while index < postArray.length
       $("[data-channel='posts']").prepend postArray[index]
       index++
-#  newDemandButton = document.getElementById('newDemandButton')
-#  newDemandButton.onclick = ->
 
+jQuery ->
+  new PostChannel
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
