@@ -2,7 +2,7 @@ class PostsChannel < ApplicationCable::Channel
   def follow(current_user_id)
     stop_all_streams
     #stream_from 'demo_chan'
-    stream_from "posts_#{current_user_id}"
+    stream_from "posts_#{current_user_id['current_user_id'].to_i}"
   end
 
   def unfollow
