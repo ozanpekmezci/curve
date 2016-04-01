@@ -35,26 +35,25 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
-    # if @userIsCurrentUser(data.post)
-    #   index = 0
-    #   while index < postArray.length
-    #     $("[data-channel='posts']").prepend postArray[index]
-    #     index++
-    #   divNd.hide()
-    #   nd.text("0")
-    #   postdiv = $('#new-post-form')
-    #   postdiv.hide()
+     if @userIsCurrentUser(data.post)
+       index = 0
+       while index < postArray.length
+         $("[data-channel='posts']").prepend postArray[index]
+         index++
+       divNd.hide()
+       nd.text("0")
+       #postdiv = $('#new-post-form')
+       #postdiv.hide()
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
-    # else
+     else
     # alert data['post']
-     nbr = parseInt(nd.text())
-     nd.text(nbr+1)
+      nbr = parseInt(nd.text())
+      nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
-     divNd.show()
+      divNd.show()
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
-
 
   userIsCurrentUser: (post) ->
     $(post).attr('data-user-id') is $('meta[name=current-user]').attr('id')
