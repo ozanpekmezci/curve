@@ -1,21 +1,21 @@
 postArray = []
 jQuery ->
   if postArray.length > 0
-    $("[data-behavior='newDemandButton']").on "click", @handleClick()
+    $("[data-behavior='newDemandButton']").on "click", @handleClick
     newDemands = document.getElementById('id-div-newDemand')
     newDemands.style.cursor = 'pointer'
     newDemands.onclick = ->
-       @handleClick()
+       @handleClick
 
-handleClick:() =>
-  divNd = $('.div-newDemand')
-  divNd.hide()
-  nd = $('.newDemand')
-  nd.text("0")
-  index = 0
-  while index < postArray.length
-    $("[data-channel='posts']").prepend postArray[index]
-    index++
+  handleClick:(e) =>
+    divNd = $('.div-newDemand')
+    divNd.hide()
+    nd = $('.newDemand')
+    nd.text("0")
+    index = 0
+    while index < postArray.length
+      $("[data-channel='posts']").prepend postArray[index]
+      index++
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
