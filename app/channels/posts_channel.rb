@@ -1,5 +1,5 @@
 class PostsChannel < ApplicationCable::Channel
-  def follow
+  def follow(current_user)
     stop_all_streams
     #stream_from 'demo_chan'
     stream_from "posts_#{current_user.id}"
