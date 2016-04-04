@@ -65,6 +65,7 @@ class PostsController < ApplicationController
   #    end
   #  end
   @posts = get_posts_for_user
+  @posts= Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   respond_to do |format|
