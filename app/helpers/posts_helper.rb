@@ -3,12 +3,16 @@ module PostsHelper
 
 	##
 	# sitepoint 2015 redis tutorial
+  def get_posts_for_user
+    @posts = policy_scope(Post)
+  end
+
 	def fetch_posts
     pre_posts = $redis.get("posts")
     unless pre_posts.nil?
       posts =  Marshal.load(pre_posts)
-    else 
-      
+    else
+
       posts = Post.all
       $redis.set("posts", Marshal.dump(posts))
       # posts =  Marshal.load($redis.get("posts"))

@@ -16,22 +16,12 @@ class PostsController < ApplicationController
   def index
       #@posts = Post.order('created_at DESC')
       if params[:query].present?
-           @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}], suggest: true
-         else
-           @followed_user_posts = []
-           @followed_tag_posts = []
-           current_user.following.each do |f|
-             @followed_user_posts += f.posts
-           end
-           @followed_user_posts += current_user.posts
-           Post.all.each do |p|
-             if (p.all_labels_list & current_user.follow_tags).any?
-               @followed_tag_posts.push(p)
-             end
-           end
-           @posts = @followed_tag_posts | @followed_user_posts
-           @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
-         end
+        @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}], suggest: true
+      else
+        @posts = get_posts_for_user
+      end
+        @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
+
 
 
       #fetch_posts
@@ -74,6 +64,7 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
+  @posts = get_posts_for_user
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   respond_to do |format|
