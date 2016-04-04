@@ -1,1 +1,2 @@
-$("#posts").append("<ul class= 'media-list'><%= escape_javascript(render('posts/posts', posts: @posts)) %></ul>");
+$("[data-channel='posts']").html("<%= escape_javascript(render @posts, user: current_user) %>")
+$("[data-behavior='id-div-newDemand']").hide()

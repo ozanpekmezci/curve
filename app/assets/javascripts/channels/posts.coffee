@@ -1,4 +1,4 @@
-postArray = []
+#postArray = []
 #jQuery ->
   #if postArray.length > 0
   #newDemands = document.getElementById('id-div-newDemand')
@@ -33,7 +33,7 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
      # redundant: FIXME
     nd = $('.newDemand')
     divNd = $('.div-newDemand')
-    postArray.push data['post']
+  #  postArray.push data['post']
     # if @userIsCurrentUser(data.post)
     #   index = 0
     #   while index < postArray.length

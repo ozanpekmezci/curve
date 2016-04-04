@@ -1,4 +1,6 @@
 jQuery ->
+  divNd = $('.div-newDemand')
+  divNd.show()
   new Autocomplete
   $("[data-behavior='post_modal']").on 'show.bs.modal', (e) ->
     $("#select2-label-list").select2 tags: true

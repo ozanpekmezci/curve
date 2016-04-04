@@ -22,10 +22,12 @@ class PostsController < ApplicationController
       end
         @posts = Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
 
+        respond_to do |format|
+          format.html
+          format.js
+        end
 
-
-      #fetch_posts
-   end
+    end
 
   def show
     @comment = Comment.new
