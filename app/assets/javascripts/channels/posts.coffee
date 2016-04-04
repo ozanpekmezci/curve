@@ -1,5 +1,5 @@
 postArray = []
-jQuery ->
+#jQuery ->
   #if postArray.length > 0
   #newDemands = document.getElementById('id-div-newDemand')
   #newDemands.style.cursor = 'pointer'
@@ -31,9 +31,9 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
 
   received: (data) ->
      # redundant: FIXME
-     nd = $('.newDemand')
-     divNd = $('.div-newDemand')
-     postArray.push data['post']
+    nd = $('.newDemand')
+    divNd = $('.div-newDemand')
+    postArray.push data['post']
     # if @userIsCurrentUser(data.post)
     #   index = 0
     #   while index < postArray.length
@@ -47,10 +47,10 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
   #   else
     # alert data['post']
-      nbr = parseInt(nd.text())
-      nd.text(nbr+1)
+    nbr = parseInt(nd.text())
+    nd.text(nbr+1)
      #$('.newDemand').html parseInt($('.newDemand').html(), 10)+1
-      divNd.show()
+    divNd.show()
      #unless @userIsCurrentUser(data.post)
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
