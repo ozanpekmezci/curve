@@ -1,2 +1,3 @@
 $("[data-channel='posts']").html("<%= escape_javascript(render @posts, user: current_user) %>")
 $("[data-behavior='id-div-newDemand']").hide()
+$("[data-behavior='new-demand-amount']").text("0")
