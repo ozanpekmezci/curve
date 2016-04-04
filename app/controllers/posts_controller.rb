@@ -64,8 +64,7 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
-  @posts = get_posts_for_user
-  @posts= Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
+
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   respond_to do |format|
@@ -73,6 +72,8 @@ class PostsController < ApplicationController
 
   # @post.save
     if current_user.tag(@post, with: params[:post][:all_labels_list], on: :labels)
+      @posts = get_posts_for_user
+      @posts= Kaminari.paginate_array(@posts.sort_by{|post| post.created_at}.reverse).page(params[:page])
       format.html {redirect_to posts_path, notice: 'Demand was successfully created.'}
       format.js {}
     else
