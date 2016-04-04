@@ -1,21 +1,21 @@
 postArray = []
 jQuery ->
   #if postArray.length > 0
-  newDemands = document.getElementById('id-div-newDemand')
-  newDemands.style.cursor = 'pointer'
-  newDemands.onclick = ->
-     @handleClick
-  $("[data-behavior='newDemandButton']").on "click", @handleClick
+  #newDemands = document.getElementById('id-div-newDemand')
+  #newDemands.style.cursor = 'pointer'
+  #newDemands.onclick = ->
+  #   @handleClick
+  #$("[data-behavior='newDemandButton']").on "click", @handleClick
 
-handleClick:(e) =>
-  divNd = $('.div-newDemand')
-  divNd.hide()
-  nd = $('.newDemand')
-  nd.text("0")
-  index = 0
-  while index < postArray.length
-    $("[data-channel='posts']").prepend postArray[index]
-    index++
+#handleClick:(e) =>
+#  divNd = $('.div-newDemand')
+#  divNd.hide()
+#  nd = $('.newDemand')
+#  nd.text("0")
+#  index = 0
+#  while index < postArray.length
+#    $("[data-channel='posts']").prepend postArray[index]
+#    index++
 
 App.posts = App.cable.subscriptions.create "PostsChannel",
   collection: -> $("[data-channel='posts']")
@@ -34,18 +34,18 @@ App.posts = App.cable.subscriptions.create "PostsChannel",
      nd = $('.newDemand')
      divNd = $('.div-newDemand')
      postArray.push data['post']
-     if @userIsCurrentUser(data.post)
-       index = 0
-       while index < postArray.length
-         $("[data-channel='posts']").prepend postArray[index]
-         index++
-       postArray = []
-       divNd.hide()
-       nd.text("0")
+    # if @userIsCurrentUser(data.post)
+    #   index = 0
+    #   while index < postArray.length
+    #     $("[data-channel='posts']").prepend postArray[index]
+    #     index++
+    #   postArray = []
+    #   divNd.hide()
+    #   nd.text("0")
        #postdiv = $('#new-post-form')
        #postdiv.hide()
     # @collection().prepend data['post'] if @userIsCurrentUser(data.post)
-     else
+  #   else
     # alert data['post']
       nbr = parseInt(nd.text())
       nd.text(nbr+1)
