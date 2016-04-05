@@ -35,7 +35,7 @@
   <%= @post.picture_url %>
 </p>
 <div id="post_<%=@post.id%>_likes">
-  <%=render partial: "likes", locals: {post: @post} %>
+  <%=render partial: "likes", locals: {post: @post,user: current_user} %>
 </div>
 <div class= "new-comment-form" style = "display:none">
 </div>
