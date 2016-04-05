@@ -3,12 +3,10 @@ body.registrations.new {
   input[type="text"],
   input[type="password"],
   input[type="email"] {
-    font-size: 28px;
-    font-weight: 100;
     width: 100%;
     border: none;
     outline: none;
-    background-color: rgb(250, 255, 189);
+    background-color: rgb(206, 233, 242);
   }
   .remember-me {
     display: inline-block;
