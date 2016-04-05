@@ -12,12 +12,8 @@ body.registrations.new {
   }
   .remember-me {
     display: inline-block;
-    color: $font-black;
   }
   .devise-links {
     margin-top: 2em;
-    a {
-      color: $font-black;
-    }
   }
 }
