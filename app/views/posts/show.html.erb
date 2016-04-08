@@ -16,8 +16,8 @@
 </p>
 
 <div class="post-pictures">
-  <% if post.pictures? %>
-    <% post.pictures.each do |p| %>
+  <% if @post.pictures? %>
+    <% @post.pictures.each do |p| %>
       <%= image_tag(p.url(:thumb)) %>
     <%end%>
 
