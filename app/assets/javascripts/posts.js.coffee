@@ -29,8 +29,9 @@ class Autocomplete
       return
     # instantiate the typeahead UI
     $('.typeahead').typeahead null,
-      displayKey: 'title'
-      source: numbers.ttAdapter()
+      name: 'search'
+      display: 'title'
+      source: numbers
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
