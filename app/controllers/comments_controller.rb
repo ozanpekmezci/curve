@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
     #@comment.user_id=params[:user_id]
     #@comments = @post.comments
     #new( comment_params)
-    #comment: params[:comment][:comment], user_id: params[:user_id]
-    @comment = @post.comments.create! comment_params
+    #NOTE: bunu adam gibi strong_paramslamak lazim
+    @comment = @post.comments.create! comment_params comment: params[:comment][:comment], user_id: params[:user_id],price: params[:comment][:price]
     ((@post.users+[@post.user]).uniq - [current_user]).each do |user|
       Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
     end
@@ -67,8 +67,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:price, :comment)
-    params.permit(:user_id)
+    params.require(:comment).permit(:title, :comment,:user_id )
   end
   def find_comment
     @comment = Comment.find(params[:id])
