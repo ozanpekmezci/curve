@@ -8,7 +8,9 @@
 
   		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
   		<%= link_to 'Delete', post_comment_path(comment.commentable,comment), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger',remote: true, rel:"nofollow" %>
-
+			<% if current_user.id!=comment.user_id %>
+				<%= link_to 'Buy', "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => comment.user_id %>
+			<%end%>
 	</div>
 	<p>Supplied by: <%= link_to comment.user.name, comment.user %>, at: <%= comment.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
   	<div class="comment_form-edit" data-id="<%= comment.id %>">
