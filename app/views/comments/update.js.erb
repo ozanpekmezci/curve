@@ -1,4 +1,4 @@
-var $commentdiv = $('div.comment[data-id="<%= @comment.id %>"]');
+var $commentdiv = $("[data-user-id='<%= @comment.user_id %>']");
 $commentdiv.html("<%=escape_javascript(render('comments/comment', comment: @comment)) %>");
 var $commentdiv2 = $('div.comment_form-edit[data-id="<%= @comment.id %>"]');
 $commentdiv2.find('.editform').toggle();

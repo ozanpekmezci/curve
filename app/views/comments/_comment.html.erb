@@ -3,7 +3,7 @@
 
 
 	<p class="comment-comment"><%=  comment.comment %></p>
-	<p class="comment-price"><%= number_to_currency(comment.price, locale: :fr) %></p>
+	<p class="comment-price"><%= comment.price%><i class='fa fa-eur'></i></p>
  	<div class="btn-group">
 
   		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>

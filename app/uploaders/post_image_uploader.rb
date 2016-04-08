@@ -9,14 +9,14 @@ class PostImageUploader < CarrierWave::Uploader::Base
    storage :fog
   include CarrierWave::MiniMagick
 
-    process resize_to_fit: [800, 800]
+    process resize_to_fill: [800, 800]
 
     version :thumb do
-      process resize_to_fill: [280,280]
+      process resize_to_fill: [200,200]
     end
     version :small_thumb, from_version: :thumb do
        process resize_to_fill: [75, 75]
-     end
+    end
 
 
   # Override the directory where uploaded files will be stored.
@@ -33,7 +33,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
     def content_type_blacklist
        ['application/text', 'application/json']
      end
-   
+
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
