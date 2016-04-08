@@ -35,16 +35,19 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.destroy
-      flash[:success] = 'The comment was deleted!'
-    else
-      flash[:error] = 'Cannot delete this comment...'
+    respond_to do |format|
+      if @comment.destroy
+        @comments= @post.comments
+        format.html {redirect_to @post}
+        format.js
+      else
+        flash[:error] = 'Cannot delete this comment...'
+      end
     end
-    redirect_to @post
   end
 
   def update
-    @comment.title=params[:comment][:title]
+    @comment.price=params[:comment][:price]
     @comment.comment=params[:comment][:comment]
     @comments = @post.comments
     @comment.save
