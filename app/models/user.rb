@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # one to many relationship with posts and users
   has_many :posts, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,8 +25,8 @@ class User < ActiveRecord::Base
   # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   mount_uploader :avatar, AvatarUploader
   acts_as_messageable
-  has_many :notifications, foreign_key: :recipient_id
-  has_many :likes
+  has_many :notifications, foreign_key: :recipient_id, :dependent => :destroy
+  has_many :likes, :dependent => :destroy
 
 
   def likes?(post)
