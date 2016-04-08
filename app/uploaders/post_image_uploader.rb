@@ -9,13 +9,13 @@ class PostImageUploader < CarrierWave::Uploader::Base
    storage :fog
   include CarrierWave::MiniMagick
 
-    process resize_to_fill: [800, 800]
+    process resize_to_fit: [800, 800]
 
     version :thumb do
-      process resize_to_fill: [200,200]
+      process resize_to_fit: [200,200]
     end
     version :small_thumb, from_version: :thumb do
-       process resize_to_fill: [75, 75]
+       process resize_to_fit: [75, 75]
     end
 
 
