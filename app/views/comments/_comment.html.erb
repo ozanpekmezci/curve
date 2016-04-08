@@ -1,8 +1,9 @@
 <article data-user-id="<%= comment.user_id %>">
 <div class="comment" data-id="<%= comment.id %>">
 
-	<p class="comment-title"><%=  comment.title %></p>
+
 	<p class="comment-comment"><%=  comment.comment %></p>
+	<p class="comment-price"><%= number_to_currency(comment.price, locale: :de) %></p>
  	<div class="btn-group">
 
   		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
