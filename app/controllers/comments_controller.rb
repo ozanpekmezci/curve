@@ -67,7 +67,8 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:price, :comment,:user_id )
+    params.require(:comment).permit(:price, :comment)
+    params.permit(:user_id)
   end
   def find_comment
     @comment = Comment.find(params[:id])
