@@ -22,7 +22,10 @@
   display: block;
   padding: 3px 20px;
 }
-.tt-suggestion.tt-cursor {
+.tt-hint {
+  color: #999
+}
+.tt-suggestion.tt-selectable:hover {
   cursor: pointer;
   color: #fff;
   background-color: #0081c2;
