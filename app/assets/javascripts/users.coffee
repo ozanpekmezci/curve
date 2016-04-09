@@ -6,5 +6,5 @@ jQuery ->
 
   $(document).on 'keydown', '.chatboxtextarea', (event) ->
     id = $(this).data('cid')
-    Chats.checkInputKey event, $(this), id
+    chat.checkInputKey event, $(this), id
     return
