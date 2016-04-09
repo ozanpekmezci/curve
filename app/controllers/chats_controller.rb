@@ -10,8 +10,15 @@ class ChatsController < ApplicationController
     else
       @chat = Chat.create!(chat_params)
     end
+  end
 
-    #render json: { chat_id: @chat.id }
+  ##FIXME: redundant
+  def initiate
+    if Chat.between(params[:sender_id],params[:recipient_id]).present?
+      @chat = Chat.between(params[:sender_id],params[:recipient_id]).first
+    else
+      @chat = Chat.create!(chat_params)
+    end
   end
 
   def show
