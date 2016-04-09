@@ -1,5 +1,5 @@
-jQuery ->
-  checkInputKey: (event, chatboxtextarea, chat_id) ->
+class Chats
+  constructor: ->
     if event.keyCode == 13 and event.shiftKey == 0
       event.preventDefault()
       fire = chatboxtextarea.val()
@@ -20,3 +20,7 @@ jQuery ->
     else
       $(chatboxtextarea).css 'overflow', 'auto'
     return
+
+jQuery ->
+  new Chats
+  #checkInputKey: (event, chatboxtextarea, chat_id) ->
