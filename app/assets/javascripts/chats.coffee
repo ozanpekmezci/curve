@@ -3,16 +3,19 @@ jQuery ->
     checkInputKey: (event, chatboxtextarea, chat_id) ->
       #alert "checkInputKey"
       if event.keyCode == 13
-        #and event.shiftKey == 0
-        #alert "enter'a basildi"
         event.preventDefault()
-        fire = chatboxtextarea.val()
-        fire = fire.replace(/^\s+|\s+$/g, '')
-        if fire != ''
-          $('#chat_form_' + chat_id).submit()
-          $(chatboxtextarea).val ''
-          $(chatboxtextarea).focus()
-          $(chatboxtextarea).css 'height', '44px'
+        if event.shiftKey == true
+          fire = chatboxtextarea.val()
+          $(chatboxtextarea).val fire + '\n'
+        else
+        #alert "enter'a basildi"
+          fire = chatboxtextarea.val()
+          fire = fire.replace(/^\s+|\s+$/g, '')
+          if fire != ''
+            $('#chat_form_' + chat_id).submit()
+            $(chatboxtextarea).val ''
+            $(chatboxtextarea).focus()
+            $(chatboxtextarea).css 'height', '44px'
       adjustedHeight = chatboxtextarea.clientHeight
       maxHeight = 94
       if maxHeight > adjustedHeight
