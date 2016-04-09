@@ -16,7 +16,8 @@ class ChatsController < ApplicationController
   ##FIXME: redundant, between olayini cöz
   def initiate
     @comment = Comment.find(params[:id])
-    if @chat = Chat.between(current_user.id,@comment.user_id, @comment.id)
+    @chat = Chat.between(current_user.id,@comment.user_id, @comment.id)
+    if @chat.present?
       #@chat = Chat.between(params[:sender_id],params[:recipient_id]).first
       redirect_to chat_path(@chat.id)
     else
