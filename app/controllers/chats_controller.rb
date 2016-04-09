@@ -15,15 +15,17 @@ class ChatsController < ApplicationController
 
   ##FIXME: redundant, between olayini cöz
   def initiate
-    #if Chat.between(params[:sender_id],params[:recipient_id]).present?
-    #  @chat = Chat.between(params[:sender_id],params[:recipient_id]).first
-    #else
-    if @chat = Chat.create!(sender_id: current_user.id, recipient_id: params[:id])
-      Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
+    @comment = Comment.find(params[:id])
+    if @chat = Chat.between(current_user.id,@comment.user_id, @comment.id)
+      #@chat = Chat.between(params[:sender_id],params[:recipient_id]).first
+      redirect_to chat_path(@chat)
+    else
+      chat_between = Digest::SHA256.hexdigest("#{current_user.id}#{params[:id]}#{@comment.id}")
+      if @chat = Chat.create!(sender_id: current_user.id, recipient_id: params[:id], hash: chat_between)
+        Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
+      end
     end
-    @receiver = interlocutor(@chat)
-    @fires = @chat.fires
-    @fire = Fire.new
+    redirect_to chat_path(@chat)
   end
 
   def show
