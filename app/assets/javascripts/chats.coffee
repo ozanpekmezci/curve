@@ -1,7 +1,9 @@
 jQuery ->
   window.chat =
     checkInputKey: (event, chatboxtextarea, chat_id) ->
+      alert "checkInputKey"
       if event.keyCode == 13 and event.shiftKey == 0
+        alert "enter'a basildi"
         event.preventDefault()
         fire = chatboxtextarea.val()
         fire = fire.replace(/^\s+|\s+$/g, '')
