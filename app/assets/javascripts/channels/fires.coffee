@@ -11,7 +11,7 @@ App.fires = App.cable.subscriptions.create "FiresChannel",
 
 
   received: (data) ->
-    @collection().append data['fire'] unless @userIsCurrentUser(data.fire)
+    @collection().append data['fire']
     # received sistem tarafindan otomatik cagiriliyo
     # alert data['comment']
 
