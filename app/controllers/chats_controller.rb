@@ -24,8 +24,8 @@ class ChatsController < ApplicationController
       if @chat = Chat.create!(sender_id: current_user.id, recipient_id: params[:id], hash: chat_between)
         Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
       end
+      redirect_to chat_path(@chat)
     end
-    redirect_to chat_path(@chat)
   end
 
   def show
