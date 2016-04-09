@@ -18,9 +18,12 @@ class ChatsController < ApplicationController
     #if Chat.between(params[:sender_id],params[:recipient_id]).present?
     #  @chat = Chat.between(params[:sender_id],params[:recipient_id]).first
     #else
-    if @chat = Chat.create!(sender_id: current_user, recipient_id: params[:id])
+    if @chat = Chat.create!(sender_id: current_user.id, recipient_id: params[:id])
       Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
     end
+    @receiver = interlocutor(@chat)
+    @fires = @chat.fires
+    @fire = Fire.new
   end
 
   def show
