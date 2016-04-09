@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   has_many :notifications, foreign_key: :recipient_id, :dependent => :destroy
   has_many :likes, :dependent => :destroy
   has_many :chats, foreign_key: :sender_id, :dependent => :destroy
+  has_many :fires, foreign_key: :sender_id, :dependent => :destroy
+
 
 
   def likes?(post)

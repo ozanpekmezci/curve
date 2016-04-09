@@ -37,6 +37,12 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
+  resources :chats do
+    resources :fires
+    member do
+      post :initiate
+    end
+  end
 
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
