@@ -28,4 +28,4 @@ App.fires = App.cable.subscriptions.create "FiresChannel",
   installPageChangeCallback: ->
     unless @installedPageChangeCallback
       @installedPageChangeCallback = true
-      $(document).on 'page:change', -> App.fires.followCurrentPost()
+      $(document).on 'page:change', -> App.fires.followCurrentChat()

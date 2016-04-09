@@ -19,6 +19,7 @@ class ChatsController < ApplicationController
     else
       @chat = Chat.create!(chat_params)
     end
+    Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
   end
 
   def show
