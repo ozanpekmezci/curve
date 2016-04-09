@@ -7,9 +7,7 @@
   <br clear="all"/>
 </div>
 <div class="chatboxcontent">
-  <% if @fires.any? %>
     <%= render 'fires/fires', chat: @chat %>
-  <% end %>
 </div>
 <div class="chatboxinput">
   <%= form_for([@chat, @fire], :remote => true, :html => {id: "chat_form_#{@chat.id}"}) do |f| %>

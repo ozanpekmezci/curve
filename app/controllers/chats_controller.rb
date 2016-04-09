@@ -33,8 +33,8 @@ class ChatsController < ApplicationController
   def show
     @chat = Chat.find(params[:id])
     @receiver = interlocutor(@chat)
-    @fires = @chat.fires
     @fire = Fire.new
+    @fires = @chat.fires
   end
 
   private
