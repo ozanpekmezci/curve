@@ -4,7 +4,8 @@ class Chat < ActiveRecord::Base
 
   has_many :fires, dependent: :destroy
 
-  validates_uniqueness_of :sender_id, :scope => :recipient_id
+  ## ActiveRecord::RecordInvalid (Validation failed: Sender has already been taken) ->
+  #validates_uniqueness_of :sender_id, :scope => :recipient_id
 
   #FIXME: kodu düzelt
   scope :involving, -> (user) do
