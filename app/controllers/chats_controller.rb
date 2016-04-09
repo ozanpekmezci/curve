@@ -1,7 +1,8 @@
 class ChatsController < ApplicationController
+
   before_filter :authenticate_user!
   def new
-    @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
+    @chosen_recipient = User.find_by(id: params[:id].to_i) if params[:id]
   end
 
   def create
@@ -12,14 +13,14 @@ class ChatsController < ApplicationController
     end
   end
 
-  ##FIXME: redundant
+  ##FIXME: redundant, between olayini cöz
   def initiate
-    if Chat.between(params[:sender_id],params[:recipient_id]).present?
-      @chat = Chat.between(params[:sender_id],params[:recipient_id]).first
-    else
-      @chat = Chat.create!(chat_params)
+    #if Chat.between(params[:sender_id],params[:recipient_id]).present?
+    #  @chat = Chat.between(params[:sender_id],params[:recipient_id]).first
+    #else
+    if @chat = Chat.create!(sender_id: current_user, recipient_id: params[:id])
+      Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
     end
-    Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
   end
 
   def show
