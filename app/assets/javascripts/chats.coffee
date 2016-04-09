@@ -1,5 +1,8 @@
 class Chats
   constructor: ->
+    @checkInputKey
+
+  checkInputKey: (event, chatboxtextarea, chat_id) ->
     if event.keyCode == 13 and event.shiftKey == 0
       event.preventDefault()
       fire = chatboxtextarea.val()
@@ -23,4 +26,3 @@ class Chats
 
 jQuery ->
   new Chats
-  #checkInputKey: (event, chatboxtextarea, chat_id) ->
