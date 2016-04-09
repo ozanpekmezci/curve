@@ -1,5 +1,5 @@
 jQuery ->
-  chat =
+  window.chat =
     checkInputKey: (event, chatboxtextarea, chat_id) ->
       if event.keyCode == 13 and event.shiftKey == 0
         event.preventDefault()
