@@ -21,8 +21,8 @@ class ChatsController < ApplicationController
       #@chat = Chat.between(params[:sender_id],params[:recipient_id]).first
       redirect_to chat_path(@chat.id)
     else
-      chat_between = Digest::SHA256.hexdigest("#{current_user.id}#{params[:id]}#{@comment.id}")
-      if @chat = Chat.create!(sender_id: current_user.id, recipient_id: params[:id], chathash: chat_between)
+      chat_between = Digest::SHA256.hexdigest("#{current_user.id}#{@comment.user_id}#{@comment.id}")
+      if @chat = Chat.create!(sender_id: current_user.id, recipient_id: @comment.user_id, chathash: chat_between)
         Notification.create(recipient: @chat.recipient, actor: @chat.sender, action: "posted",notifiable: @chat)
       end
       redirect_to chat_path(@chat.id)
