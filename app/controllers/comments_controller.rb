@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     #new( comment_params)
     #NOTE: bunu adam gibi strong_paramslamak lazim
     respond_to do |format|
-      if @comment = @post.comments.create! comment: params[:comment][:comment], user_id: params[:user_id],price: params[:comment][:price]
+      if (@comment=@post.comments.create! comment: params[:comment][:comment], user_id: params[:user_id],price: params[:comment][:price])
         ((@post.users+[@post.user]).uniq - [current_user]).each do |user|
           Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
         end
