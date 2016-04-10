@@ -34,8 +34,11 @@
 <div class= "new-comment-form" style = "display:none">
 </div>
 
-<div id= "comments_list">
-  <div class="comments-list-render">
+  <div class= "div-newSupply" style = "display:none" id="id-div-newSupply" data-behavior="id-div-newSupply" >
+    <a class="supply_index" href="/comments" data-remote="true">
+    <span class="newSupply" data-behavior="new-supply-amount">0</span>
+      <p>new supply</p>
+     </a>
   </div>
   <%= render 'comments/comments', post: @post %>
 </div>

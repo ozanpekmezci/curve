@@ -19,7 +19,7 @@ class PostRelayJob < ApplicationJob
     @following_users.uniq!
 
     @following_users.each do |u|
-      ActionCable.server.broadcast "posts_#{u.id}", {title: "post(ne diyem mahmut mu diyem?)"}
+      ActionCable.server.broadcast "posts_#{u.id}", {title: "new post"}
 
       #post: PostsController.renderer.render(partial: 'posts/post', locals: { post: post, user: u})
     end

@@ -1,10 +1,16 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:destroy, :edit, :update ]
-  before_action :find_post, only: [:destroy, :edit, :update, :create,:new]
+  before_action :find_post, only: [:destroy, :edit, :update, :create,:new,:index]
 
 
   def new
     @comment = Comment.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def index
     respond_to do |format|
       format.html
       format.js
@@ -20,10 +26,17 @@ class CommentsController < ApplicationController
     #@comments = @post.comments
     #new( comment_params)
     #NOTE: bunu adam gibi strong_paramslamak lazim
-    @comment = @post.comments.create! comment: params[:comment][:comment], user_id: params[:user_id],price: params[:comment][:price]
-    ((@post.users+[@post.user]).uniq - [current_user]).each do |user|
-      Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
-    end
+    respond_to do |format|
+      if @comment = @post.comments.create! comment: params[:comment][:comment], user_id: params[:user_id],price: params[:comment][:price]
+        ((@post.users+[@post.user]).uniq - [current_user]).each do |user|
+          Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
+        end
+        format.html
+        format.js
+      else
+        format.html
+        format.js
+      end
     #respond_to do |format|
      # if @comment.save
       #  format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
@@ -36,6 +49,7 @@ class CommentsController < ApplicationController
 
   def destroy
     respond_to do |format|
+      authorize @comment
       if @comment.destroy
         @comments= @post.comments
         format.html {redirect_to @post}
@@ -63,6 +77,7 @@ class CommentsController < ApplicationController
 
   def edit
     respond_to do |format|
+      authorize @comment
       format.html
       format.js
     end

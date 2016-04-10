@@ -16,6 +16,7 @@ class ChatsController < ApplicationController
   ##FIXME: redundant, between olayini cöz
   def initiate
     @comment = Comment.find(params[:id])
+    authorize @comment, :buy?
     chat_between = Digest::SHA256.hexdigest("#{current_user.id}#{@comment.user_id}#{@comment.id}")
     @chat = Chat.find_by(chathash: chat_between)
     #@chat = Chat.between(current_user.id,@comment.user_id, @comment.id)
