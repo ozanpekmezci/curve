@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
         format.html
         format.js
       end
+    end
     #respond_to do |format|
      # if @comment.save
       #  format.html {redirect_to @comment.commentable ,notice: "Hamza Hamzaoglu"}
