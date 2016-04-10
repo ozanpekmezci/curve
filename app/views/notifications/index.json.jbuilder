@@ -15,6 +15,8 @@ json.array! @notifications do |notification|
   elsif notification.notifiable.class.to_s.underscore.humanize.downcase == "chat"
     json.url chat_path(notification.notifiable)
   else
+    unless notification.notifiable.nil?
     json.url post_path(notification.notifiable.commentable, anchor: dom_id(notification.notifiable))
+    end
   end
 end
