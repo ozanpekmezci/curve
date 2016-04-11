@@ -16,6 +16,5 @@ json.array! @notifications do |notification|
     json.url chat_path(notification.notifiable)
   else
     json.url post_path(notification.notifiable.commentable, anchor: dom_id(notification.notifiable))
-    end
   end
 end
