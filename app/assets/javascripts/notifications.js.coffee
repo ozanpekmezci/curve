@@ -3,15 +3,15 @@ class Notifications
     @notifications = $("[data-behavior='notifications']")
     if @notifications.length > 0
       @handleSuccess @notifications.data("notifications")
-      $("[data-behavior='notifications']").on "click", @handleClick
-      @createNotificationInterval()
+      $("[data-behavior='notifications']").on "click", @getNewNotifications
+  #    @createNotificationInterval()
     #NOTE: settimeout kullanildiginda istedigin seyi erteleyebiliyosun
-  createNotificationInterval: ->
-    @interval = setInterval (=>
-      @getNewNotifications()
-    ), 5000
+#  createNotificationInterval: ->
+#    @interval = setInterval (=>
+#      @getNewNotifications()
+#    ), 5000
 
-  getNewNotifications: ->
+  getNewNotifications:(e) ->
     $.ajax(
       url: "/notifications.json"
       dataType: "JSON"
@@ -29,7 +29,7 @@ class Notifications
   handleSuccess: (data) =>
     items = $.map data, (notification) ->
       "<a class='dropdown-item' href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type} </a>"
-    $("[data-behavior='unread-count']").text(items.length)
+#    $("[data-behavior='unread-count']").text(items.length)
     $("[data-behavior='notification-items']").html(items)
 
 

@@ -4,4 +4,5 @@ class Notification < ActiveRecord::Base
   belongs_to :notifiable, polymorphic: true
   #NOTE: cok basarili
   scope :unread, -> {where(read_at:nil)}
+  after_create_commit { NotificationRelayJob.perform_later self }
 end
