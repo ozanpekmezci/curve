@@ -3,7 +3,7 @@ class Notifications
     @notifications = $("[data-behavior='notifications']")
     if @notifications.length > 0
       @handleSuccess @notifications.data("notifications")
-      $("[data-behavior='notifications']").on "click", @getNewNotifications
+      $("[data-behavior='notifications-link']").on "click", @getNewNotifications
   #    @createNotificationInterval()
     #NOTE: settimeout kullanildiginda istedigin seyi erteleyebiliyosun
 #  createNotificationInterval: ->
