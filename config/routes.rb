@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   root 'posts#index'
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
 
 #  devise_scope :user do
 #    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session

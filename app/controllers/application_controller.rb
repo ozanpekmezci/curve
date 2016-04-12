@@ -57,6 +57,9 @@ end
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
+  def after_sign_up_path_for(resource)
+   finish_signup_path(current_user)
+  end
 
 private
 
