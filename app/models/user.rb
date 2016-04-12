@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.remote_avatar_url = auth.info.image
         user.name = auth.info.name
-        user.skip_confirmation! #NOTE: simdilik
+      #  user.skip_confirmation! #NOTE: simdilik
         user.save!
         #user.city = auth.info.location
       end
