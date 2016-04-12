@@ -34,7 +34,9 @@ end
   def set_notifications
     @notifications = Notification.where(recipient: current_user).unread
   end
-
+  def after_sign_up_path_for(resource)
+   finish_signup_path(current_user)
+  end
   protected
   ##
   # permit additional parameters from the user for user creation
@@ -57,9 +59,7 @@ end
   def initialize_omniauth_state
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
-  def after_sign_up_path_for(resource)
-   finish_signup_path(current_user)
-  end
+
 
 private
 
