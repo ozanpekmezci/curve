@@ -21,32 +21,28 @@ class Notifications
 
   handleSuccess: (data) =>
     items = $.map data, (notification) ->
-      "<a class='dropdown-item' data-id='#{notification.id}' href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type} </a>"
+      "<a class='dropdown-item' data-id='#{notification.id}' data-behavior='notification-item' href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type} </a>"
     $("[data-behavior='unread-count']").text(items.length)
     $("[data-behavior='notification-items']").html(items)
-    items = $.map data, (item) ->
+    items = $.map $("[data-behavior='notification-items']").find("[data-behavior='notification-item']"), (item) ->
       new Notification(item)
 
 class Notification
   constructor: (item) ->
     @item = $(item)
     @id   = @item.data("id")
-    alert "const #{@id}"
     @setEvents()
 
   setEvents: ->
-    alert "setEvents #{@id}"
     @item.on "click", @handleClick
 
   handleClick: =>
-    alert "handle #{@id}"
     $.ajax(
       url: "/notifications/#{@id}/mark_as_read"
       dataType: "JSON"
       method: "POST"
       success: ->
-        alert "success #{@id}"
-        #$("[data-behavior='unread-count']").text(0)
+         #$("[data-behavior='unread-count']").text(0)
     )
 jQuery ->
   new Notifications
