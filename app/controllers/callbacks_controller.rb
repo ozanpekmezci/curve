@@ -10,7 +10,12 @@ class CallbacksController < Devise::OmniauthCallbacksController
       logger.debug "Person attributes hash: #{request.env['omniauth.auth'].inspect}"
       logger.info "Processing the request... #{request.env['omniauth.auth'].inspect}"
     if @user.persisted?
-       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+      sign_in @user, :event => :authentication #this will throw if @user is not activated
+      if @user.user_name.nil?
+        redirect_to finish_signup_path(@user)
+      else
+        redirect_to root_path
+      end
 
        set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
      else
