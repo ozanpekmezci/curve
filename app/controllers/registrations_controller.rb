@@ -19,4 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
 #   finish_signup_path(current_user)
     users_path
  end
+ def after_sign_in_path_for(resource)
+#   finish_signup_path(current_user)
+   users_path
+end
 end
