@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
   protected
-  logger.debug "registraion"
   def update_resource(resource, params)
 
 	if params[:password].blank? && params[:password_confirmation].blank? && params[:current_password].blank?
@@ -11,19 +10,5 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
   end
-  def after_inactive_sign_up_path_for(resource)
-#   finish_signup_path(current_user)
-    logger.debug "signup inactive"
-    users_path
-  end
-  def after_sign_up_path_for(resource)
-#   finish_signup_path(current_user)
-    logger.debug "sigup"
-    users_path
- end
- def after_sign_in_path_for(resource)
-#   finish_signup_path(current_user)
-  logger.debug "signin"
-  users_path
-end
+
 end
