@@ -25,7 +25,11 @@ class CallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
        sign_in @user, :event => :authentication #this will throw if @user is not activated
        #@user.skip_confirmation!
-       redirect_to finish_signup_path(@user)
+       if @user.user_name.nil?
+         redirect_to finish_signup_path(@user)
+       else
+         redirect_to root_path
+       end
        set_flash_message(:notice, :success, :kind => "Google") if is_navigational_format?
      else
        session["devise.google_data"] = request.env["omniauth.auth"]
