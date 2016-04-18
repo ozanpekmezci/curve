@@ -8,8 +8,8 @@
 
 
     <%= form_tag posts_path, method: :get do %>
-     <div class="form-group">
-       <%= text_field_tag :query, params[:query], class: 'form-control typeahead', autocomplete: "off" %>
+     <div class="form-group" id="search-bar">
+       <%= text_field_tag :query, params[:query], class: 'form-control typeahead', autocomplete: "off",placeholder: "Search" %>
        <%= submit_tag 'Search', class: 'btn btn-primary' %>
      </div>
    <% end %>
@@ -19,7 +19,7 @@
 
   <h1>Demands</h1>
 
- 
+
   <%= link_to 'New Demand', new_post_path, class: 'btn btn-primary btn-large', "data-behavior" => 'newDemandButton' ,remote: true %>
 
   <div class= "modal fade"  id="new-post-form" data-behavior="post_modal">

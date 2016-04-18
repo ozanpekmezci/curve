@@ -32,6 +32,14 @@ class Autocomplete
       name: 'search'
       display: 'title'
       source: numbers
+      templates:
+        empty: [
+          '<div class="empty-message ">'
+          'unable to find any Products that match the current query'
+          '</div>'
+        ].join('\n')
+        suggestion: Handlebars.compile('<div><strong>{{title}}</strong></div>')
+
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
