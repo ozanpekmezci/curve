@@ -35,10 +35,10 @@ class Autocomplete
       templates:
         empty: [
           '<div class="empty-message ">'
-          'unable to find any Products that match the current query'
+          'Unable to find any Products that match the current query'
           '</div>'
         ].join('\n')
-        header: "<div><h3>Title</h3></div>"
+        header: "<div><h3 class='posts-title'>Posts</h3></div>"
 
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
