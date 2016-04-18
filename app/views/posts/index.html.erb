@@ -1,4 +1,6 @@
 <% if user_signed_in? %>
+  <div class="row">
+  <div class="col-md-8">
   <p id="notice"><%= notice %></p>
 
   <div class="posts-search">
@@ -17,11 +19,7 @@
 
   <h1>Demands</h1>
 
-  <br>
-  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
-  <% end %>
-  <br>
+ 
   <%= link_to 'New Demand', new_post_path, class: 'btn btn-primary btn-large', "data-behavior" => 'newDemandButton' ,remote: true %>
 
   <div class= "modal fade"  id="new-post-form" data-behavior="post_modal">
@@ -44,7 +42,15 @@
   </div>
 
   <%= paginate @posts %>
-
+  </div>
+  <div class="col-md-4">
+    <div class="tags-wrapper">
+    <% @tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag.name), :class => 'tag' %>
+    <% end %>
+    </div>
+  </div>
+</div>
 <% else %>
   <% content_for :top_content do %>
     <div class="jumbotron">
