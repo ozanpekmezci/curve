@@ -38,7 +38,7 @@ class Autocomplete
           'unable to find any Products that match the current query'
           '</div>'
         ].join('\n')
-        suggestion: Handlebars.compile('<div><strong>{{title}}</strong></div>')
+        suggestion: "<div><strong>#{title}</strong></div>"
 
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
