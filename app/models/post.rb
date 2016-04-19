@@ -18,11 +18,7 @@ class Post < ActiveRecord::Base
 
 
   def search_data
-  {
-    title: title,
     attributes.merge location: {lat: lat, lon: lon}
-
-   }
   end
   ##
   # to clear cache after each creation of different posts
