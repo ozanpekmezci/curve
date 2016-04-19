@@ -57,7 +57,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "fog-aws"
 gem "mini_magick"
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
-gem 'searchkick'
+gem 'searchkick', :git => "git://github.com/ankane/searchkick.git", :branch => 'master'
 gem "mailboxer", github: 'mailboxer/mailboxer'
 gem "select2-rails"
 gem 'pundit'
