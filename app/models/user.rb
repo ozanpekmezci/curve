@@ -29,9 +29,12 @@ class User < ActiveRecord::Base
   has_many :likes, :dependent => :destroy
   has_many :chats, foreign_key: :sender_id, :dependent => :destroy
   has_many :fires, foreign_key: :user_id, :dependent => :destroy
+  geocoded_by :address, :latitude  => :lat, :longitude => :lon  
+  after_validation :geocode          # auto-fetch coordinates
 
-
-
+  def address
+  [city, country].compact.join(', ')
+  end
   def likes?(post)
     #sadece id olmasindan emin degilim
     post.likes.where(user_id: id).any?

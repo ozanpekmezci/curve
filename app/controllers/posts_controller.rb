@@ -11,12 +11,12 @@ class PostsController < ApplicationController
   # kaynak github ve https://sharvy.wordpress.com/2015/01/12/add-robust-search-functionality-in-your-rails-4-app-using-elasticsearch-and-typeahead-js/
   #burdaki value yu tam anlamadim
   def autocomplete
-      render json: Post.search(params[:query], autocomplete: true,limit: 10).map {|post| {title: post.title, value: post.id}}
+      render json: Post.search(params[:query],operator: "or", autocomplete: true,limit: 10,boost_by_distance: {field: :location, origin: [current_user.lat, current_user.lon]}).map {|post| {title: post.title, value: post.id}}
     end
   def index
       #@posts = Post.order('created_at DESC')
       if params[:query].present?
-        @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}], suggest: true
+        @posts = Post.search params[:query], operator: "or",fields: [{title: :text_start}], suggest: true,boost_by_distance: {field: :location, origin: [current_user.lat, current_user.lon]}
       else
         @posts = get_posts_for_user
       end

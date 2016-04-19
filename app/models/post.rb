@@ -10,14 +10,18 @@ class Post < ActiveRecord::Base
   acts_as_commentable
   after_create_commit { PostRelayJob.perform_later self }
   mount_uploaders :pictures, PostImageUploader
-  searchkick text_start: [:title],autocomplete: ['title'], suggest: [:title]
+  searchkick text_start: [:title],autocomplete: ['title'], suggest: [:title],locations: (attributes.merge [latitude, longitude])
   #post.users falan yapabilmek icin (notification amacli)
   has_many :users, through: :comments
   has_many :likes
 
 
 
+  def search_data{
+    title: title,
+    attributes.merge location: [lat, lon]
 
+   }end
   ##
   # to clear cache after each creation of different posts
   def clear_cache
