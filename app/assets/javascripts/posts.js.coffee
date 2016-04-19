@@ -1,5 +1,6 @@
 jQuery ->
   new Autocomplete
+
   $("[data-behavior='post_modal']").on 'show.bs.modal', (e) ->
     $("#select2-label-list").select2 tags: true
 
@@ -7,6 +8,16 @@ jQuery ->
     navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
     itemSelector: "#posts div.post" # selector for all items you'll retrieve
+
+  if navigator.geolocation
+    navigator.geolocation.getCurrentPosition showPosition
+  else
+    alert 'Geolocation is not supported by this browser.'
+  return
+
+showPosition = (position) ->
+  alert 'Latitude: ' + position.coords.latitude + '<br>Longitude: ' + position.coords.longitude
+  return
 
 
 
