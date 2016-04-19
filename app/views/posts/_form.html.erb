@@ -56,3 +56,9 @@
     <% end %>
   </div>
 </div>
+<script>
+  navigator.geolocation.getCurrentPosition(function(position) {
+    document.querySelector('#lat').value = position.coords.latitude;
+    document.querySelector('#lon').value = position.coords.longitude;
+  });
+</script>

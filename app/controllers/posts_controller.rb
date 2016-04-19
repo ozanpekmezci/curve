@@ -66,7 +66,10 @@ class PostsController < ApplicationController
   #      format.js {render nothing:true}
   #    end
   #  end
-
+  logger.debug "-------------------"
+  logger.debug params[:post][:lat]
+  logger.debug params[:post][:lon]
+  logger.debug "-------------------"
   @post = Post.new(post_params)
   @post.user_id = params[:user_id]
   respond_to do |format|
@@ -133,7 +136,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :price,  {pictures: []})
+      params.require(:post).permit(:title, :description, :price,  {pictures: []},:lat,:lon)
     end
     def post_params_update
       params.require(:post).permit(:title, :description, :price)
