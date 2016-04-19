@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   def search_data
   {
     title: title,
-    attributes.merge location: [lat, lon]
+    attributes.merge location: {lat: lat, lon: lon}
 
    }
   end
