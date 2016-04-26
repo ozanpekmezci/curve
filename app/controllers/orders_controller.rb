@@ -30,8 +30,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @receiver_id = interlocutor(@order)
-    @receiver = User.find(@receiver_id)
+    @receiver = interlocutor(@order)
+
     #NOTE: su first'e de biseyler gerekebilir
     @chat=@order.chats.first
     @fire = Fire.new
@@ -42,6 +42,6 @@ class OrdersController < ApplicationController
 
 
   def interlocutor(order)
-    current_user.id == order.seller_id ? order.buyer_id : order.seller_id
+    current_user == order.seller? order.buyer : order.seller
   end
 end

@@ -9,6 +9,9 @@ class Order < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :comment_present
   before_save :finalize
+  #NOTE: bu cok tatli
+  belongs_to :buyer, :foreign_key => :buyer_id, class_name: 'User'
+  belongs_to :seller, :foreign_key => :seller_id, class_name: 'User'
 
   # def subtotal
   #   order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
