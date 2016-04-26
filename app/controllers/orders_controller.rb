@@ -42,6 +42,6 @@ class OrdersController < ApplicationController
 
 
   def interlocutor(order)
-    current_user == order.seller? order.buyer : order.seller
+    current_user == order.seller ? order.buyer : order.seller
   end
 end

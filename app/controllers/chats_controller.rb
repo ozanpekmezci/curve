@@ -44,6 +44,6 @@ class ChatsController < ApplicationController
   end
 
   def interlocutor(chat)
-    current_user == chat.recipient? chat.sender : chat.recipient
+    current_user == chat.recipient ? chat.sender : chat.recipient
   end
 end
