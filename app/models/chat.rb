@@ -3,6 +3,7 @@ class Chat < ActiveRecord::Base
   belongs_to :recipient, :foreign_key => :recipient_id, class_name: 'User'
 
   has_many :fires, dependent: :destroy
+  belongs_to :chatable, polymorphic: true
 
   ## ActiveRecord::RecordInvalid (Validation failed: Sender has already been taken) ->
   #validates_uniqueness_of :sender_id, :scope => :recipient_id

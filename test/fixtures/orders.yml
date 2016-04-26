@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_status: 
+  chat: 
+  buyer_id: 
+  seller_id: 
+  sold_at: 
+  shipped_at: 
+  shipping_name: 
+  shipping_address: 
+  shipping_address_2: 
+  shipping_city: 
+  shipping_state: 
+  shipping_zip: 
+  shipping_country: 
+  shipping_phone: 
+  billing_name: 
+  billing_address: 
+  billing_address_2: 
+  billing_city: 
+  billing_state: 
+  billing_zip: 
+  billing_country: 
+  billing_phone: 
+  subtotal_price: 9.99
+  tax_price: 9.99
+  shipping_price: 9.99
+  total_price: 9.99
+
+two:
+  order_status: 
+  chat: 
+  buyer_id: 
+  seller_id: 
+  sold_at: 
+  shipped_at: 
+  shipping_name: 
+  shipping_address: 
+  shipping_address_2: 
+  shipping_city: 
+  shipping_state: 
+  shipping_zip: 
+  shipping_country: 
+  shipping_phone: 
+  billing_name: 
+  billing_address: 
+  billing_address_2: 
+  billing_city: 
+  billing_state: 
+  billing_zip: 
+  billing_country: 
+  billing_phone: 
+  subtotal_price: 9.99
+  tax_price: 9.99
+  shipping_price: 9.99
+  total_price: 9.99

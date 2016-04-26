@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   end
   resources :chats do
     resources :fires
+  end
+  resources :orders do
     member do
       post :initiate
     end

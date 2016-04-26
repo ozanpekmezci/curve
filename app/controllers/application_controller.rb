@@ -58,7 +58,7 @@ end
     session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
   end
 
-  
+
 
 
 private

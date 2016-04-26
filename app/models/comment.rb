@@ -3,6 +3,9 @@ class Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true
+  has_many :orders
+  validates_numericality_of :price,
+		greather_then: 49, message: "Must be at least 50 cents"
 
   default_scope -> { order('created_at ASC') }
 
