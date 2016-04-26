@@ -29,9 +29,9 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.integer :unit_price
       t.integer :quantity
       t.string :guid
-      t.string :orderhash, null: false
+      t.string :orderhash
 
-      t.timestamps, null: false
+      t.timestamps
     end
   end
 end
