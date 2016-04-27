@@ -3,7 +3,7 @@
 
 
 	<p class="comment-comment"><%=  comment.comment %></p>
-	<p class="comment-price"><%= comment.price%><i class='fa fa-eur'></i></p>
+	<p class="comment-price"><%= comment.price.to_f /100%><i class='fa fa-eur'></i></p>
  	<div class="btn-group">
 		<% if policy(comment).edit? %>
   		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
