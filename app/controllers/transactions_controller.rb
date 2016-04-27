@@ -4,21 +4,21 @@ class TransactionsController < ApplicationController
   #comment = Comment.find_by!(id: params[:id])
   token = params[:stripeToken]
 
-  begin
+    begin
 
-    charge = Stripe::Charge.create(
-      amount: @order.total_price,
-      currency: "eur",
-      card: token,
-      description: current_user.name)
+      charge = Stripe::Charge.create(
+        amount: @order.total_price,
+        currency: "eur",
+        card: token,
+        description: current_user.name)
 
-   	redirect_to transactiondone_path(guid: @order.guid)
+   	  redirect_to transactiondone_path(guid: @order.guid)
 
-  rescue
-    @error = e
-		redirect_to order_path(@order), notice: @error
+    rescue Stripe::CardError => e
+      @error = e
+		  redirect_to order_path(@order), notice: @error
+    end
   end
-end
 
 def done
   @order = Order.find_by!(guid: params[:guid])
