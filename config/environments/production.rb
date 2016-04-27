@@ -96,6 +96,7 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
 }
+Stripe.api_key =ENV['STRIPE_SECRET_KEY']
 
 
 end
