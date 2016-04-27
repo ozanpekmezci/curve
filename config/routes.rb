@@ -46,6 +46,9 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/transactions/:id/create', to: 'transactions#create', as: :transactioncreate
+  get '/transactions/:guid/done', to: 'transactions#done', as: :transactiondone
+
   # to get one user's posts to show them on his profile
   # get 'users/:id/posts' => 'Users#posts', :as => :user_posts
 
