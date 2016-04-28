@@ -27,20 +27,23 @@
          <input type="text" class="form-control" placeholder="Name the price...">
       </div>
       <h3 data-behavior="current_price"><%=@order.unit_price.to_f/100%><i class='fa fa-eur'></i> </h3>
-      <% if current_user %>
-
-    <%= form_tag transactioncreate_path(id: @order.id) do  %>
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_f7BgxvHQIobSLsuOl4v71eAc"
-        data-amount="<%= @order.total_price %>"
-        data-name="<%= @order.seller.name %>"
-        data-description="<%= @order.comment.comment %>"
-        data-email="<%= current_user.email %>"
-        data-locale="auto">
-      </script>
-    <% end %>
+     
+    <%= form_tag({:controller => "transactions", :action => "create"},method: :post, :html => {:id => 'checkout'}) do  %>
+      <div id="payment-form"></div>
+      <input type="submit" value="Submit">
     <%end%>
+
+    <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
+    <script>
+    // We generated a client token for you so you can test out this code
+    // immediately. In a production-ready integration, you will need to
+    // generate a client token on your server (see section below).
+    var clientToken = "<%= Braintree::ClientToken.generate %>";
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+    });
+    </script>
+
     </div>
   </div>
 </div>

@@ -64,7 +64,7 @@ gem 'pundit'
 gem 'sprockets-rails', github: "rails/sprockets-rails"
 gem 'font-awesome-rails'
 gem 'geocoder'
-gem 'stripe'
+gem "braintree"
 
 # gem 'aws-sdk', '~> 1.6'
 
