@@ -19,6 +19,7 @@ class TransactionsController < ApplicationController
   else
 	  redirect_to order_path(@order), notice: result.errors
   end
+end
 
 def done
   @order = Order.find_by!(guid: params[:guid])
