@@ -87,7 +87,7 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
     on roles(:app) do
-      run "cd /home/deploy/apps/curve/current && foreman export upstart /etc/init"
+      execute "cd /home/deploy/apps/curve/current && sudo bundle exec foreman export upstart /etc/init"
     end
   end
 
@@ -110,7 +110,7 @@ namespace :foreman do
   desc "Restart the application services"
   task :restart do
     on roles(:app) do
-      run "(sudo start app-actioncable-1 && sudo start app-web-1) || (sudo restart app-actioncable-1 && sudo restart app-web-1)"
+      execute "(sudo start app-actioncable-1 && sudo start app-web-1) || (sudo restart app-actioncable-1 && sudo restart app-web-1)"
     end
   end
 end
