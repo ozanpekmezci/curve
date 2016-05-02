@@ -87,7 +87,7 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
       on roles(:app) do
-    execute "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
+    run "cd #{current_path} &&  foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
   end
   end
 
@@ -113,8 +113,6 @@ namespace :foreman do
   end
 end
 
-#after "deploy:update", "foreman:export"
-#after "deploy:update", "foreman:restart"
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
