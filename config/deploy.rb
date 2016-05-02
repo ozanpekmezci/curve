@@ -87,7 +87,7 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
       on roles(:app) do
-    run "cd #{current_path} &&  foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
+    run "cd #{current_path} &&  foreman export upstart /etc/init -a #{fetch(:application)} -u #{fetch(:application)} -l /var/#{fetch(:application)}/log"
   end
   end
 
