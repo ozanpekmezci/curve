@@ -76,14 +76,39 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-   
+
 
   before :starting,     :check_revision
    after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
+namespace :foreman do
+  desc "Export the Procfile to Ubuntu's upstart scripts"
+  task :export, :roles => :app do
+    run "cd /home/deploy/apps/curve/current && sudo bundle exec foreman export upstart /etc/init"
+  end
 
+  desc "Start the application services"
+  task :start, :roles => :app do
+    sudo "start app-actioncable-1"
+    sudo "start app-web-1"
+  end
+
+  desc "Stop the application services"
+  task :stop, :roles => :app do
+    sudo "stop app-actioncable-1"
+    sudo "stop app-web-1"
+  end
+
+  desc "Restart the application services"
+  task :restart, :roles => :app do
+    run "(sudo start app-actioncable-1 && sudo start app-web-1) || (sudo restart app-actioncable-1 && sudo restart app-web-1)"
+  end
+end
+
+after "deploy:update", "foreman:export"
+after "deploy:update", "foreman:restart"
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
