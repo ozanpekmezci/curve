@@ -106,7 +106,7 @@ namespace :foreman do
   end
 
   desc "Restart the application services"
-   task :restart
+   task :restart do
       on roles(:app) do
      run "#{sudo} service #{application} start || #{sudo} service #{application} restart"
    end
