@@ -85,34 +85,24 @@ namespace :deploy do
 end
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export do
-    on roles(:app) do
-      execute "cd /home/deploy/apps/curve/current && #{sudo} foreman export upstart /etc/init -u #{fetch(:user)} -l #{release_path}/log"
-    end
+  task :export, :roles => :app do
+    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
   end
 
   desc "Start the application services"
-  task :start do
-    on roles(:app) do
-      sudo "start app-actioncable-1"
-      sudo "start app-web-1"
-    end
+  task :start, :roles => :app do
+    run "#{sudo} service #{application} start"
   end
 
   desc "Stop the application services"
-  task :stop do
-    on roles(:app) do
-      sudo "stop app-actioncable-1"
-      sudo "stop app-web-1"
-    end
+  task :stop, :roles => :app do
+    run "#{sudo} service #{application} stop"
   end
 
   desc "Restart the application services"
-  task :restart do
-    on roles(:app) do
-      execute "(sudo start app-actioncable-1 && sudo start app-web-1) || (sudo restart app-actioncable-1 && sudo restart app-web-1)"
-    end
-  end
+   task :restart, :roles => :app do
+     run "#{sudo} service #{application} start || #{sudo} service #{application} restart"
+   end
 end
 
 #after "deploy:update", "foreman:export"
