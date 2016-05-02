@@ -115,8 +115,8 @@ namespace :foreman do
   end
 end
 
-after "deploy:update", "foreman:export"
-after "deploy:update", "foreman:restart"
+#after "deploy:update", "foreman:export"
+#after "deploy:update", "foreman:restart"
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
