@@ -87,7 +87,7 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
     on roles(:app) do
-      execute "cd /home/deploy/apps/curve/current && #{sudo} bundle exec foreman export upstart /etc/init"
+      execute "cd /home/deploy/apps/curve/current && #{sudo} bundle exec foreman export upstart /etc/init -u #{user}"
     end
   end
 
