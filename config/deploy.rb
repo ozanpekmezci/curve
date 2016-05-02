@@ -85,24 +85,32 @@ namespace :deploy do
 end
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export, :roles => :app do
+  task :export do
+      on roles(:app) do
     run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
+  end
   end
 
   desc "Start the application services"
-  task :start, :roles => :app do
+  task :start do
+    on roles(:app) do
     run "#{sudo} service #{application} start"
+  end
   end
 
   desc "Stop the application services"
-  task :stop, :roles => :app do
+  task :stop do
+    on roles(:app) do
     run "#{sudo} service #{application} stop"
+  end
   end
 
   desc "Restart the application services"
-   task :restart, :roles => :app do
+   task :restart
+      on roles(:app) do
      run "#{sudo} service #{application} start || #{sudo} service #{application} restart"
    end
+  end
 end
 
 #after "deploy:update", "foreman:export"
