@@ -26,7 +26,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :default_env, {
-  'PATH' => "/usr/local/rvm/:$PATH"
+  'PATH' => "/usr/local/rvm/gems/ruby-2.3.0/bin:$PATH"
 }
 ## Defaults:
 # set :scm,           :git
