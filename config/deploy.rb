@@ -25,6 +25,9 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
+set :default_env, {
+  'PATH' => "/usr/local/rvm/:$PATH"
+}
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -87,7 +90,6 @@ namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
       on roles(:app) do
-    execute "which foreman"
     execute "cd #{current_path} && foreman export upstart -a #{fetch(:application)} -u #{fetch(:application)} -l /var/#{fetch(:application)}/log /etc/init"
   end
   end
