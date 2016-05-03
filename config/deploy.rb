@@ -8,7 +8,6 @@ set :application,     'curve'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
@@ -25,9 +24,9 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
-set :default_env, {
-  'PATH' => "/usr/local/rvm/gems/ruby-2.3.0/bin:$PATH"
-}
+
+set :default_env, { path: "/usr/local/rvm/gems/ruby-2.3.0/bin:$PATH" }
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -86,12 +85,14 @@ namespace :deploy do
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
+
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export do
       on roles(:app) do
-    puts "#{$PATH}"
-    execute "cd #{current_path} && foreman export upstart -a #{fetch(:application)} -u #{fetch(:application)} -l /var/#{fetch(:application)}/log /etc/init"
+    execute "cd #{current_path}"
+    execute "foreman export upstart -a #{fetch(:application)} -u #{fetch(:user)} -l /var/#{fetch(:application)}/log /etc/init"
+  # /usr/local/rvm/gems/ruby-2.3.0/bin/foreman seklinde de olmadi
   end
   end
 
