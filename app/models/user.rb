@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   ##
   # overrides devise's method and queues the sending of the mail
   def send_devise_notification(notification, *args)
-    #devise_mailer.send(notification, self, *args).deliver_later #NOTE:simdilik
+    devise_mailer.send(notification, self, *args).deliver_later #NOTE:simdilik
   end
 
   def follow(other_user)
