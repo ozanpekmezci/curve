@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.remote_avatar_url = auth.info.image
         user.name = auth.info.name
-        user.skip_confirmation! #NOTE: simdilik
+        #user.skip_confirmation! #NOTE: simdilik
         user.save!
         #user.city = auth.info.location
       end
@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   ##
   # overrides devise's method and queues the sending of the mail
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later #NOTE:simdilik
+    #devise_mailer.send(notification, self, *args).deliver_later #NOTE:simdilik
   end
 
   def follow(other_user)
