@@ -9,7 +9,7 @@
       </div>
       <br clear="all"/>
     <div class="chatboxcontent">
-        <%= render 'fires/fires', chat: @chat %>
+        <%= react_component 'Fires', { chat: @chat, path: root_path } %>
     </div>
     <div class="chatboxinput">
       <%= form_for([@chat, @fire], :remote => true, :html => {id: "chat_form_#{@chat.id}"}) do |f| %>
@@ -27,7 +27,8 @@
          <input type="text" class="form-control" placeholder="Name the price...">
       </div>
       <h3 data-behavior="current_price"><%=@order.unit_price.to_f/100%><i class='fa fa-eur'></i> </h3>
-     
+
+
     <%= form_tag({:controller => "transactions", :action => "create"},method: :post, :html => {:id => 'checkout'}) do  %>
       <div id="payment-form"></div>
       <input type="submit" value="Submit">

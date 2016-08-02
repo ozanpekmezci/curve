@@ -63,6 +63,8 @@ gem 'sprockets-rails', github: "rails/sprockets-rails"
 gem 'font-awesome-rails'
 gem 'geocoder'
 gem "braintree"
+gem 'react-rails'
+
 
 # gem 'aws-sdk', '~> 1.6'
 
