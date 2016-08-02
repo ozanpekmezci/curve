@@ -3,7 +3,7 @@ var Fires = React.createClass({
     path: React.PropTypes.string
   },
   getInitialState: function() {
-     return { fires: this.props.chat.fires };
+     return { fires: this.props.fires };
    },
 
    getDefaultProps: function() {
