@@ -5,7 +5,7 @@ var Fire = React.createClass({
       <div className='fire' data-id={this.props.fire.id}>
 
       	<p className='fire-body'>{this.props.fire.body}</p>
-      	<p>Sent by:<a href={this.props.path  + this.props.fire.user_id}>{this.props.fire.user}</a>, at:{ this.props.fire.created_at.strftime('%H:%M:%S %-d %B %Y') }</p>
+      	<p>Sent by:<a href={this.props.path  + this.props.fire.user_id}>{this.props.fire.user}</a>, at:{ this.props.fire.created_at }</p>
 
       </div>
     </article>);
