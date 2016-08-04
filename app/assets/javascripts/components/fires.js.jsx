@@ -15,8 +15,8 @@ var Fires = React.createClass({
         <h2 className='title'>
           Messages
         </h2>
-        {this.state.fires.map(function(fire) {
-          return <Fire key={fire.id} fire={fire} />
+        {this.state.fires.map(function(fire,path: this.props.path) {
+          return <Fire key={fire.id} fire={fire} path={path} />
         })}
       </section>
 );
