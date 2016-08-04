@@ -10,7 +10,7 @@ var Fires = React.createClass({
      return { fires: [] };
    },
   render: function() {
-    var path = this.props.path;
+    let path = this.props.path;
     return(
       <section id='fires' data-channel='fires' data-channel-id={this.props.chat.id}>
         <h2 className='title'>
