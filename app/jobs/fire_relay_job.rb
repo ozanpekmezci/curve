@@ -3,7 +3,7 @@ class FireRelayJob < ApplicationJob
 
   def perform(fire)
     ActionCable.server.broadcast "chats:#{fire.chat.id.to_i}",
-      fire: OrdersController.renderer.render(partial: 'orders/chat', locals: {chat: chat})
+      fire: OrdersController.renderer.render(partial: 'orders/chat', locals: {chat: fire.chat})
       #'fires/fire', locals: { fire: fire }
   end
 end
