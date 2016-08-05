@@ -36,6 +36,10 @@ class OrdersController < ApplicationController
     @chat=@order.chats.first
     @fire = Fire.new
     @fires = @chat.fires
+    respond_to do |format|
+      format.html
+      format.json { render(partial: 'orders/chat.json', locals: {chat: @chat})}
+    end
   end
 
   private

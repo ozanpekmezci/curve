@@ -3,13 +3,14 @@ var Fires = React.createClass({
     path: React.PropTypes.string
   },
   getInitialState: function() {
-     return { fires: this.props.fires };
+     let chat = JSON.parse(this.props.chat);
+     return { fires: this.props.fires, chat: chat };
    },
 
    getDefaultProps: function() {
      return { fires: [] };
    },
-  render: function() {
+   render: function() {
     let path = this.props.path;
     return(
       <section id='fires' data-channel='fires' data-channel-id={this.props.chat.id}>
@@ -20,6 +21,32 @@ var Fires = React.createClass({
           return <Fire key={fire.id} fire={fire} path={path} />
         })}
       </section>
-);
-            }
+          );
+    },
+    componentDidMount: function() {
+      this.setupSubscription();
+    },
+
+    updateChat: function(fire) {
+      let chat = JSON.parse(fire);
+      this.setState({ chat: chat });
+    },
+
+    setupSubscription: function() {
+
+      App.comments = App.cable.subscriptions.create("FiresChannel", {
+        chat_id: this.state.chat.id,
+
+        connected: function () {
+          setTimeout(() => this.perform('follow', { chat_id: this.chat_id }), 1000);
+        },
+
+        received: function (data) {
+          this.updateChat(data.fire);
+        },
+
+        updateChat: this.updateChat.bind(this)
+
+      });
+    }
 });

@@ -9,7 +9,7 @@
       </div>
       <br clear="all"/>
     <div class="chatboxcontent">
-        <%= react_component 'Fires', { chat: @chat, path: users_path,fires: @chat.fires } %>
+        <%= react_component 'Fires', { chat: render(partial: 'orders/chat.json'), path: users_path,fires: @chat.fires } %>
     </div>
     <div class="chatboxinput">
       <%= form_for([@chat, @fire], :remote => true, :html => {id: "chat_form_#{@chat.id}"}) do |f| %>
