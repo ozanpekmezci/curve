@@ -28,6 +28,7 @@ var Fires = React.createClass({
     },
 
     updateChat: function(fire) {
+      console.log("updateChat'e geldi");
       let chat = JSON.parse(fire);
       this.setState({ chat: chat });
     },
@@ -42,6 +43,7 @@ var Fires = React.createClass({
         },
 
         received: function (data) {
+          console.log("received'e geldi");
           this.updateChat(data.fire);
         },
 
