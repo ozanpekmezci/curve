@@ -22,7 +22,9 @@ var Fires = React.createClass({
           return <Fire key={fire.id} fire={fire} path={path} />
         })}
       </section>
-      <FireForm chat={this.state.chat} />
+      <div className = "fireform" >
+        <FireForm chat={this.state.chat} />
+      </div>
           );
     },
     componentDidMount: function() {
