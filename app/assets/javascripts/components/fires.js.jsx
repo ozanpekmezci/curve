@@ -10,6 +10,7 @@ var Fires = React.createClass({
    getDefaultProps: function() {
      return { fires: [] };
    },
+
    render: function() {
     let path = this.props.path;
     return(
@@ -21,6 +22,7 @@ var Fires = React.createClass({
           return <Fire key={fire.id} fire={fire} path={path} />
         })}
       </section>
+      <FireForm chat={this.state.chat}/>
           );
     },
     componentDidMount: function() {

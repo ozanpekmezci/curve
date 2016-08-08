@@ -7,8 +7,9 @@ class FiresController < ApplicationController
     @fire.user_id = current_user.id
     respond_to do |format|
       if @fire.save!
-        format.js
+        format.json
         format.html
+        format.js
       end
     end
   end
