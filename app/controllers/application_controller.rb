@@ -39,8 +39,8 @@ end
   # permit additional parameters from the user for user creation
 	def configure_permitted_parameters
       # added all the user parameters with email, password and password_confirmation, because this method overrides devise's controller
-  		devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name,:user_name,:email,:password,:password_confirmation, :country, :city,:remote_avatar_url) }
-      devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:remote_avatar_url,:remove_avatar,:avatar, :name,:user_name,:email,:password,:password_confirmation,:current_password, :country, :city) }
+  		devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name,:user_name,:email,:password,:password_confirmation, :country, :city,:remote_avatar_url) }
+      devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:remote_avatar_url,:remove_avatar,:avatar, :name,:user_name,:email,:password,:password_confirmation,:current_password, :country, :city) }
       #devise_parameter_sanitizer.for(:sign_up) << :name
       #devise_parameter_sanitizer.for(:sign_up) << :user_name
       #devise_parameter_sanitizer.for(:sign_up) << :country
