@@ -14,6 +14,7 @@ var Fires = React.createClass({
    render: function() {
     let path = this.props.path;
     return(
+      <div className = "fires" >
       <section id='fires' data-channel='fires' data-channel-id={this.props.chat.id}>
         <h2 className='title'>
           Messages
@@ -22,7 +23,7 @@ var Fires = React.createClass({
           return <Fire key={fire.id} fire={fire} path={path} />
         })}
       </section>
-      <div className = "fireform" >
+
         <FireForm chat={this.state.chat} />
       </div>
           );
