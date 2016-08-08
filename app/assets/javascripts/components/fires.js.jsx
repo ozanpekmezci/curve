@@ -24,7 +24,7 @@ var Fires = React.createClass({
         })}
       </section>
 
-        <FireForm chat={this.state.chat} />
+        <FireForm chat={this.state.chat} path={path}/>
       </div>
           );
     },
