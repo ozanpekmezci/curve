@@ -17,17 +17,19 @@ var FireForm = React.createClass({
   handleSubmit: function(e) {
     let path = "/chats/"+this.props.chat.id+"/fires.js";
     e.preventDefault();
-    console.log(this.getInitialState().body);
-    $.post( path,
-          { fire: this.state },
-          function(data) {
-            console.log("data");
-            this.setState({body: this.getInitialState().body}, function (){
-              console.log("this,setstate");
-            });
-          }.bind(this),
-           'JSON'
-    );
+    console.log(this.getInitialState());
+    $.ajax({
+       url: path,
+       dataType: 'json',
+       type: 'POST',
+       data: { fire: this.state },
+       success: function(data) {
+         this.setState({body: this.getInitialState().body});
+       }.bind(this),
+       error: function(xhr, status, err) {
+         console.error(path, status, err.toString());
+       }.bind(this)
+     });
   },
 
   render: function() {
