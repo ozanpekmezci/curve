@@ -17,7 +17,6 @@ var FireForm = React.createClass({
   handleSubmit: function(e) {
     let path = "/chats/"+this.props.chat.id+"/fires.js";
     e.preventDefault();
-    console.log(this.getInitialState());
     $.ajax({
        url: path,
        dataType: 'json',
