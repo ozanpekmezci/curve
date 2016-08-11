@@ -20,6 +20,7 @@ var FireForm = React.createClass({
     $.post( path,
           { fire: this.state },
           function(data) {
+            console.log(data);
             this.setState({body: this.getInitialState().body}, function (){
               console.log(this.getInitialState().body);
             });
