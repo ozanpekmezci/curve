@@ -17,6 +17,7 @@ var FireForm = React.createClass({
   handleSubmit: function(e) {
     let path = "/chats/"+this.props.chat.id+"/fires.js";
     e.preventDefault();
+    console.log(this.getInitialState().body);
     $.post( path,
           { fire: this.state },
           function(data) {
