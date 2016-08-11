@@ -18,10 +18,14 @@ var FireForm = React.createClass({
     let path = "/chats/"+this.props.chat.id+"/fires.js";
     e.preventDefault();
     $.post( path,
-           { fire: this.state },
-           function(data) {
-             this.setState(this.getInitialState());
-           }.bind(this),
+          { fire: this.state },
+          success:  function(data) {
+            this.setState({body: this.getInitialState().body});
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error(path, status, err.toString());
+          }.bind(this)
+          ,
            'JSON'
     );
   },
