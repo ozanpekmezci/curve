@@ -28,6 +28,7 @@ var FireForm = React.createClass({
        }.bind(this),
        error: function(xhr, status, err) {
          console.log(""+status+""+err.toString());
+         console.warn(xhr.responseText);
        }.bind(this)
      });
   },
