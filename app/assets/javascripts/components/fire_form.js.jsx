@@ -27,7 +27,7 @@ var FireForm = React.createClass({
          this.setState({body: this.getInitialState().body});
        }.bind(this),
        error: function(xhr, status, err) {
-         console.error(path, status, err.toString());
+         console.log(""+status+""+err.toString());
        }.bind(this)
      });
   },
