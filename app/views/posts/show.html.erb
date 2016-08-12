@@ -32,6 +32,7 @@
   <%= link_to 'Supply', new_post_comment_path(@post), class: 'btn btn-success',remote: true %>
 </div>
 <div class= "new-comment-form" style = "display:none">
+  <%= react_component 'CommentForm', {post: @post, path: users_path}%>
 </div>
 
   <div class= "div-newSupply" style = "display:none" id="id-div-newSupply" data-behavior="id-div-newSupply" >
@@ -40,5 +41,5 @@
       <p>new supply</p>
      </a>
   </div>
-  <%= render 'comments/comments', post: @post %>
+    <%= react_component 'Comments', { post: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path} %>
 </div>

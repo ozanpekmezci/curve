@@ -31,9 +31,11 @@ class CommentsController < ApplicationController
         ((@post.users+[@post.user]).uniq - [current_user]).each do |user|
           Notification.create(recipient: user, actor: current_user, action: "posted",notifiable: @comment)
         end
+        format.json
         format.html
         format.js
       else
+        format.json
         format.html
         format.js
       end

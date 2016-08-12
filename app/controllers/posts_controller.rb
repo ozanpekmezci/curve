@@ -32,6 +32,10 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments
+    respond_to do |format|
+      format.html
+      format.json { render(partial: 'posts/post.json', locals: {post: @post})}
+    end
   end
 
   def new
