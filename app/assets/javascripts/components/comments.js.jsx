@@ -13,12 +13,12 @@ var Comments = React.createClass({
 
    render: function() {
      let path = this.props.path;
+     return(<section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
+     {this.state.post.comments.map(function(comment) {
+      return <Comment key={comment.id} comment={comment} path={path} />
+   })}
+   </section>);
 
-       <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
-       {this.state.post.comments.map(function(comment) {
-        return <Comment key={comment.id} comment={comment} path={path} />
-     })}
-     </section>
     },
     componentDidMount: function() {
       this.setupSubscription();
