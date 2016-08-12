@@ -6,7 +6,7 @@ var Comment = React.createClass({
 
 
     	<p class="comment-comment">{this.props.comment.comment}</p>
-    	<p class="comment-price">{this.props.comment.price}.to_f/100%><i class='fa fa-eur'></i></p>
+    	<p class="comment-price">{this.props.comment.price}<i class='fa fa-eur'></i></p>
 
      {/*TODO: enable the buttons
        <div class="btn-group">

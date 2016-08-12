@@ -29,9 +29,16 @@
 <div class="btn-group">
   <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-info' %>
   <%= link_to 'Delete', post_path(@post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
-  <%= link_to 'Supply', new_post_comment_path(@post), class: 'btn btn-success' %>
+  <form>
+    <input type='submit'value="Supply" className='btn btn-success' onclick="showDiv()">
+  </form>
 </div>
-<div class= "new-comment-form" style = "display:none">
+<script>
+function showDiv() {
+   document.getElementById('react_component').style.toggle();
+}
+</script>
+<div id="react_component" class= "new-comment-form" style = "display:none">
   <%= react_component 'CommentForm', {post: @post, path: users_path}%>
 </div>
 
