@@ -14,11 +14,9 @@ var Comments = React.createClass({
    render: function() {
      if (typeof this.state.post.comments != 'undefined'){
        <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
-
        {this.state.post.comments.map(function(comment) {
         return <Comment key={comment.id} comment={comment} path={path} />
      })}
-
      </section>
    }
     },
