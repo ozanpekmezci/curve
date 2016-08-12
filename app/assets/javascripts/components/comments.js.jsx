@@ -13,11 +13,11 @@ var Comments = React.createClass({
 
    render: function() {
      <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
+     if (this.state.post.comments){
      {this.state.post.comments.map(function(comment) {
-       if (comment) {
         return <Comment key={comment.id} comment={comment} path={path} />
-      }
      })}
+   }
      </section>
     },
     componentDidMount: function() {
