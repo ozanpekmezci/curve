@@ -3,7 +3,7 @@ var CommentsContainer = React.createClass({
          return { showForm: false };
      },
      onClick: function() {
-         this.setState({ showForm: !this.state.showForm });
+         this.setState({ showForm: true });
      },
 
 
