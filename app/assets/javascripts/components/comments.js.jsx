@@ -12,7 +12,7 @@ var Comments = React.createClass({
    },
 
    render: function() {
-     if (this.state.post.comments.length > 0){
+     if (typeof this.state.post.comments != 'undefined'){
        <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
 
        {this.state.post.comments.map(function(comment) {
