@@ -23,7 +23,7 @@ var CommentForm = React.createClass({
        type: 'POST',
        data: { comment: this.state },
        success: function(data) {
-         this.setState({comment: this.getInitialState().body});
+         this.setState({data: data});
        }.bind(this),
        error: function(xhr, status, err) {
          console.log(""+status+""+err.toString());
