@@ -48,7 +48,7 @@ var CommentForm = React.createClass({
           <input type='number' className='form-control'
                  placeholder='Your price' name='price'
                  value={this.state.price} onChange={this.handleChange}>
-          <input/>
+          </input>
         </div>
         <div className='form-group'>
           <input type='submit' className='btn btn-primary'
