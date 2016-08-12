@@ -38,9 +38,10 @@ var Comments = React.createClass({
         connected: function () {
           setTimeout(() => this.perform('follow', { post_id: this.post_id }), 1000);
         },
-        userIsCurrentUser: function(this.props.post.user_id) {
+        userIsCurrentUser: function() {
             {/*
               TODO: add userIsCurrentUser feature
+              userIsCurrentUser: (user_id)
               user_id is $('meta[name=current-user]').attr('id')
               */}
         },
