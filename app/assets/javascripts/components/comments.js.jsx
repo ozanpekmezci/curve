@@ -12,6 +12,7 @@ var Comments = React.createClass({
    },
 
    render: function() {
+     let path = this.props.path;
 
        <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
        {this.state.post.comments.map(function(comment) {
