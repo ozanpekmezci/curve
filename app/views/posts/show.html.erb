@@ -29,17 +29,7 @@
 <div class="btn-group">
   <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-info' %>
   <%= link_to 'Delete', post_path(@post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
-  <form>
-    <input type='submit'value="Supply" className='btn btn-success' onclick="showDiv()">
-  </form>
-</div>
-<script>
-function showDiv() {
-   document.getElementById('react_component').style.toggle();
-}
-</script>
-<div id="react_component" class= "new-comment-form" style = "display:none">
-  <%= react_component 'CommentForm', {post: @post, path: users_path}%>
+
 </div>
 
   <div class= "div-newSupply" style = "display:none" id="id-div-newSupply" data-behavior="id-div-newSupply" >
@@ -48,5 +38,8 @@ function showDiv() {
       <p>new supply</p>
      </a>
   </div>
-    <%= react_component 'Comments', { post: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path} %>
+
+<div>
+  <%= react_component 'CommentsContainer', { postview: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path,post: @post} %>
+</div>
 </div>
