@@ -1,6 +1,6 @@
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return { comment: '', price: 0, user_id:this.props.current_user_id};
+    return { comment: '', price: 0, user_id:this.props.current_user_id}
   },
 
   handleChange: function(e) {
@@ -23,7 +23,7 @@ var CommentForm = React.createClass({
        type: 'POST',
        data: { comment: this.state },
        success: function(data) {
-         this.setState({comment: getInitialState().comment, price: getInitialState().price});
+         this.setState({comment: this.getInitialState().comment, price: this.getInitialState().price});
        }.bind(this),
        error: function(xhr, status, err) {
          console.log(""+status+""+err.toString());
