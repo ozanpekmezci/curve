@@ -1,6 +1,6 @@
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return { comment: '', price: 0, user_id:this.props.current_user_id}
+    return { comment: '', price: 0, user_id:this.props.current_user_id};
   },
 
   handleChange: function(e) {
