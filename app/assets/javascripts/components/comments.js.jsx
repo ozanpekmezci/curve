@@ -4,7 +4,7 @@ var Comments = React.createClass({
   },
   getInitialState: function() {
      let post = JSON.parse(this.props.post);
-     return { post: post };
+     return { post: post,user_id:this.props.current_user_id };
    },
 
    getDefaultProps: function() {
@@ -27,9 +27,7 @@ var Comments = React.createClass({
     updatePost: function(comment) {
 
       let post = JSON.parse(comment);
-      this.setState({ post: post }, function (){
-        console.log(this.state.post);
-      });
+      this.setState({ post: post });
     },
 
     setupSubscription: function() {
@@ -41,14 +39,15 @@ var Comments = React.createClass({
           setTimeout(() => this.perform('follow', { post_id: this.post_id }), 1000);
         },
         userIsCurrentUser: function() {
-            {/*
-              TODO: add userIsCurrentUser feature
-              userIsCurrentUser: (user_id)
-              user_id is $('meta[name=current-user]').attr('id')
-              */}
+
+          return(this.props.==this.state.user_id);
+
         },
         received: function (data) {
-          {/*
+          {
+
+
+/*  if(userIsCurrentUser())
             TODO: add existing amount functionality
             unless @userIsCurrentUser(data.user_id)
               newSupply = $("[data-behavior='id-div-newSupply']")

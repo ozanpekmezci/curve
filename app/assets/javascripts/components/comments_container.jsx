@@ -19,6 +19,7 @@ var CommentsContainer = React.createClass({
         <Comments
           post={this.props.postview}
           path={this.props.path}
+          current_user_id={this.props.current_user_id}
         />
   </div>
 );
