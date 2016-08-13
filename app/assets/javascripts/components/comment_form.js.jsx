@@ -1,6 +1,6 @@
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return { comment: '', price: 0, user_id:0}
+    return { comment: '', price: 0, user_id:this.props.current_user_id}
   },
 
   handleChange: function(e) {
@@ -16,7 +16,6 @@ var CommentForm = React.createClass({
 
   handleSubmit: function(e) {
     let path = "/posts/"+this.props.post.id+"/comments.js";
-    this.setState({user_id: this.props.current_user.id })
     e.preventDefault();
     $.ajax({
        url: path,

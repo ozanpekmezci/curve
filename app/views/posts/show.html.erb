@@ -40,6 +40,6 @@
   </div>
 
 <div>
-  <%= react_component 'CommentsContainer', { postview: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path,post: @post,current_user: current_user} %>
+  <%= react_component 'CommentsContainer', { postview: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path,post: @post,current_user_id: current_user.id} %>
 </div>
 </div>
