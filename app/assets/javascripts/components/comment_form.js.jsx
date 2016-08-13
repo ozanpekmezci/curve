@@ -37,7 +37,7 @@ var CommentForm = React.createClass({
       <form className='form-inline' id={"post_form_" + this.props.post.id} onSubmit={this.handleSubmit}>
         <div className='form-group'>
           <input id="post_id" name="post_id" type="hidden" value={this.props.post.id} />
-          <input id="user_id" name="user_id" type="hidden" value={this.props.current_user} />
+          <input id="user_id" name="user_id" type="hidden" value={this.props.current_user.id} />
           <input type='text' className='form-control'
                  placeholder='Your supply' name='comment'
                  value={this.state.comment} onChange={this.handleChange}>
