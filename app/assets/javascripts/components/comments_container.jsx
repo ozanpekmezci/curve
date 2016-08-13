@@ -13,6 +13,7 @@ var CommentsContainer = React.createClass({
     <input type="submit" value="Supply" className='btn btn-success' onClick={this.onClick} />
                 { this.state.showForm ?   <CommentForm
                         post={this.props.post}
+                        current_user={this.props.current_user}
                       /> : null }
 
         <Comments
