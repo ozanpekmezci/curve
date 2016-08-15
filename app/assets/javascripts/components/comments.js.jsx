@@ -44,7 +44,7 @@ var Comments = React.createClass({
 
         },
         received: function (data) {
-          
+          /* TODO: received updatepost calismiyor, sanirim firedaki eski problemin aynisi*/
           if(!userIsCurrentUser(data.user_id)){
 
 
