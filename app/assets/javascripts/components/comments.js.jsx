@@ -38,16 +38,24 @@ var Comments = React.createClass({
         connected: function () {
           setTimeout(() => this.perform('follow', { post_id: this.post_id }), 1000);
         },
-        userIsCurrentUser: function() {
+        userIsCurrentUser: function(user_id) {
 
-          return(this.props.==this.state.user_id);
+          return(user_id==this.state.user_id);
 
         },
         received: function (data) {
           {
+          if(!userIsCurrentUser(data.user_id)){
 
 
-/*  if(userIsCurrentUser())
+
+
+
+
+
+          }
+
+/*
             TODO: add existing amount functionality
             unless @userIsCurrentUser(data.user_id)
               newSupply = $("[data-behavior='id-div-newSupply']")

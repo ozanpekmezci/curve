@@ -24,7 +24,7 @@ var CommentForm = React.createClass({
        data: { comment: this.state },
        success: function(data) {
          this.setState({comment: this.getInitialState().comment, price: this.getInitialState().price});
-        
+        this.props.handleFormToggle();
        }.bind(this),
        error: function(xhr, status, err) {
          console.log(""+status+""+err.toString());
