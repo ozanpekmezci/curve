@@ -44,7 +44,7 @@ var Comments = React.createClass({
 
         },
         received: function (data) {
-          {
+          
           if(!userIsCurrentUser(data.user_id)){
 
 
@@ -63,7 +63,7 @@ var Comments = React.createClass({
               existingSupplyAmount = parseInt(newSupplyAmount.text())
               newSupplyAmount.text(existingSupplyAmount+1)
               newSupply.show()
-            */}
+            */
           this.updatePost(data.comment);
         },
 
