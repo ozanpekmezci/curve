@@ -25,7 +25,7 @@ var Comments = React.createClass({
     },
 
     updatePost: function(comment) {
-
+        console.log("updatepost");
       let post = JSON.parse(comment);
       this.setState({ post: post });
     },
@@ -45,6 +45,7 @@ var Comments = React.createClass({
         },
         received: function (data) {
           /* TODO: received updatepost calismiyor, sanirim firedaki eski problemin aynisi*/
+          console.log(data.comment);
           if(!userIsCurrentUser(data.user_id)){
 
 
