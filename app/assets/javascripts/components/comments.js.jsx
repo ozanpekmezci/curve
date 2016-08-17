@@ -34,19 +34,20 @@ var Comments = React.createClass({
 
       App.comments = App.cable.subscriptions.create("CommentsChannel", {
         post_id: this.state.post.id,
+        user_id: this.state.user_id,
 
         connected: function () {
           setTimeout(() => this.perform('follow', { post_id: this.post_id }), 1000);
         },
         userIsCurrentUser: function(user_id) {
 
-          return(user_id==this.state.user_id);
+          return(user_id==this.user_id);
 
         },
         received: function (data) {
           /* TODO: received updatepost calismiyor, sanirim firedaki eski problemin aynisi*/
           console.log(!this.userIsCurrentUser(data.user_id));
-          if(!this.userIsCurrentUser(data.user_id)){
+        /*  if(!this.userIsCurrentUser(data.user_id)){
 
 
 
@@ -54,7 +55,7 @@ var Comments = React.createClass({
 
 
 
-          }
+          }*/
 
 /*
             TODO: add existing amount functionality
