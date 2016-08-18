@@ -32,12 +32,7 @@
 
 </div>
 
-  <div class= "div-newSupply" style = "display:none" id="id-div-newSupply" data-behavior="id-div-newSupply" >
-    <a class="supply_index" href="<%=@post.id%>/comments" data-remote="true">
-    <span class="newSupply" data-behavior="new-supply-amount">0</span>
-      <p>new supply</p>
-     </a>
-  </div>
+  
 
 <div>
   <%= react_component 'CommentsContainer', { postview: render(partial: 'posts/post.json', locals: {post: @post}), path: users_path,post: @post,current_user_id: current_user.id} %>

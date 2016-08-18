@@ -1,12 +1,13 @@
 var CommentsContainer = React.createClass({
   getInitialState: function() {
-         return { showForm: false };
+         return { showForm: false};
      },
 
      formToggle: function() {
 
-    this.setState({ showForm: !this.state.showForm });
+    this.setState({ showForm: !this.state.showForm  });
     },
+
 
 
   render: function() {

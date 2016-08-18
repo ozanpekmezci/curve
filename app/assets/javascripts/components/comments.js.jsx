@@ -4,8 +4,9 @@ var Comments = React.createClass({
   },
   getInitialState: function() {
      let post = JSON.parse(this.props.post);
-     return { post: post,user_id:this.props.current_user_id };
+     return { post: post,user_id:this.props.current_user_id, showSupplyAmount: false,supplyAmount:0 };
    },
+
 
    getDefaultProps: function() {
      return { comments: [] };
@@ -13,9 +14,12 @@ var Comments = React.createClass({
 
    render: function() {
      let path = this.props.path;
-     return(<section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
-     {this.state.post.comments.map(function(comment) {
-      return <Comment key={comment.id} comment={comment} path={path} />
+     return({ this.state.showSupplyAmount ? <div onClick={this.handleClick}> {this.state.supplyAmount} new supply </div> : null }
+
+    <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
+     {this.state.post.comments.map(function(comment,index) {
+
+     return   {(index< this.state.post.comments.length-this.state.showSupplyAmount)?<Comment key={comment.id} comment={comment} path={path}  />: nul}
    })}
    </section>);
 
@@ -29,13 +33,22 @@ var Comments = React.createClass({
       let post = JSON.parse(comment);
       this.setState({ post: post });
     },
+    handleReceived: function() {
+       this.setState({ showSupplyAmount: true,supplyAmount: (this.state.supplyAmount + 1)  });
+   },
+   handleClick: function() {
+      this.setState({ showSupplyAmount: false,supplyAmount: this.getInitialState().supplyAmount });
+
+  },
+
 
     setupSubscription: function() {
 
       App.comments = App.cable.subscriptions.create("CommentsChannel", {
         post_id: this.state.post.id,
         user_id: this.state.user_id,
-
+        showSupplyAmount: this.state.showSupplyAmount,
+        supplyAmount: this.state.supplyAmount,
         connected: function () {
           setTimeout(() => this.perform('follow', { post_id: this.post_id }), 1000);
         },
@@ -46,8 +59,8 @@ var Comments = React.createClass({
         },
         received: function (data) {
           /* TODO: received updatepost calismiyor, sanirim firedaki eski problemin aynisi*/
-          console.log(!this.userIsCurrentUser(data.user_id));
-        /*  if(!this.userIsCurrentUser(data.user_id)){
+         if(!this.userIsCurrentUser(data.user_id)){
+          this.handleReceived();
 
 
 
@@ -55,7 +68,11 @@ var Comments = React.createClass({
 
 
 
-          }*/
+
+
+
+
+          }else{
 
 /*
             TODO: add existing amount functionality
@@ -66,10 +83,12 @@ var Comments = React.createClass({
               newSupplyAmount.text(existingSupplyAmount+1)
               newSupply.show()
             */
+        }
           this.updatePost(data.comment);
         },
 
         updatePost: this.updatePost.bind(this)
+        handleReceived: this.handleReceived.bind()
 
       });
     }
