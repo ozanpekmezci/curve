@@ -14,13 +14,15 @@ var Comments = React.createClass({
 
    render: function() {
      let path = this.props.path;
+    let length = this.state.post.comments.length;
+    let showSupplyAmount=this.state.showSupplyAmount;
      return(
     <div>{ this.state.showSupplyAmount ? <div onClick={this.handleClick}> {this.state.supplyAmount} new supply </div> : null }
 
     <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
      {this.state.post.comments.map(function(comment,index) {
 
-     return   {index<this.state.post.comments.length-this.state.showSupplyAmount?<Comment key={comment.id} comment={comment} path={path}  />: nul}
+     return   {index<length-showSupplyAmount?<Comment key={comment.id} comment={comment} path={path}  />: null}
    })}
    </section>
 </div>);
