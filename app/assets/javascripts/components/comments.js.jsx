@@ -21,7 +21,7 @@ var Comments = React.createClass({
 
     <section id="comments" data-channel="comments" data-post-id={this.props.post.id}>
      {this.state.post.comments.map(function(comment,index) {
-     return  ( {index<length-showSupplyAmount?<Comment key={comment.id} comment={comment} path={path}  />: null});
+     return  ( <div>{index<length-showSupplyAmount?<Comment key={comment.id} comment={comment} path={path}  />: null}</div>);
    })}
    </section>
 </div>);
