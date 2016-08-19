@@ -1,0 +1,34 @@
+<article data-user-id="<%= post.user_id %>">
+  <div class="post" data-id="<%= post.id %>">
+
+
+    <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
+    <p class="post-description"><%= truncate(post.description, length: 350) %></p>
+    <p class="post-price"><%=  post.price.to_f/100 %><i class='fa fa-eur'></i></p>
+    <div class="post-pictures">
+      <% if post.pictures? %>
+        <% post.pictures.each do |p| %>
+          <%= image_tag(p.url(:thumb)) %>
+        <%end%>
+
+      <% end %>
+    </div>
+    <p id="post_<%=post.id%>_likes"><%=render partial: "posts/likes", locals: {post: post, user: user} %> </p>
+    <div class="post-tags">
+      <%=raw tag_links(post.all_labels_list)%>
+    </div>
+
+    <div class="btn-group">
+      <% if policy(post).edit? %>
+        <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info', remote: true%>
+      <%end%>
+      <% if policy(post).destroy? %>
+        <%= link_to 'Destroy',  post_path(post), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' %>
+      <%end%>
+    </div>
+    <div class="name">
+    <p>Demanded by: <%= link_to User.find_by(id: post.user_id).name, user_path(post.user_id) %>, at: <%= post.created_at.strftime('%H:%M:%S %-d %B %Y') %></p>
+    </div>
+
+</div>
+</article>
