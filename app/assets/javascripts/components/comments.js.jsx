@@ -77,15 +77,7 @@ var Comments = React.createClass({
 
           }else{
 
-/*
-            TODO: add existing amount functionality
-            unless @userIsCurrentUser(data.user_id)
-              newSupply = $("[data-behavior='id-div-newSupply']")
-              newSupplyAmount = $("[data-behavior='new-supply-amount']")
-              existingSupplyAmount = parseInt(newSupplyAmount.text())
-              newSupplyAmount.text(existingSupplyAmount+1)
-              newSupply.show()
-            */
+
         }
           this.updatePost(data.comment);
         },
