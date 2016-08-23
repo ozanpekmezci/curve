@@ -8,11 +8,13 @@ var Comment = React.createClass({
 
     	<p class="comment-comment">{this.props.comment.comment}</p>
     	<p class="comment-price">{this.props.comment.price}<i class='fa fa-eur'></i></p>
-        { CommentPolicy.permit('update', this.props.comment) ?
-          <a href={"/posts/" + this.props.post.id + "/comments/"+this.props.comment.id+ "/edit"} > Edit</a> : null }
-            { CommentPolicy.permit('destroy', this.props.comment) ?
-              <a href={"#"} onClick={this.handleDestroy}>Delete</a> : null }
-     {/*TODO: enable the buttons
+      <Permit policy='CommentPolicy' action='update' record={this.props.comment}>
+        <a href={"/posts/" + this.props.post.id + "/comments/"+this.props.comment.id+ "/edit"}>Edit</a>
+       </Permit>
+       <Permit policy='CommentPolicy' action='destroy' record={this.props.comment}>
+           <a href='#' onClick={this.handleDestroy}>Delete</a>
+         </Permit>
+      
        <div class="btn-group">
     		<% if policy(comment).edit? %>
       		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
