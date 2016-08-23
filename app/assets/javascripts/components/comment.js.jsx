@@ -1,13 +1,17 @@
 var Comment = React.createClass({
 
   render: function() {
+
     return (<article data-user-id={this.props.comment.user_id}>
     <div class="comment" data-id={this.props.comment.id}>
 
 
     	<p class="comment-comment">{this.props.comment.comment}</p>
     	<p class="comment-price">{this.props.comment.price}<i class='fa fa-eur'></i></p>
-
+        { CommentPolicy.permit('update', this.props.comment) ?
+          <a href={"/posts/" + this.props.post.id + "/comments/"+this.props.comment.id+ "/edit"} > Edit</a> : null }
+            { CommentPolicy.permit('destroy', this.props.comment) ?
+              <a href={"#"} onClick={this.handleDestroy}>Delete</a> : null }
      {/*TODO: enable the buttons
        <div class="btn-group">
     		<% if policy(comment).edit? %>
