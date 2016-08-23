@@ -14,7 +14,7 @@ var Comment = React.createClass({
        <Permit policy='CommentPolicy' action='destroy' record={this.props.comment}>
            <a href='#' onClick={this.handleDestroy}>Delete</a>
          </Permit>
-      /*
+      {/*
        <div class="btn-group">
     		<% if policy(comment).edit? %>
       		<%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
