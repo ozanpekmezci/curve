@@ -12,18 +12,18 @@ var Comments = React.createClass({
      return { comments: [] };
    },
     deleteRecord: function(comment) {
-    var index = this.state.post.comments.indexOf(comment);
-    var comments = React.addons.update(this.state.post.comments,
-                                      { $splice: [[index, 1]] });
+  //  var index = this.state.post.comments.indexOf(comment);
+    //var comments = React.addons.update(this.state.post.comments,
+      //                                { $splice: [[index, 1]] });
 
-    this.replaceState({ post.comments: comments});
+    //this.replaceState({ post.comments: comments});
   },
   updateRecord: function(comment, data) {
-    var index = this.state.post.comments.indexOf(comment);
-    var comments = React.addons.update(this.state.post.comments,
-                                      { $splice: [[index, 1, data]] });
+  //  var index = this.state.post.comments.indexOf(comment);
+//    var comments = React.addons.update(this.state.post.comments,
+  //                                    { $splice: [[index, 1, data]] });
 
-    this.replaceState({ post.comments: comments });
+    //this.replaceState({ post.comments: comments });
   },
 
 
@@ -77,7 +77,6 @@ var Comments = React.createClass({
 
         },
         received: function (data) {
-          /* TODO: received updatepost calismiyor, sanirim firedaki eski problemin aynisi*/
          if(!this.userIsCurrentUser(data.user_id)){
           this.handleReceived();
 
