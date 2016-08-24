@@ -38,6 +38,7 @@ var Comment = React.createClass({
     },
     commentForm: function() {
     return(
+        <div>
 
           <input className='form-control' type='text'
                  defaultValue={this.props.comment.comment} ref='comment'>
@@ -55,12 +56,14 @@ var Comment = React.createClass({
            <Permit policy='CommentPolicy' action='destroy' record={this.props.comment}>
                <a className='btn btn-danger'  onClick={this.handleToggle}>Delete</a>
              </Permit>
+      </div>
 
     );
   },
 
     commentResult: function() {
       return(
+        <div>
         <p className="comment-comment">{this.props.comment.comment}</p>
       	<p className="comment-price">{this.props.comment.price}<i class='fa fa-eur'></i></p>
           <p>Sent by:<a href={this.props.path  + '/' + this.props.comment.user_id}>{this.props.comment.user_id}</a>, at:{ this.props.comment.created_at}</p>
@@ -74,6 +77,7 @@ var Comment = React.createClass({
               Delete
             </a>
            </Permit>
+          </div>
       );
     },
     handleToggle: function(e) {
