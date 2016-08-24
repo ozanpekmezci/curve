@@ -54,7 +54,7 @@ var Comment = React.createClass({
             <a className='btn btn-default' onClick={this.handleEdit}>Edit</a>
            </Permit>
            <Permit policy='CommentPolicy' action='destroy' record={this.props.comment}>
-               <a className='btn btn-danger'  onClick={this.handleToggle}>Delete</a>
+               <a className='btn btn-danger'  onClick={this.handleToggle}>Cancel</a>
              </Permit>
       </div>
 
