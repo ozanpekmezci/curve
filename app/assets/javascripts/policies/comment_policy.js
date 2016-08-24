@@ -28,4 +28,4 @@ var CommentPolicy = (function(currentUser, undefined) {
     permit: permit
   };
 
-})(window.currentUser)
+})(window.currentUser);
