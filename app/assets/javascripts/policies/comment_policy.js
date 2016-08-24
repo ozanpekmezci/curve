@@ -13,10 +13,10 @@ var CommentPolicy = (function(currentUser, undefined) {
 
   var _policies = {
     update: function(record) {
-      return currentUser.id === record.user_id;
+      return window.currentUser.id === record.user_id;
     },
     destroy: function(record) {
-      return this.update(record) || currentUser.role === 'admin';
+      return this.update(record) || window.currentUser.role === 'admin';
     },
   };
 
