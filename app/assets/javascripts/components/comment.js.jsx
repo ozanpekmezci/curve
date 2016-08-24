@@ -15,8 +15,8 @@ var Comment = React.createClass({
 
     handleEdit: function(e) {
       e.preventDefault();
-      var data = { comment: React.findDOMNode(this.refs.comment).value,
-                   price: React.findDOMNode(this.refs.pricd).value,
+      var data = { comment: ReactDOM.findDOMNode(this.refs.comment).value,
+                   price: ReactDOM.findDOMNode(this.refs.pricd).value,
                     }
       $.ajax({
         method: 'PUT',
