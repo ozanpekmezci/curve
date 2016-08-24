@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
- 
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,5 +21,6 @@ module Curve
     # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
     # from follow tutorial
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.react.addons = true
   end
 end

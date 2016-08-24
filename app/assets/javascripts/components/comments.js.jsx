@@ -11,6 +11,19 @@ var Comments = React.createClass({
    getDefaultProps: function() {
      return { comments: [] };
    },
+    deleteRecord: function(comment) {
+    var index = this.state.post.comments.indexOf(comment);
+    var comments = React.addons.update(this.state.post.comments,
+                                      { $splice: [[index, 1]] });
+    this.replaceState({ post: post});
+  },
+  updateRecord: function(comment, data) {
+    var index = this.state.post.comments.indexOf(comment);
+    var comments = React.addons.update(this.state.post.comments,
+                                      { $splice: [[index, 1, data]] });
+    this.replaceState({ post: post });
+  },
+
 
    render: function() {
     let length=this.state.post.comments.length;
@@ -22,7 +35,8 @@ var Comments = React.createClass({
 
     <section id="comments" data-channel="comments" data-post-id={post.id}>
      {this.state.post.comments.map(function(comment,index) {
-     return  ( <div>{index<length-supplyAmount?<Comment key={comment.id} comment={comment} path={path} post={post} />: null}</div>);
+     return  ( <div>{index<length-supplyAmount?<Comment key={comment.id} comment={comment} path={path} post={post}  handleDeleteRecord={this.deleteRecord}
+        handleEditRecord={this.updateRecord}/>: null}</div>);
    })}
    </section>
 </div>);
@@ -33,7 +47,6 @@ var Comments = React.createClass({
     },
 
     updatePost: function(comment) {
-        console.log("updatepost");
       let post = JSON.parse(comment);
       this.setState({ post: post });
     },
