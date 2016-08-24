@@ -37,7 +37,7 @@ var Comments = React.createClass({
      {this.state.post.comments.map(function(comment,index) {
      return  ( <div>{index<length-supplyAmount?<Comment key={comment.id} comment={comment} path={path} post={post}  handleDeleteRecord={this.deleteRecord}
         handleEditRecord={this.updateRecord}/>: null}</div>);
-   })}
+   }.bind(this))}
    </section>
 </div>);
 
