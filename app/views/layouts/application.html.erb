@@ -8,6 +8,9 @@
   <%= action_cable_meta_tag %>
   <meta name="current-user" id="<%= current_user.try(:id) %>">
   <meta name="viewport" content="width=device-width">
+  <script type="text/javascript">
+    window.currentUser = <%= current_user.to_json.html_safe %>
+  </script>
 </head>
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
 	<!-- dropdown menu from sitepoint's devise tutorial -->
