@@ -78,30 +78,7 @@ var Comment = React.createClass({
             </a>
            </Permit>
           </div>
-          {/*
-            TODO: add username and avatar and buy option
-          */}
-            {/*
-              TODO: enable edit
 
-            	<div class="comment_form-edit" data-id="<%= comment.id %>">
-            		<div class="editform" style="display:none">
-            		</div>
-          	</div>
-            */}
-            {/*
-             <div class="btn-group">
-              <% if policy(comment).edit? %>
-                <%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
-              <%end%>
-              <% if policy(comment).destroy? %>
-                <%= link_to 'Delete', post_comment_path(comment.commentable,comment), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger',remote: true, rel:"nofollow" %>
-              <%end%>
-              <% if policy(comment).buy? %>
-                <%= link_to 'Buy',initiate_order_path(comment.id), class: "btn btn-success", "data-rip" => comment.user_id , method: :post%>
-              <%end%>
-          </div>
-          */}
       );
     },
     handleToggle: function(e) {
@@ -111,7 +88,30 @@ var Comment = React.createClass({
   render: function() {
 
     return this.renderedCommentEditDelete();
+    {/*
+      TODO: add username and avatar and buy option
+    */}
+      {/*
+        TODO: enable edit
 
+        <div class="comment_form-edit" data-id="<%= comment.id %>">
+          <div class="editform" style="display:none">
+          </div>
+      </div>
+      */}
+      {/*
+       <div class="btn-group">
+        <% if policy(comment).edit? %>
+          <%= link_to 'Edit', edit_post_comment_path(comment.commentable,comment), class: 'btn btn-info', method: :get, remote: true  %>
+        <%end%>
+        <% if policy(comment).destroy? %>
+          <%= link_to 'Delete', post_comment_path(comment.commentable,comment), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger',remote: true, rel:"nofollow" %>
+        <%end%>
+        <% if policy(comment).buy? %>
+          <%= link_to 'Buy',initiate_order_path(comment.id), class: "btn btn-success", "data-rip" => comment.user_id , method: :post%>
+        <%end%>
+    </div>
+    */}
 
 
 
