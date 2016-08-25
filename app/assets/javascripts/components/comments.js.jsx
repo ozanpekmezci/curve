@@ -17,7 +17,7 @@ var Comments = React.createClass({
                                       { $splice: [[index, 1]] });
     let post = this.state.post;
     post.comments = comments
-    this.replaceState({ post: post});
+    this.setState({ post: post});
   },
   updateRecord: function(comment, data) {
   //  var index = this.state.post.comments.indexOf(comment);
