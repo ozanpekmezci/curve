@@ -17,14 +17,15 @@ var Comments = React.createClass({
                                       { $splice: [[index, 1]] });
     let post = this.state.post;
     post.comments = comments
-    this.setState({ post: post});
+    this.setState({ post: post,showSupplyAmount:false,supplyAmount:0 });
   },
   updateRecord: function(comment, data) {
-  //  var index = this.state.post.comments.indexOf(comment);
-  //  var comments = React.addons.update(this.state.post.comments,
-  //                                    { $splice: [[index, 1, data]] });
-
-    //this.replaceState({ post.comments: comments });
+    var index = this.state.post.comments.indexOf(comment);
+  var comments = React.addons.update(this.state.post.comments,
+                                    { $splice: [[index, 1, data]] });
+  let post = this.state.post;
+  post.comments = comments
+this.setState({ post: post,showSupplyAmount:false,supplyAmount:0 });
   },
 
 
