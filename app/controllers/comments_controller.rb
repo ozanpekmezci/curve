@@ -57,6 +57,7 @@ class CommentsController < ApplicationController
         @comments= @post.comments
         format.html {redirect_to @post}
         format.js
+        format.json
       else
         flash[:error] = 'Cannot delete this comment...'
       end
