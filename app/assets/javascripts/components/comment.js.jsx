@@ -25,6 +25,8 @@ var Comment = React.createClass({
         data: { comment: data },
         success: function(data) {
           this.setState({ edit: false });
+          console.log("ajax");
+          console.log(data);
           this.props.handleEditRecord(this.props.comment, data);
         }.bind(this)
       });
