@@ -20,6 +20,9 @@ var Comments = React.createClass({
     this.setState({ post: post,showSupplyAmount:false,supplyAmount:0 });
   },
   updateRecord: function(comment, data) {
+  console.log("update");
+console.log(comment);
+console.log(data);
     var index = this.state.post.comments.indexOf(comment);
   var comments = React.addons.update(this.state.post.comments,
                                     { $splice: [[index, 1, data]] });
@@ -38,6 +41,7 @@ console.log("setstate");
     let post = this.state.post;
      return(
     <div>{ this.state.showSupplyAmount ? <div onClick={this.handleClick}> {this.state.supplyAmount} new supply </div> : null }
+      console.log(this.state.post.comments);
 
     <section id="comments" data-channel="comments" data-post-id={post.id}>
      {this.state.post.comments.map(function(comment,index) {
