@@ -42,6 +42,8 @@ console.log("setstate");
     <section id="comments" data-channel="comments" data-post-id={post.id}>
      {this.state.post.comments.map(function(comment,index) {
       console.log("comment"+index);
+      console.log(comment);
+
      return  ( <div>{index<length-supplyAmount?<Comment key={comment.id} comment={comment} path={path} post={post}  handleDeleteRecord={this.deleteRecord}
         handleEditRecord={this.updateRecord}/>: null}</div>);
    }.bind(this))}
