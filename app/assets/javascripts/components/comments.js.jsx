@@ -25,7 +25,9 @@ var Comments = React.createClass({
                                     { $splice: [[index, 1, data]] });
   let post = this.state.post;
   post.comments = comments
+  console.log("post"+post.comments.length);
 this.setState({ post: post,showSupplyAmount:false,supplyAmount:0 });
+console.log("setstate");
   },
 
 
@@ -39,6 +41,7 @@ this.setState({ post: post,showSupplyAmount:false,supplyAmount:0 });
 
     <section id="comments" data-channel="comments" data-post-id={post.id}>
      {this.state.post.comments.map(function(comment,index) {
+      console.log("comment"+index);
      return  ( <div>{index<length-supplyAmount?<Comment key={comment.id} comment={comment} path={path} post={post}  handleDeleteRecord={this.deleteRecord}
         handleEditRecord={this.updateRecord}/>: null}</div>);
    }.bind(this))}
