@@ -39,9 +39,10 @@ console.log("setstate");
     let supplyAmount= this.state.supplyAmount;
     let path=this.props.path;
     let post = this.state.post;
+    console.log(this.state.post.comments);
+
      return(
     <div>{ this.state.showSupplyAmount ? <div onClick={this.handleClick}> {this.state.supplyAmount} new supply </div> : null }
-      console.log(this.state.post.comments);
 
     <section id="comments" data-channel="comments" data-post-id={post.id}>
      {this.state.post.comments.map(function(comment,index) {

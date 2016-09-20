@@ -68,7 +68,11 @@ class CommentsController < ApplicationController
     @comment.price=params[:comment][:price]
     @comment.comment=params[:comment][:comment]
     @comments = @post.comments
-    @comment.save
+    if @comment.save
+      render json: @comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
     #respond_to do |format|
      # if @comment.save
       #  format.html{redirect_to @comment.commentable, flash[:success] = 'The comment was edited!'}
